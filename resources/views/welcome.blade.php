@@ -12,26 +12,29 @@
     @vite('resources/css/app.css')
     <title>INVENTARIS MESIN | PT. SUMBER INDAHPERKASA</title>
 </head>
-<body style="background-image: url('/assets/img/landing.png'); background-size: cover; background-position: center; background-repeat: no-repeat; height: 70vh;">
-    <div class="mt-12 ml-24" style="display: flex; align-items: center;">
-    <img src="../assets/img/logo-landing.jpg" alt="Logo Sinarmas" class="rounded-md" style="width: 15rem; height: 5rem; margin-right:40rem; align-items: center;">
-    <h1 class="text-3xl font-bold text-right mr-16 " style="font-family:'Poppins'; color: #ffffff;">
-            PT. SUMBER INDAHPERKASA
-        </h1>
+<body class="bg-cover bg-center bg-no-repeat" style="background-image: url('/assets/img/landing.png'); height: 100vh;">
+    <div class="flex flex-col items-center h-full space-y-8">
+        <div class="flex flex-col items-center mt-20 md:mt-36 md:items-center md:space-x-10 lg:space-x-10 lg:mt-48">
+            <img src="../assets/img/logo-landing.png" alt="Logo Sinarmas" class="rounded-lg mt-7 w-16 h-16 lg:mt-0 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40">
+            <h1 class="text-2xl font-bold mt-4 sm:text-3xl md:text-5xl lg:text-6xl " style="font-family:'Poppins'; color: #000000;">
+                PT. SUMBER INDAHPERKASA
+            </h1>
+        </div>
+        <div class="flex space-x-4 sm:space-x-16 md:space-x-32">
+            <div class="inline-flex px-10 py-4 mt-64 md:py-6 md:mt-40 lg:mt-40 lg:py-9 text-black text-sm font-medium rounded-lg items-center" style="background-color:#7EA7D8">
+                <button onclick="" class="inline-flex font-extrabold space-x-2"> 
+                    <span>USER</span> 
+                    <i data-feather="arrow-right-circle"></i>
+                </button>
+            </div>
+            <div class="inline-flex px-10 py-4 mt-64 md:py-6 md:mt-40 lg:mt-40 lg:py-9 text-black text-sm font-medium rounded-lg items-center" style="background-color: #ffffff;">
+                <button onclick="" class="inline-flex font-extrabold space-x-5">
+                    <span>ADMIN</span>
+                    <i data-feather="arrow-right-circle"></i>
+                </button>
+            </div>
+        </div>
     </div>
-        <div class=" inline-flex ml-24 mt-80 px-16 py-8 text-black text-sm font-medium rounded-md items-center" style=" background-color:#7EA7D8 ">
-            <button class="inline-flex"> 
-                USER 
-                <i data-feather="arrow-right-circle"></i>
-            </button>
-        </div>
-        <div class=" inline-flex ml-14 mt-80 px-16 py-8  text-black text-sm font-medium rounded-md items-center" style="background-color: #ffffff;">
-            <button class="inline-flex" >
-                ADMIN
-                <i data-feather="arrow-right-circle"></i>
-            </button>
-        </div>
-    
 <script> feather.replace(); </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
