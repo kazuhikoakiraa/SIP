@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Motor;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class MotorSeeder extends Seeder
 {
@@ -42,5 +43,6 @@ class MotorSeeder extends Seeder
 
             ],
         ];
+        Motor::query()->insert($motor);
     }
 }

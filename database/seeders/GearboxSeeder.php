@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Gearbox;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -28,5 +29,7 @@ class GearboxSeeder extends Seeder
 
             ],
         ];
+
+        Gearbox::query()->insert($gearbox);
     }
 }

@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Location;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class LocationSeeder extends Seeder
 {
@@ -20,10 +21,8 @@ class LocationSeeder extends Seeder
             [
                 'name' => 'FRACTINATION 1',
                 'tag' => 'FRA 1',
-            ],
-            [
-                'name' => ''
-            ],
+            ]
         ];
+        Location::query()->insert($location);
     }
 }

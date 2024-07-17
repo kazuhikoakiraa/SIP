@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('oil_seal')->nullable();
             $table->string('grease')->nullable();
             $table->string('mech_seal')->nullable();
+            $table->string('note')->nullable();
             $table->timestamps();
         });
     }

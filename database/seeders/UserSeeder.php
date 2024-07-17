@@ -26,7 +26,6 @@ class UserSeeder extends Seeder
             ],
 
         ];
-
         User::query()->insert($user);
     }
 }
