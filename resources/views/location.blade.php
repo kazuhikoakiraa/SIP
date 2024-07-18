@@ -7,11 +7,13 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
     <title>LOCATION | PT. SUMBER INDAHPERKASA</title>
 </head>
-<body class="sm:bg-slate-400 md:bg-red-400 lg:bg-orange-400">
-    <!-- @include('layout.side') -->
+<body">
+    @include('layout.side')
     @include('layout.nav')
-    <div class="p-4">
-        <div class="flex justify-center items-center mb-4">
+
+    <div class="p-4 md:ml-64 lg:ml-64">
+        <!-- Search Bar -->
+        <div class="flex justify-center items-center mb-4 -ml-3">
             <div class="relative w-80">
                 <input type="text" id="table-search" class="pl-10 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -19,9 +21,12 @@
                 </div>
             </div>
         </div>
-        <div class="flex justify-between items-center mb-4">
-            <div class="flex items-center space-x-3">
-                <label class="flex items-center space-x-1.5">
+        <!-- End Search Bar -->
+
+        <!-- Page Lenght and Button Add Item -->
+        <div class="flex justify-center md:-mb-3">
+            <div class="flex items-center space-x-3 md:justify-between md:space-x-40 lg:space-x-96">
+                <label class="flex items-center space-x-1.5 mb-4 -ml-7 md:mb-0">
                     <span>Show</span>
                     <select name="kelas_length" aria-controls="kelas" class="w-16 form-control input-sm border border-gray-300 rounded-lg py-1 px-2 focus:ring-blue-500 focus:border-blue-500">
                         <option value="10">10</option>
@@ -31,10 +36,13 @@
                     </select>
                     <span>entries</span>
                 </label>
-                <button type="button" class="focus:outline-none text-white bg-blue-600 font-medium rounded-lg text-sm px-4 py-2">Tambah Data</button>
+                <button type="button" class="focus:outline-none text-white bg-blue-600 font-medium rounded-lg text-sm px-4 py-2 mb-4">Tambah Data</button>
             </div>
-        </div> 
-    <div class="flex justify-center overflow-x-auto shadow-md sm:rounded-lg ml-4 mr-8 sm:ml-64 md:ml-72 lg:ml-72">
+        </div>
+        <!-- End Page Lenght and Button Add Item -->
+
+        <!-- Table -->
+        <div class="flex justify-center overflow-x-auto sm:rounded-lg">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 lg:w-2/3 md:justify-center lg:justify-center ml-32 md:ml-0 lg:ml-0">
             <thead class="text-sm text-black uppercase bg-white border-1 border-black ">
                 <tr>
@@ -74,41 +82,22 @@
                         <button type="button" class="focus:outline-none text-black bg-red-600 font-medium rounded-lg text-sm px-6 py-2.5 lg:ml-4">Delete</button>
                     </td>
                 </tr>
-                <tr class="bg-white border-1 border-black">
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                    Refinery 2
-                    </td>
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                    R311REF                    
-                </td>
-                    <td class="px-2 py-2 text-center">
-                        <button type="button" class="focus:outline-none text-black bg-green-600 font-medium rounded-lg text-sm px-8 py-2.5 mb-2">Edit</button>
-                        <button type="button" class="focus:outline-none text-black bg-red-600 font-medium rounded-lg text-sm px-6 py-2.5 lg:ml-4">Delete</button>
-                    </td>
-                </tr>
-                <tr class="bg-white border-1 border-black">
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                    Polishing
-                    </td>
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                    R114POL001
-                    </td>
-                    <td class="px-2 py-2 text-center">
-                        <button type="button" class="focus:outline-none text-black bg-green-600 font-medium rounded-lg text-sm px-8 py-2.5 mb-2">Edit</button>
-                        <button type="button" class="focus:outline-none text-black bg-red-600 font-medium rounded-lg text-sm px-6 py-2.5 lg:ml-4">Delete</button>
-                    </td>
-                </tr>
+
             </tbody>
         </table>
-    </div>
-    <br>
-    <div class="flex flex-col lg:flex-row justify-between items-center mb-4">
+        </div>
+        <!-- end Table -->
+
+        <br>
+        <!-- Pagination -->
+        <div class="flex flex-col items-center">
             <div class="flex flex-col items-center">
                 <!-- Help text -->
-                <span class="text-sm text-gray-700 dark:text-gray-400">
+                <span class="text-sm text-black">
                     Showing <span class="font-semibold text-gray-900 dark:text-white">1</span> to <span class="font-semibold text-gray-900 dark:text-white">10</span> of <span class="font-semibold text-gray-900 dark:text-white">100</span> Entries
                 </span>
             </div>
+            <br>
             <nav aria-label="Page navigation example">
                 <ul class="inline-flex -space-x-px text-sm">
                     <li>
@@ -129,7 +118,7 @@
                 </ul>
             </nav>
         </div>
-    </div>
+        <!-- end Pagination -->
     </div>
 
     

@@ -9,4 +9,3 @@ Route::get('/', function () {
 Route::get('/location', function () {
     return view('location');
 })->name('location');
-
