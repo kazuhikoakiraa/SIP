@@ -94,7 +94,7 @@
             <div class="flex flex-col items-center">
                 <!-- Help text -->
                 <span class="text-sm text-black">
-                    Showing <span class="font-semibold text-gray-900 dark:text-white">1</span> to <span class="font-semibold text-gray-900 dark:text-white">10</span> of <span class="font-semibold text-gray-900 dark:text-white">100</span> Entries
+                    Showing <span class="font-semibold text-gray-900">1</span> to <span class="font-semibold text-gray-900 ">10</span> of <span class="font-semibold text-gray-900 dark:text-white">100</span> Entries
                 </span>
             </div>
             <br>
