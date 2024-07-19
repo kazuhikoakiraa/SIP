@@ -13,3 +13,11 @@ Route::get('/location', function () {
 Route::get('/motor', function () {
     return view('motor');
 })->name('motor');
+
+Route::get('/pump', function () {
+    return view('pump');
+})->name('pump');
+
+Route::get('/gear', function () {
+    return view('gear');
+})->name('gear');
