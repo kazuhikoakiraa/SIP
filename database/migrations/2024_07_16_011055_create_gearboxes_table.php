@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('gearboxes', function (Blueprint $table) {
             $table->id();
             $table->integer('sap_id')->unique();
+            $table->string('img')->nullable();
             $table->string('name');
             $table->string('tag_id');
             $table->string('location');
