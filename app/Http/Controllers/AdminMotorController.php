@@ -37,6 +37,15 @@ class AdminMotorController extends Controller
             'note' => $request->note,
         ]);
 
+        if ($request->hasFile('img')) {
+            $img = $request->file('img');
+            $file_name = $motor->img . '_' . time() . '.' . $img->getClientOriginalExtension();
+            $motor->img = $file_name;
+            $motor->update();
+            $img->move('../public/assets/img/', $file_name);
+        }
+
+
         return back()->with('alert','Berhasil Menambahkan Data!');
     }
 
@@ -65,6 +74,14 @@ class AdminMotorController extends Controller
             'speed' => $request->speed,
             'note' => $request->note,
         ]);
+
+        if ($request->hasFile('img')) {
+            $img = $request->file('img');
+            $file_name = $motor->img . '_' . time() . '.' . $img->getClientOriginalExtension();
+            $motor->img = $file_name;
+            $motor->update();
+            $img->move('../public/assets/img/', $file_name);
+        }
 
         return back()->with('alert','Berhasil Mengedit Data!');
     }

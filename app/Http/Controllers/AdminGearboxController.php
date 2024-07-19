@@ -42,6 +42,14 @@ class AdminGearboxController extends Controller
             'note' => $request->note,
         ]);
 
+        if ($request->hasFile('img')) {
+            $img = $request->file('img');
+            $file_name = $gearbox->img . '_' . time() . '.' . $img->getClientOriginalExtension();
+            $gearbox->img = $file_name;
+            $gearbox->update();
+            $img->move('../public/assets/img/', $file_name);
+        }
+
         return back()->with('alert','Berhasil Menambahkan Data!');
     }
 
@@ -75,6 +83,14 @@ class AdminGearboxController extends Controller
             'mech_seal' => $request->mech_seal,
             'note' => $request->note,
         ]);
+
+        if ($request->hasFile('img')) {
+            $img = $request->file('img');
+            $file_name = $gearbox->img . '_' . time() . '.' . $img->getClientOriginalExtension();
+            $gearbox->img = $file_name;
+            $gearbox->update();
+            $img->move('../public/assets/img/', $file_name);
+        }
 
         return back()->with('alert','Berhasil Mengedit Data!');
     }
