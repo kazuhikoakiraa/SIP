@@ -1,14 +1,13 @@
 <?php
 
+use App\Http\Controllers\AdminLocationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/location', function () {
-    return view('location');
-})->name('location');
+Route::resource('location',AdminLocationController::class);
 
 Route::get('/motor', function () {
     return view('motor');

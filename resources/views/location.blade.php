@@ -10,6 +10,7 @@
 </head>
 
 <body">
+
     @include('layout.side')
     @include('layout.nav')
 
@@ -76,19 +77,22 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($locations as $item)
+
                     <tr class="bg-white border-1 border-black">
                         <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                            Refinery 1
+                            {{$item->name}}
                         </td>
                         <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                            R114REF
+                            {{$item->tag}}
                         </td>
                         <td class="px-2 py-2 text-center">
-                            <button type="button" class="focus:outline-none text-black bg-green-600 font-medium rounded-lg text-sm px-8 py-2.5 mb-2" onclick="openModal('edit-modal')">Edit</button>
-                            <button type="button" class="focus:outline-none text-black bg-red-600 font-medium rounded-lg text-sm px-6 py-2.5 lg:ml-4" onclick="openModal('delete-modal')">Delete</button>
+                            <button type="button" class="focus:outline-none text-black bg-green-600 font-medium rounded-lg text-sm px-8 py-2.5 mb-2" onclick="openModal('edit-modal-{{$item->id}}')">Edit</button>
+                            <button type="button" class="focus:outline-none text-black bg-red-600 font-medium rounded-lg text-sm px-6 py-2.5 lg:ml-4" onclick="openModal('delete-modal-{{$item->id}}')">Delete</button>
                         </td>
                     </tr>
 
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -128,58 +132,72 @@
     </div>
 
     <!-- Modal Tambah Data -->
+
     <div id="add-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
         <div class="bg-white p-4 rounded-lg w-1/3">
             <h2 class="text-xl font-bold mb-4">Tambah Location</h2>
-            <form id="add-form">
+            <form action="{{route('location.store')}}" method="POST" >
+                @csrf
                 <div class="mb-4">
-                    <label for="location-name" class="block text-sm font-medium text-gray-700">Location Name</label>
-                    <input type="text" id="location-name" name="location-name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    <label for="name" class="block text-sm font-medium text-gray-700">Location Name</label>
+                    <input type="text" id="name" name="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 </div>
                 <div class="mb-4">
-                    <label for="location-id" class="block text-sm font-medium text-gray-700">ID Location</label>
-                    <input type="text" id="location-id" name="location-id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    <label for="tag" class="block text-sm font-medium text-gray-700">Tag Location</label>
+                    <input type="text" id="tag" name="tag" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 </div>
                 <div class="flex justify-end">
-                    <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('add-modal')">Batal</button>
-                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Simpan</button>
+                    <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('add-modal')">{{__('Close')}}</button>
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">{{__('Save')}}</button>
                 </div>
             </form>
         </div>
     </div>
+
 
     <!-- Modal Edit Data -->
-    <div id="edit-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    @foreach ($locations as $item)
+    <div id="edit-modal-{{ $item->id }}" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
         <div class="bg-white p-4 rounded-lg w-1/3">
             <h2 class="text-xl font-bold mb-4">Edit Data</h2>
-            <form id="edit-form">
+            <form action="{{ route('location.update', $item->id) }}" method="POST">
+                @csrf
+                @method('PUT')
                 <div class="mb-4">
-                    <label for="edit-location-name" class="block text-sm font-medium text-gray-700">Location Name</label>
-                    <input type="text" id="edit-location-name" name="edit-location-name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    <label for="name-{{ $item->id }}" class="block text-sm font-medium text-gray-700">Location Name</label>
+                    <input value="{{ $item->name }}" type="text" id="name-{{ $item->id }}" name="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 </div>
                 <div class="mb-4">
-                    <label for="edit-location-id" class="block text-sm font-medium text-gray-700">ID Location</label>
-                    <input type="text" id="edit-location-id" name="edit-location-id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    <label for="tag-{{ $item->id }}" class="block text-sm font-medium text-gray-700">Tag Location</label>
+                    <input value="{{ $item->tag }}" type="text" id="tag-{{ $item->id }}" name="tag" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 </div>
                 <div class="flex justify-end">
-                    <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('edit-modal')">Batal</button>
-                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Simpan</button>
+                    <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('edit-modal-{{ $item->id }}')">Close</button>
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Save</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Modal Hapus Data -->
-    <div id="delete-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+
+    <!-- Modal Delete Data -->
+    <div id="delete-modal-{{ $item->id }}" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
         <div class="bg-white p-4 rounded-lg w-1/3">
-            <h2 class="text-xl font-bold mb-4">Hapus Data</h2>
-            <p class="mb-4">Apakah Anda yakin ingin menghapus data ini?</p>
+            <h2 class="text-xl font-bold mb-4">Delete Data</h2>
+            <p class="mb-4">Are you sure you want to delete this data?</p>
             <div class="flex justify-end">
-                <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('delete-modal')">Batal</button>
-                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Simpan</button>
+                <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('delete-modal-{{ $item->id }}')">Cancel</button>
+                <form action="{{ route('location.destroy', $item->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Delete</button>
+                </form>
             </div>
         </div>
     </div>
+
+    @endforeach
+
 
     @include('assets.js')
 

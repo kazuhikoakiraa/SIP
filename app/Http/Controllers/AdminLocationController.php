@@ -9,30 +9,31 @@ class AdminLocationController extends Controller
 {
     public function index()
     {
-        $location = Location::all();
-        return view('location', compact('location'));
+        $locations = Location::all();
+        return view('location', compact('locations'));
     }
 
     public function store(Request $request)
     {
-        $validate  = $request->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
             'tag' => 'required|string|max:255',
         ]);
 
-        $location = Location::create([
+        Location::create([
             'name' => $request->name,
             'tag' => $request->tag,
         ]);
 
-        return back()->with('alert','Berhasil Menambahkan Data!');
+
+        return redirect()->route('location.index')->with('succes','Location created successfully.');
     }
 
     public function update(Request $request, $id)
     {
         $location = Location::findOrFail($id);
 
-        $validate  = $request->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
             'tag' => 'required|string|max:255',
         ]);
@@ -40,16 +41,14 @@ class AdminLocationController extends Controller
         $location->update([
             'name' => $request->name,
             'tag' => $request->tag,
-
         ]);
 
-        return back()->with('alert','Berhasil Mengedit Data!');
-
+        return redirect()->route('location.index')->with('success', 'Location updated successfully.');
     }
 
     public function destroy($id)
     {
         Location::findOrFail($id)->delete();
-        return back()->with('alert','Berhasil Menghapus data');
+        return redirect()->route('location.index')->with('success', 'Location deleted successfully.');
     }
 }
