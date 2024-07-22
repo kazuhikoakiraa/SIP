@@ -60,6 +60,6 @@ class AdminLocationController extends Controller
     public function destroy($id)
     {
         Location::findOrFail($id)->delete();
-        return redirect()->route('location.index')->with('success', 'Data deleted successfully.');
+        return redirect()->route('location.index')->with('success', 'Data  deleted successfully.');
     }
 }
