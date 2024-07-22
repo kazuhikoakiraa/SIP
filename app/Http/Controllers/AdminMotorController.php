@@ -7,10 +7,31 @@ use Illuminate\Http\Request;
 
 class AdminMotorController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $motor = Motor::all();
-        return view();
+        $search = $request->input('search');
+        $pageLength = $request->input('pageLength', 10);
+
+        $motor = Motor::query();
+
+        if($search) {
+            $motor->where('sap_id' , 'LIKE', "%{$search}%")
+                    ->orWhere('name', 'LIKE', "%{$search}%")
+                    ->orWhere('tag_id', 'LIKE', "%{$search}%")
+                    ->orWhere('location', 'LIKE', "%{$search}%")
+                    ->orWhere('brand', 'LIKE', "%{$search}%")
+                    ->orWhere('model', 'LIKE', "%{$search}%")
+                    ->orWhere('ampere', 'LIKE', "%{$search}%")
+                    ->orWhere('power', 'LIKE', "%{$search}%")
+                    ->orWhere('front_bearing', 'LIKE', "%{$search}%")
+                    ->orWhere('rear_bearing', 'LIKE', "%{$search}%")
+                    ->orWhere('speed', 'LIKE', "%{$search}%")
+                    ->orWhere('note', 'LIKE', "%{$search}%");
+        }
+
+        $motor = $motor->paginate($pageLength);
+
+        return view('motor', compact('motor','search','pageLength'));
     }
 
     public function store(Request $request)
@@ -46,7 +67,7 @@ class AdminMotorController extends Controller
         }
 
 
-        return back()->with('alert','Berhasil Menambahkan Data!');
+        return redirect()->route('motor.index')->with('success','Data created successfully.');
     }
 
     public function update(Request $request, $id)
@@ -83,12 +104,12 @@ class AdminMotorController extends Controller
             $img->move('../public/assets/img/', $file_name);
         }
 
-        return back()->with('alert','Berhasil Mengedit Data!');
+        return redirect()->route('motor.index')->with('success','Data edited successfully.');
     }
 
     public function destroy($id)
     {
         Motor::findOrFail($id)->delete();
-        return back()->with('alert', 'Berhasil Menghapus Data!');
+        return redirect()->route('motor.index')->with('success','Data deleted successfully.');
     }
 }

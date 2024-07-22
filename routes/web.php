@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminLocationController;
+use App\Http\Controllers\AdminMotorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,10 +9,7 @@ Route::get('/', function () {
 });
 
 Route::resource('location',AdminLocationController::class);
-
-Route::get('/motor', function () {
-    return view('motor');
-})->name('motor');
+Route::resource('motor', AdminMotorController::class);
 
 Route::get('/pump', function () {
     return view('pump');
