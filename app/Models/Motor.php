@@ -23,4 +23,6 @@ class Motor extends Model
     'speed',
     'note'
 ];
+
+
 }

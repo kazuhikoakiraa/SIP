@@ -42,14 +42,14 @@ class AdminLocationController extends Controller
 
     public function update(Request $request, $id)
     {
-        $location = Location::findOrFail($id);
+        $locations = Location::findOrFail($id);
 
         $request->validate([
             'name' => 'required|string|max:255',
             'tag' => 'required|string|max:255',
         ]);
 
-        $location->update([
+        $locations->update([
             'name' => $request->name,
             'tag' => $request->tag,
         ]);
