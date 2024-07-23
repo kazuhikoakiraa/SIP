@@ -56,7 +56,7 @@
 
         <!-- Table -->
         <div class="flex justify-center overflow-x-auto sm:rounded-lg">
-            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 lg:w-2/3 md:justify-center lg:justify-center ml-32 md:ml-0 lg:ml-0">
+            <table class="w-full text-sm text-left text-gray-500 lg:w-2/3 md:justify-center lg:justify-center ml-32 md:ml-0 lg:ml-0">
                 <thead class="text-sm text-black uppercase bg-white border-1 border-black ">
                     <tr>
                         <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">

@@ -55,7 +55,7 @@
 
         <!-- Table -->
         <div class="flex justify-start overflow-x-auto sm:rounded-lg" >
-        <table class="text-sm text-left text-gray-500 dark:text-gray-400">
+        <table class="text-sm text-left text-gray-500 ">
             <thead class="text-sm text-black uppercase bg-white border-1 border-black">
                 <tr>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
@@ -261,13 +261,13 @@
 
         <!-- Modal Tambah Data -->
         <div id="add-motor" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto">
-            <div class="bg-white p-4 rounded-lg w-full sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto">
+            <div class="bg-white p-4 rounded-lg w-full h-1/2 sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto">
                 <h2 class="text-xl font-bold mb-4">Tambah Data Motor</h2>
                 <form id="add-form">
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
                         <div class="flex-1">
                             <label for="sap-motor" class="block text-sm font-medium text-gray-700">SAP ID</label>
-                            <input type="text" id="location-name" name="location-name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <input type="text" id="sap-motor" name="sap-motor" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div class="flex-1">
                             <label for="motor-image" class="block text-sm font-medium text-gray-700">Gambar Motor</label>
@@ -286,8 +286,8 @@
                     </div>
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
                         <div class="flex-1">
-                            <label for="motor-location" class="block text-sm font-medium text-gray-700">Location</label>
-                            <select id="motor-location" name="motor-location" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="gear-location" class="block text-sm font-medium text-gray-700">Location</label>
+                            <select id="gear-location" name="gear-location" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm h-10">
                                 <option selected="">Select Location</option>
                                 <option value="Refinary 1">Refinary 1</option>
                                 <option value="WTP">WTP</option>
@@ -343,7 +343,7 @@
 
     <!-- Modal Edit Data -->
     <div id="edit-motor" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto">
-            <div class="bg-white p-4 rounded-lg w-full sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto">
+            <div class="bg-white p-4 rounded-lg w-full h-1/2 sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto">
                 <h2 class="text-xl font-bold mb-4">Edit Data Motor</h2>
                 <form id="add-form">
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
@@ -368,8 +368,8 @@
                     </div>
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
                         <div class="flex-1">
-                            <label for="motor-location" class="block text-sm font-medium text-gray-700">Location</label>
-                            <select id="motor-location" name="motor-location" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="gear-location" class="block text-sm font-medium text-gray-700">Location</label>
+                            <select id="gear-location" name="gear-location" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm h-10">
                                 <option selected="">Select Location</option>
                                 <option value="Refinary 1">Refinary 1</option>
                                 <option value="WTP">WTP</option>
@@ -426,7 +426,7 @@
     <!-- Modal Hapus Data -->
     <div id="delete-motor" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
         <div class="bg-white p-4 rounded-lg w-1/3">
-            <h2 class="text-xl font-bold mb-4">Hapus Data</h2>
+            <h2 class="text-xl font-bold mb-4">Hapus Data Motor</h2>
             <p class="mb-4">Apakah Anda yakin ingin menghapus data ini?</p>
             <div class="flex justify-end">
                 <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('delete-motor')">Batal</button>

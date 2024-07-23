@@ -18,3 +18,7 @@ Route::get('/pump', function () {
 Route::get('/gear', function () {
     return view('gear');
 })->name('gear');
+
+Route::get('/profile', function () {
+    return view('profile');
+})->name('profile');
