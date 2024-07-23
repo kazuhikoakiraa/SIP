@@ -29,7 +29,7 @@
         <!-- End Search Bar -->
 
         @if (session('success'))
-            <div class="alert alert-success">
+            <div class="alert alert-success text-center">
                 {{ session('success') }}
             </div>
         @endif
@@ -98,17 +98,16 @@
 
         <!-- Pagination -->
         <div class="flex justify-center mt-4">
-            {{ $locations->appends(['search' => $search, 'pageLength' => $pageLength])->links() }}
+            {{ $locations->appends(['search' => $search, 'pageLength' => $pageLength])->links('vendor.pagination.tailwind') }}
         </div>
+
         <!-- End Pagination -->
 
-        <!-- Modal untuk Tambah, Edit, dan Hapus tetap sama seperti sebelumnya -->
-        <div id="add-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-gray-800 bg-opacity-75">
-            <div class="bg-white rounded-lg w-96">
-                <div class="p-4 border-b">
-                    <h2 class="text-lg font-semibold">Add Data</h2>
-                </div>
-                <div class="p-4">
+        <!-- Modal Tambah-->
+        <div id="add-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+            <div class="bg-white p-4 rounded-lg w-96">
+                    <h2 class="text-lg font-semibold">Tambah Data Lokasi</h2>
+                <div>
                     <form action="{{ route('location.store') }}" method="POST">
                         @csrf
                         <div class="mb-4">
@@ -120,22 +119,21 @@
                             <input type="text" name="tag" id="tag" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
                         </div>
                         <div class="flex justify-end">
-                            <button type="button" class="text-gray-600 hover:text-gray-900 mr-4" onclick="closeModal('add-modal')">Cancel</button>
-                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Add</button>
+                            <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('add-modal')">Batal</button>
+                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Simpan</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
         <!-- End Modal -->
+
         <!-- Edit -->
         @foreach ($locations as $item)
-        <div id="edit-modal-{{ $item->id }}" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-gray-800 bg-opacity-75">
-            <div class="bg-white rounded-lg w-96">
-                <div class="p-4 border-b">
-                    <h2 class="text-lg font-semibold">Edit Data</h2>
-                </div>
-                <div class="p-4">
+        <div id="edit-modal-{{ $item->id }}" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+            <div class="bg-white p-4 rounded-lg w-96">
+                    <h2 class="text-xl font-bold mb-4">Edit Data Lokasi</h2>
+                <div>
                     <form action="{{ route('location.update', $item->id) }}" method="POST">
                         @csrf
                         @method('PUT')
@@ -148,8 +146,8 @@
                             <input type="text" name="tag" id="tag" value="{{ $item->tag }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
                         </div>
                         <div class="flex justify-end">
-                            <button type="button" class="text-gray-600 hover:text-gray-900 mr-4" onclick="closeModal('edit-modal-{{ $item->id }}')">Cancel</button>
-                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Edit</button>
+                            <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('edit-modal-{{ $item->id }}')">Batal</button>
+                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -157,21 +155,19 @@
         </div>
         @endforeach
         <!-- End Edit -->
+        
         <!-- Delete -->
         @foreach ($locations as $item)
-        <div id="delete-modal-{{ $item->id }}" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-gray-800 bg-opacity-75">
-            <div class="bg-white rounded-lg w-96">
-                <div class="p-4 border-b">
-                    <h2 class="text-lg font-semibold">Hapus Data</h2>
-                </div>
-                <div class="p-4">
-                    <p>Apakah anda yakin ingin menghapus data ini?</p>
-                    <div class="flex justify-end mt-4">
-                        <button type="button" class="text-gray-600 hover:text-gray-900 mr-4" onclick="closeModal('delete-modal-{{ $item->id }}')">Cancel</button>
+        <div id="delete-modal-{{ $item->id }}" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+            <div class="bg-white p-4 rounded-lg w-96">
+                    <h2 class="text-xl font-bold mb-4">Hapus Data Lokasi</h2>
+                    <p class="mb-4">Apakah anda yakin ingin menghapus data ini?</p>
+                    <div class="flex justify-end">
+                        <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('delete-modal-{{ $item->id }}')">Batal</button>
                         <form action="{{ route('location.destroy', $item->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded-lg">Delete</button>
+                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Delete</button>
                         </form>
                     </div>
                 </div>
@@ -181,16 +177,6 @@
         <!-- End Delete -->
     </div>
     @include('assets.js')
-
-    <script>
-        function openModal(modalId) {
-            document.getElementById(modalId).classList.remove('hidden');
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.add('hidden');
-        }
-    </script>
 
 </body>
 

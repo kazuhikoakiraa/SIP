@@ -48,7 +48,7 @@
                     </select>
                     <span>entries</span>
                 </label>
-                <button type="button" class="focus:outline-none text-white bg-blue-600 font-medium rounded-lg text-sm px-4 py-2 mb-4">Tambah Data</button>
+                <button type="button" class="focus:outline-none text-white bg-blue-600 font-medium rounded-lg text-sm px-4 py-2 mb-4" onclick="openModal('add-motor')">Tambah Data</button>
             </div>
         </div>
         <!-- End Page Lenght and Button Add Item -->
@@ -216,8 +216,8 @@
                         R114REF                    
                     </td>
                     <td class="px-2 py-2 text-center">
-                        <button type="button" class="focus:outline-none text-black bg-green-600 font-medium rounded-lg text-sm px-8 py-2.5 mb-2">Edit</button>
-                        <button type="button" class="focus:outline-none text-black bg-red-600 font-medium rounded-lg text-sm px-6 py-2.5">Delete</button>
+                        <button type="button" class="focus:outline-none text-black bg-green-600 font-medium rounded-lg text-sm px-8 py-2.5 mb-2" onclick="openModal('edit-motor')">Edit</button>
+                        <button type="button" class="focus:outline-none text-black bg-red-600 font-medium rounded-lg text-sm px-6 py-2.5" onclick="openModal('delete-motor')">Delete</button>
                     </td>
                 </tr>
 
@@ -259,6 +259,181 @@
         <!-- end Pagination -->
     </div>
 
+        <!-- Modal Tambah Data -->
+        <div id="add-motor" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto">
+            <div class="bg-white p-4 rounded-lg w-full sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto">
+                <h2 class="text-xl font-bold mb-4">Tambah Data Motor</h2>
+                <form id="add-form">
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="sap-motor" class="block text-sm font-medium text-gray-700">SAP ID</label>
+                            <input type="text" id="location-name" name="location-name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="motor-image" class="block text-sm font-medium text-gray-700">Gambar Motor</label>
+                            <input type="file" id="motor-image" name="motor-image" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="motor-name" class="block text-sm font-medium text-gray-700">Equipment Name</label>
+                            <input type="text" id="motor-name" name="motor-name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="motor-id" class="block text-sm font-medium text-gray-700">Motor ID</label>
+                            <input type="text" id="motor-id" name="motor-id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="motor-location" class="block text-sm font-medium text-gray-700">Location</label>
+                            <select id="motor-location" name="motor-location" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                <option selected="">Select Location</option>
+                                <option value="Refinary 1">Refinary 1</option>
+                                <option value="WTP">WTP</option>
+                                <option value="Fractination">Fractination</option>
+                            </select>
+                        </div>
+                        <div class="flex-1">
+                            <label for="motor-brand" class="block text-sm font-medium text-gray-700">Brand</label>
+                            <input type="text" id="motor-brand" name="motor-brand" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="motor-model" class="block text-sm font-medium text-gray-700">Model</label>
+                            <input type="text" id="motor-model" name="motor-model" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="motor-current" class="block text-sm font-medium text-gray-700">Current</label>
+                            <input type="text" id="motor-current" name="motor-current" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="motor-power" class="block text-sm font-medium text-gray-700">Power</label>
+                            <input type="text" id="motor-power" name="motor-power" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="motor-front" class="block text-sm font-medium text-gray-700">Front-Bearing</label>
+                            <input type="text" id="motor-front" name="motor-front" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="motor-rear" class="block text-sm font-medium text-gray-700">Rear-Bearing</label>
+                            <input type="text" id="motor-rear" name="motor-rear" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="motor-speed" class="block text-sm font-medium text-gray-700">Speed</label>
+                            <input type="text" id="motor-speed" name="motor-speed" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="note" class="block text-sm font-medium text-gray-700">Note</label>
+                        <textarea rows="4" id="note" name="note" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"></textarea>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('add-motor')">Batal</button>
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    <!-- Modal Edit Data -->
+    <div id="edit-motor" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto">
+            <div class="bg-white p-4 rounded-lg w-full sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto">
+                <h2 class="text-xl font-bold mb-4">Edit Data Motor</h2>
+                <form id="add-form">
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="sap-motor" class="block text-sm font-medium text-gray-700">SAP ID</label>
+                            <input type="text" id="location-name" name="location-name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="motor-image" class="block text-sm font-medium text-gray-700">Gambar Motor</label>
+                            <input type="file" id="motor-image" name="motor-image" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="motor-name" class="block text-sm font-medium text-gray-700">Equipment Name</label>
+                            <input type="text" id="motor-name" name="motor-name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="motor-id" class="block text-sm font-medium text-gray-700">Motor ID</label>
+                            <input type="text" id="motor-id" name="motor-id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="motor-location" class="block text-sm font-medium text-gray-700">Location</label>
+                            <select id="motor-location" name="motor-location" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                <option selected="">Select Location</option>
+                                <option value="Refinary 1">Refinary 1</option>
+                                <option value="WTP">WTP</option>
+                                <option value="Fractination">Fractination</option>
+                            </select>
+                        </div>
+                        <div class="flex-1">
+                            <label for="motor-brand" class="block text-sm font-medium text-gray-700">Brand</label>
+                            <input type="text" id="motor-brand" name="motor-brand" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="motor-model" class="block text-sm font-medium text-gray-700">Model</label>
+                            <input type="text" id="motor-model" name="motor-model" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="motor-current" class="block text-sm font-medium text-gray-700">Current</label>
+                            <input type="text" id="motor-current" name="motor-current" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="motor-power" class="block text-sm font-medium text-gray-700">Power</label>
+                            <input type="text" id="motor-power" name="motor-power" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="motor-front" class="block text-sm font-medium text-gray-700">Front-Bearing</label>
+                            <input type="text" id="motor-front" name="motor-front" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="motor-rear" class="block text-sm font-medium text-gray-700">Rear-Bearing</label>
+                            <input type="text" id="motor-rear" name="motor-rear" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="motor-speed" class="block text-sm font-medium text-gray-700">Speed</label>
+                            <input type="text" id="motor-speed" name="motor-speed" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="note" class="block text-sm font-medium text-gray-700">Note</label>
+                        <textarea rows="4" id="note" name="note" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"></textarea>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('edit-motor')">Batal</button>
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    <!-- Modal Hapus Data -->
+    <div id="delete-motor" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+        <div class="bg-white p-4 rounded-lg w-1/3">
+            <h2 class="text-xl font-bold mb-4">Hapus Data</h2>
+            <p class="mb-4">Apakah Anda yakin ingin menghapus data ini?</p>
+            <div class="flex justify-end">
+                <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('delete-motor')">Batal</button>
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Delete</button>
+            </div>
+        </div>
+    </div>
     
     @include('assets.js')
 </body>

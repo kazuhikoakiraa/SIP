@@ -9,20 +9,4 @@
             document.getElementById(modalId).classList.add('hidden');
         }
 
-        function deleteData() {
-            // Logika untuk menghapus data di sini
-            closeModal('delete-modal');
-        }
-
-        document.getElementById('add-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Logika untuk menyimpan data baru di sini
-            closeModal('add-modal');
-        });
-
-        document.getElementById('edit-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Logika untuk menyimpan data yang diedit di sini
-            closeModal('edit-modal');
-        });
     </script>
