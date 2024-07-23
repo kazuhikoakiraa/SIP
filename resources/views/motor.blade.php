@@ -65,7 +65,7 @@
 
         <!-- Table -->
         <div class="flex justify-start overflow-x-auto sm:rounded-lg" >
-        <table class="text-sm text-left text-gray-500 dark:text-gray-400">
+        <table class="text-sm text-left text-gray-500 ">
             <thead class="text-sm text-black uppercase bg-white border-1 border-black">
                 <tr>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
@@ -252,7 +252,7 @@
 
         <!-- Modal Tambah Data -->
         <div id="add-motor" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto">
-            <div class="bg-white p-4 rounded-lg w-full sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto">
+            <div class="bg-white p-4 rounded-lg w-full h-1/2 sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto">
                 <h2 class="text-xl font-bold mb-4">Tambah Data Motor</h2>
                 <form action="{{route('motor.store')}}" method="POST" enctype="multipart/form-data" id="add-form">
                     @csrf

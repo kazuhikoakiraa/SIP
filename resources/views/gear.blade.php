@@ -48,7 +48,7 @@
                     </select>
                     <span>entries</span>
                 </label>
-                <button type="button" class="focus:outline-none text-white bg-blue-600 font-medium rounded-lg text-sm px-4 py-2 mb-4">Tambah Data</button>
+                <button type="button" class="focus:outline-none text-white bg-blue-600 font-medium rounded-lg text-sm px-4 py-2 mb-4" onclick="openModal('add-gear')">Tambah Data</button>
             </div>
         </div>
         <!-- End Page Lenght and Button Add Item -->
@@ -61,145 +61,91 @@
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                            SAP ID
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                             </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             IMAGE
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             EQUIPMENT NAME
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             TAG ID
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             LOCATION
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             BRAND
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             MODEL
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             CAPACITY (m3/hr)
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             HEAD (m)
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             COUPLING
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             FRONT BEARING
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             REAR BEARING
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             IMPELER SIZE (mm)
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             OIL
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             OIL SEAL
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             GREASE
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             MECH SEAL
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             NOTE
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 text-center">
@@ -267,8 +213,8 @@
                         R114REF                    
                     </td>
                     <td class="px-2 py-2 text-center">
-                        <button type="button" class="focus:outline-none text-black bg-green-600 font-medium rounded-lg text-sm px-8 py-2.5 mb-2">Edit</button>
-                        <button type="button" class="focus:outline-none text-black bg-red-600 font-medium rounded-lg text-sm px-6 py-2.5">Delete</button>
+                        <button type="button" class="focus:outline-none text-black bg-green-600 font-medium rounded-lg text-sm px-8 py-2.5 mb-2" onclick="openModal('edit-gear')">Edit</button>
+                        <button type="button" class="focus:outline-none text-black bg-red-600 font-medium rounded-lg text-sm px-6 py-2.5" onclick="openModal('delete-gear')">Delete</button>
                     </td>
                 </tr>
 
@@ -310,6 +256,224 @@
         <!-- end Pagination -->
     </div>
 
+        <!-- Modal Tambah Data -->
+        <div id="add-gear" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto">
+            <div class="bg-white p-4 rounded-lg w-full h-1/2 sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto">
+                <h2 class="text-xl font-bold mb-4">Tambah Data Gear</h2>
+                <form id="add-form">
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="sap-gear" class="block text-sm font-medium text-gray-700">SAP ID</label>
+                            <input type="text" id="sap-gear" name="sap-gear" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-image" class="block text-sm font-medium text-gray-700">Gambar Gear</label>
+                            <input type="file" id="gear-image" name="gear-image" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="gear-name" class="block text-sm font-medium text-gray-700">Equipment Name</label>
+                            <input type="text" id="gear-name" name="gear-name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-id" class="block text-sm font-medium text-gray-700">Gear ID</label>
+                            <input type="text" id="gear-id" name="gear-id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="gear-location" class="block text-sm font-medium text-gray-700">Location</label>
+                            <select id="gear-location" name="gear-location" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm h-10">
+                                <option selected="">Select Location</option>
+                                <option value="Refinary 1">Refinary 1</option>
+                                <option value="WTP">WTP</option>
+                                <option value="Fractination">Fractination</option>
+                            </select>
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-brand" class="block text-sm font-medium text-gray-700">Brand</label>
+                            <input type="text" id="gear-brand" name="gear-brand" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm h-10">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="gear-model" class="block text-sm font-medium text-gray-700">Model</label>
+                            <input type="text" id="gear-model" name="gear-model" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-capacity" class="block text-sm font-medium text-gray-700">Capacity</label>
+                            <input type="text" id="gear-capacity" name="gear-capacity" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="gear-head" class="block text-sm font-medium text-gray-700">Head</label>
+                            <input type="text" id="gear-head" name="gear-head" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-coupling" class="block text-sm font-medium text-gray-700">Coupling</label>
+                            <input type="text" id="gear-coupling" name="gear-coupling" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-front" class="block text-sm font-medium text-gray-700">Front-Bearing</label>
+                            <input type="text" id="gear-front" name="gear-front" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="gear-rear" class="block text-sm font-medium text-gray-700">Rear-Bearing</label>
+                            <input type="text" id="gear-rear" name="gear-rear" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-impeler" class="block text-sm font-medium text-gray-700">Impeler Size</label>
+                            <input type="text" id="gear-impeler" name="gear-impeler" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-oil" class="block text-sm font-medium text-gray-700">Oil</label>
+                            <input type="text" id="gear-oil" name="gear-oil" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="gear-seal" class="block text-sm font-medium text-gray-700">Oil Seal</label>
+                            <input type="text" id="gear-seal" name="gear-seal" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-grease" class="block text-sm font-medium text-gray-700">Grease</label>
+                            <input type="text" id="gear-grease" name="gear-grease" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-mech" class="block text-sm font-medium text-gray-700">Mech-Seal</label>
+                            <input type="text" id="gear-mech" name="gear-mech" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="note" class="block text-sm font-medium text-gray-700">Note</label>
+                        <textarea rows="4" id="note" name="note" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"></textarea>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('add-gear')">Batal</button>
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    <!-- Modal Edit Data -->
+    <div id="edit-gear" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto">
+            <div class="bg-white p-4 rounded-lg w-full h-1/2 sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto">
+                <h2 class="text-xl font-bold mb-4">Edit Data Gear</h2>
+                <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="sap-gear" class="block text-sm font-medium text-gray-700">SAP ID</label>
+                            <input type="text" id="sap-gear" name="sap-gear" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-image" class="block text-sm font-medium text-gray-700">Gambar Gear</label>
+                            <input type="file" id="gear-image" name="gear-image" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="gear-name" class="block text-sm font-medium text-gray-700">Equipment Name</label>
+                            <input type="text" id="gear-name" name="gear-name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-id" class="block text-sm font-medium text-gray-700">Gear ID</label>
+                            <input type="text" id="gear-id" name="gear-id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="gear-location" class="block text-sm font-medium text-gray-700">Location</label>
+                            <select id="gear-location" name="gear-location" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm h-10">
+                                <option selected="">Select Location</option>
+                                <option value="Refinary 1">Refinary 1</option>
+                                <option value="WTP">WTP</option>
+                                <option value="Fractination">Fractination</option>
+                            </select>
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-brand" class="block text-sm font-medium text-gray-700">Brand</label>
+                            <input type="text" id="gear-brand" name="gear-brand" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="gear-model" class="block text-sm font-medium text-gray-700">Model</label>
+                            <input type="text" id="gear-model" name="gear-model" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-capacity" class="block text-sm font-medium text-gray-700">Capacity</label>
+                            <input type="text" id="gear-capacity" name="gear-capacity" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="gear-head" class="block text-sm font-medium text-gray-700">Head</label>
+                            <input type="text" id="gear-head" name="gear-head" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-coupling" class="block text-sm font-medium text-gray-700">Coupling</label>
+                            <input type="text" id="gear-coupling" name="gear-coupling" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-front" class="block text-sm font-medium text-gray-700">Front-Bearing</label>
+                            <input type="text" id="gear-front" name="gear-front" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="gear-rear" class="block text-sm font-medium text-gray-700">Rear-Bearing</label>
+                            <input type="text" id="gear-rear" name="gear-rear" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-impeler" class="block text-sm font-medium text-gray-700">Impeler Size</label>
+                            <input type="text" id="gear-impeler" name="gear-impeler" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-oil" class="block text-sm font-medium text-gray-700">Oil</label>
+                            <input type="text" id="gear-oil" name="gear-oil" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="gear-seal" class="block text-sm font-medium text-gray-700">Oil Seal</label>
+                            <input type="text" id="gear-seal" name="gear-seal" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-grease" class="block text-sm font-medium text-gray-700">Grease</label>
+                            <input type="text" id="gear-grease" name="gear-grease" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="gear-mech" class="block text-sm font-medium text-gray-700">Mech-Seal</label>
+                            <input type="text" id="gear-mech" name="gear-mech" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="note" class="block text-sm font-medium text-gray-700">Note</label>
+                        <textarea rows="4" id="note" name="note" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"></textarea>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('edit-gear')">Batal</button>
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    <!-- Modal Hapus Data -->
+    <div id="delete-gear" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+        <div class="bg-white p-4 rounded-lg w-1/3">
+            <h2 class="text-xl font-bold mb-4">Hapus Data Gear</h2>
+            <p class="mb-4">Apakah Anda yakin ingin menghapus data ini?</p>
+            <div class="flex justify-end">
+                <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('delete-gear')">Batal</button>
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Delete</button>
+            </div>
+        </div>
+    </div>
     
     @include('assets.js')
 </body>
