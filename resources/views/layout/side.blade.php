@@ -5,12 +5,12 @@
 <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
    <div class="h-full px-3 py-4 overflow-y-auto" style="background-color: #51739B;">
       <a class="flex items-center mb-5">
-         <span class="self-center text-lg font-bold text-black">EQUIPMENT INVENTORY 
+         <span class="self-center text-lg font-bold text-black">EQUIPMENT INVENTORY
          <hr class="bg-black">
          </span>
-         
+
       </a>
-      
+
       <ul class="space-y-2 font-medium">
          <li>
             <a href="#" class="flex items-center p-2 text-black rounded-lg font-bold hover:bg-gray-100 group" style="font-family: 'Poppins';">
@@ -19,7 +19,7 @@
             </a>
          </li>
          <li>
-            <a href="#" class="flex items-center p-2 text-black rounded-lg font-bold hover:bg-gray-100 group" style="font-family: 'Poppins';">
+            <a href="{{route('location.index')}}" class="flex items-center p-2 text-black rounded-lg font-bold hover:bg-gray-100 group" style="font-family: 'Poppins';">
                <i data-feather="map-pin"></i>
                <span class="ms-3 ">LOCATION</span>
             </a>
@@ -34,13 +34,13 @@
             </button>
             <ul id="dropdown-example" class="hidden py-2 space-y-2">
                   <li>
-                     <a href="#" class="flex items-center p-2 text-base duration-75 text-black rounded-lg font-bold hover:bg-gray-100 group ml-10" style="font-family: 'Poppins';">MOTOR</a>
+                     <a href="{{route('motor.index')}}" class="flex items-center p-2 text-base duration-75 text-black rounded-lg font-bold hover:bg-gray-100 group ml-10" style="font-family: 'Poppins';">MOTOR</a>
                   </li>
                   <li>
-                     <a href="#" class="flex items-center p-2 text-base duration-75 text-black rounded-lg font-bold hover:bg-gray-100 group ml-10" style="font-family: 'Poppins';">PUMP</a>
+                     <a href="{{route('pump.index')}}" class="flex items-center p-2 text-base duration-75 text-black rounded-lg font-bold hover:bg-gray-100 group ml-10" style="font-family: 'Poppins';">PUMP</a>
                   </li>
                   <li>
-                     <a href="#" class="flex items-center p-2 text-base duration-75 text-black rounded-lg font-bold hover:bg-gray-100 group ml-10" style="font-family: 'Poppins';">GEAR-BOX</a>
+                     <a href="{{route('gear.index')}}" class="flex items-center p-2 text-base duration-75 text-black rounded-lg font-bold hover:bg-gray-100 group ml-10" style="font-family: 'Poppins';">GEAR-BOX</a>
                   </li>
             </ul>
          </li>
