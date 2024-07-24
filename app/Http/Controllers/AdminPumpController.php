@@ -49,18 +49,18 @@ class AdminPumpController extends Controller
 
     public function edit($id)
     {
-        $motor = Pump::with('location')->findOrFail($id); // Pastikan relasi 'location' ada
+        $pump = Pump::with('location')->findOrFail($id); // Pastikan relasi 'location' ada
         $locations = Location::all(); // Mengambil semua lokasi
-        return view('pump,edit', compact('pump', 'locations'));
+        return view('pump.edit', compact('pump', 'locations'));
     }
 
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'sap_id' => 'required|integer|unique:motors,sap_id',
+            'sap_id' => 'required|integer|unique:pumps,sap_id',
             'name' => 'required|string|max:255',
             'tag_id' => 'required|string|max:255',
-            'location' => 'required|string|max:255',
+            'location' => 'required|exists:locations,tag',
         ]);
 
         $pump = Pump::create([
@@ -91,18 +91,32 @@ class AdminPumpController extends Controller
             $img->move('../public/assets/img/', $file_name);
         }
 
-        return back()->with('alert','Berhasil Menambahkan Data!');
+        return redirect()->route('pump.index')->with('success', 'Data created successfully.');
     }
 
     public function update(Request $request, $id)
     {
         $pump = Pump::findOrFail($id);
+        $pump->sap_id = $request->sap_id;
 
         $validate = $request->validate([
-            'sap_id' => 'required|integer|unique:motors,sap_id' . $id,
+            'sap_id' => 'required|integer|unique:pumps,sap_id',
             'name' => 'required|string|max:255',
             'tag_id' => 'required|string|max:255',
             'location' => 'required|string|max:255',
+            'brand' => 'nullable|string|max:255',
+            'model' => 'nullable|string|max:255',
+            'capacity' => 'nullable|numeric',
+            'head' => 'nullable|numeric',
+            'coupling' => 'nullable|string|max:255',
+            'front_bearing' => 'nullable|string|max:255',
+            'rear_bearing' => 'nullable|string|max:255',
+            'impeler' => 'nullable|numeric',
+            'oil' => 'nullable|string|max:255',
+            'oil_seal' => 'nullable|string|max:255',
+            'grease' => 'nullable|string|max:255',
+            'mech_seal' => 'nullable|string|max:255',
+            'note' => 'nullable|string|max:255',
         ]);
 
         $pump->update([
@@ -133,13 +147,13 @@ class AdminPumpController extends Controller
             $img->move('../public/assets/img/', $file_name);
         }
 
-        return back()->with('alert','Berhasil Mengedit Data!');
+        return redirect()->route('pump.index')->with('success', 'Pump updated successfully.');
     }
 
     public function destroy($id)
     {
         Pump::findOrFail($id)->delete();
-        return back()->with('alert', 'Berhasil Menghapus Data!');
+        return redirect()->route('pump.index')->with('success', 'Data deleted successfully.');
     }
 
 

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Gearbox extends Model
 {
     use HasFactory;
-    protected $table = 'gearboxes';
+    protected $table = 'gearbox';
     protected $fillable = [
         'sap_id',
         'name',

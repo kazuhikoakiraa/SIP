@@ -27,25 +27,35 @@
         <!-- Search Bar -->
         <div class="flex justify-center items-center mb-4 -ml-3">
             <div class="relative w-80">
-                <input type="text" id="table-search" class="pl-10 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <i data-feather="search"></i>
-                </div>
+                <form action="{{ route('pump.index') }}" method="GET">
+                    <input type="text" name="search" value="{{ $search ?? '' }}" class="pl-10 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <i data-feather="search"></i>
+                    </div>
+                </form>
             </div>
         </div>
         <!-- End Search Bar -->
+
+        @if (session('success'))
+        <div class="alert alert-success text-center">
+            {{ session('success') }}
+        </div>
+    @endif
 
         <!-- Page Lenght and Button Add Item -->
         <div class="flex justify-center md:-mb-3">
             <div class="flex items-center space-x-3 md:justify-between md:space-x-40 lg:space-x-96">
                 <label class="flex items-center space-x-1.5 mb-4 -ml-7 md:mb-0">
                     <span>Show</span>
-                    <select name="kelas_length" aria-controls="kelas" class="w-16 form-control input-sm border border-gray-300 rounded-lg py-1 px-2 focus:ring-blue-500 focus:border-blue-500">
-                        <option value="10">10</option>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    </select>
+                    <form action="{{route('pump.index')}}" method="GET">
+                        <select name="pageLength" onchange="this.form.submit()" class="w-16 form-control input-sm border border-gray-300 rounded-lg py-1 px-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="10" {{ $pageLength == 10 ? 'selected' : '' }}>10</option>
+                            <option value="25" {{ $pageLength == 25 ? 'selected' : '' }}>25</option>
+                            <option value="50" {{ $pageLength == 50 ? 'selected' : '' }}>50</option>
+                            <option value="100" {{ $pageLength == 100 ? 'selected' : '' }}>100</option>
+                        </select>
+                    </form>
                     <span>entries</span>
                 </label>
                 <button type="button" class="focus:outline-none text-white bg-blue-600 font-medium rounded-lg text-sm px-4 py-2 mb-4" onclick="openModal('add-pump')">Tambah Data</button>
@@ -156,196 +166,177 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($pump as $item)
+
                 <tr class="bg-white border-1 border-black">
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        Refinery 1
-                    </td>
-                    <td scope="row" class=" px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        <div class="flex justify-center items-center">
-                            <img class="w-10 h-10 rounded-sm" src="../assets/img/logo-landing.png" alt="equipment">
-                        </div>
+                        {{$item->sap_id}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        @if($item->img)
+                            <img class="w-10 h-10 rounded-sm" src="{{ asset('assets/img/' . $item->img) }}" alt="Motor Image">
+                        @else
+                            <img class="w-10 h-10 rounded-sm" src="{{ asset('assets/img/default.png') }}" alt="Default Image">
+                        @endif
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->name}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->tag_id}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->location}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->brand}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->model}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->capacity}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->head}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->coupling}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->front_bearing}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->rear_bearing}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->impeler}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->oil}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->oil_seal}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->grease}}
+                    </td>
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                        {{$item->mech_seal}}
                     </td><td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->note}}
                     </td>
                     <td class="px-2 py-2 text-center">
-                        <button type="button" class="focus:outline-none text-black bg-green-600 font-medium rounded-lg text-sm px-8 py-2.5 mb-2" onclick="openModal('edit-pump')">Edit</button>
-                        <button type="button" class="focus:outline-none text-black bg-red-600 font-medium rounded-lg text-sm px-6 py-2.5" onclick="openModal('delete-pump')">Delete</button>
+                        <button type="button" class="focus:outline-none text-black bg-green-600 font-medium rounded-lg text-sm px-8 py-2.5 mb-2" onclick="openModal('edit-pump-{{$item->id}}')">Edit</button>
+                        <button type="button" class="focus:outline-none text-black bg-red-600 font-medium rounded-lg text-sm px-6 py-2.5" onclick="openModal('delete-pump-{{$item->id}}')">Delete</button>
                     </td>
                 </tr>
 
+                @endforeach
             </tbody>
         </table>
         </div>
+    </div>
         <!-- end Table -->
 
-        <br>
-        <!-- Pagination -->
-        <div class="flex flex-col items-center">
-            <div class="flex flex-col items-center">
-                <!-- Help text -->
-                <span class="text-sm text-black">
-                    Showing <span class="font-semibold text-black">1</span> to <span class="font-semibold text-black">10</span> of <span class="font-semibold text-black">100</span> Entries
-                </span>
-            </div>
-            <br>
-            <nav aria-label="Page navigation example">
-                <ul class="inline-flex -space-x-px text-sm">
-                    <li>
-                        <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
-                    </li>
-                    <li>
-                        <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">2</a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">3</a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
-                    </li>
-                </ul>
-            </nav>
+         <!-- Pagination -->
+        <div class="flex justify-center mt-4">
+            {{ $pump->appends(['search' => $search, 'pageLength' => $pageLength])->links('vendor.pagination.tailwind') }}
         </div>
-        <!-- end Pagination -->
-    </div>
+
+         <!-- End Pagination -->
 
         <!-- Modal Tambah Data -->
         <div id="add-pump" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto">
             <div class="bg-white p-4 rounded-lg w-full h-1/2 sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto">
                 <h2 class="text-xl font-bold mb-4">Tambah Data Pump</h2>
-                <form id="add-form">
+                <form action="{{route('pump.store')}}" method="POST" enctype="multipart/form-data" id="add-form">
+                    @csrf
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
                         <div class="flex-1">
-                            <label for="sap-pump" class="block text-sm font-medium text-gray-700">SAP ID</label>
-                            <input type="text" id="sap-pump" name="sap-pump" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="sap_id" class="block text-sm font-medium text-gray-700">SAP ID</label>
+                            <input type="text" id="sap_id" name="sap_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div class="flex-1">
-                            <label for="pump-image" class="block text-sm font-medium text-gray-700">Gambar Pump</label>
-                            <input type="file" id="pump-image" name="pump-image" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="img" class="block text-sm font-medium text-gray-700">Gambar Pump</label>
+                            <input type="file" id="img" name="img" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
                         <div class="flex-1">
-                            <label for="pump-name" class="block text-sm font-medium text-gray-700">Equipment Name</label>
-                            <input type="text" id="pump-name" name="pump-name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="name" class="block text-sm font-medium text-gray-700">Equipment Name</label>
+                            <input type="text" id="name" name="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div class="flex-1">
-                            <label for="pump-id" class="block text-sm font-medium text-gray-700">Pump ID</label>
-                            <input type="text" id="pump-id" name="pump-id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="tag_id" class="block text-sm font-medium text-gray-700">Pump ID</label>
+                            <input type="text" id="tag_id" name="tag_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
                         <div class="flex-1">
-                            <label for="gear-location" class="block text-sm font-medium text-gray-700">Location</label>
-                            <select id="gear-location" name="gear-location" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm h-10">
+                            <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+                            <select id="location" name="location" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                                 <option selected="">Select Location</option>
-                                <option value="Refinary 1">Refinary 1</option>
-                                <option value="WTP">WTP</option>
-                                <option value="Fractination">Fractination</option>
+                                @foreach ($locations as $location)
+                                <option value="{{ $location->tag }}">{{ $location->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="flex-1">
-                            <label for="pump-brand" class="block text-sm font-medium text-gray-700">Brand</label>
-                            <input type="text" id="pump-brand" name="pump-brand" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="brand" class="block text-sm font-medium text-gray-700">Brand</label>
+                            <input type="text" id="brand" name="brand" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
                         <div class="flex-1">
-                            <label for="pump-model" class="block text-sm font-medium text-gray-700">Model</label>
-                            <input type="text" id="pump-model" name="pump-model" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="model" class="block text-sm font-medium text-gray-700">Model</label>
+                            <input type="text" id="model" name="model" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div class="flex-1">
-                            <label for="pump-capacity" class="block text-sm font-medium text-gray-700">Capacity</label>
-                            <input type="text" id="pump-capacity" name="pump-capacity" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                    </div>
-                    <div class="flex flex-col md:flex-row gap-4 mb-2">
-                        <div class="flex-1">
-                            <label for="pump-head" class="block text-sm font-medium text-gray-700">Head</label>
-                            <input type="text" id="pump-head" name="pump-head" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                        <div class="flex-1">
-                            <label for="pump-coupling" class="block text-sm font-medium text-gray-700">Coupling</label>
-                            <input type="text" id="pump-coupling" name="pump-coupling" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                        <div class="flex-1">
-                            <label for="pump-front" class="block text-sm font-medium text-gray-700">Front-Bearing</label>
-                            <input type="text" id="pump-front" name="pump-front" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="capacity" class="block text-sm font-medium text-gray-700">Capacity</label>
+                            <input type="text" id="capacity" name="capacity" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
                         <div class="flex-1">
-                            <label for="pump-rear" class="block text-sm font-medium text-gray-700">Rear-Bearing</label>
-                            <input type="text" id="pump-rear" name="pump-rear" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="head" class="block text-sm font-medium text-gray-700">Head</label>
+                            <input type="text" id="head" name="head" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div class="flex-1">
-                            <label for="pump-impeler" class="block text-sm font-medium text-gray-700">Impeler Size</label>
-                            <input type="text" id="pump-impeler" name="pump-impeler" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="coupling" class="block text-sm font-medium text-gray-700">Coupling</label>
+                            <input type="text" id="coupling" name="coupling" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div class="flex-1">
-                            <label for="pump-oil" class="block text-sm font-medium text-gray-700">Oil</label>
-                            <input type="text" id="pump-oil" name="pump-oil" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="front_bearing" class="block text-sm font-medium text-gray-700">Front-Bearing</label>
+                            <input type="text" id="front_bearing" name="front_bearing" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
                         <div class="flex-1">
-                            <label for="pump-seal" class="block text-sm font-medium text-gray-700">Oil Seal</label>
-                            <input type="text" id="pump-seal" name="pump-seal" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="rear_bearing" class="block text-sm font-medium text-gray-700">Rear-Bearing</label>
+                            <input type="text" id="rear_bearing" name="rear_bearing" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div class="flex-1">
-                            <label for="pump-grease" class="block text-sm font-medium text-gray-700">Grease</label>
-                            <input type="text" id="pump-grease" name="pump-grease" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="impeler" class="block text-sm font-medium text-gray-700">Impeler Size</label>
+                            <input type="text" id="impeler" name="impeler" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div class="flex-1">
-                            <label for="pump-mech" class="block text-sm font-medium text-gray-700">Mech-Seal</label>
-                            <input type="text" id="pump-mech" name="pump-mech" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="oil" class="block text-sm font-medium text-gray-700">Oil</label>
+                            <input type="text" id="oil" name="oil" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="oil_seal" class="block text-sm font-medium text-gray-700">Oil Seal</label>
+                            <input type="text" id="oil_seal" name="oil_seal" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="grease" class="block text-sm font-medium text-gray-700">Grease</label>
+                            <input type="text" id="grease" name="grease" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="mech_seal" class="block text-sm font-medium text-gray-700">Mech-Seal</label>
+                            <input type="text" id="mech_seal" name="mech_seal" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                     </div>
                     <div class="mb-2">
@@ -361,120 +352,131 @@
         </div>
 
     <!-- Modal Edit Data -->
-    <div id="edit-pump" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto">
-            <div class="bg-white p-4 rounded-lg w-full h-1/2 sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto">
-                <h2 class="text-xl font-bold mb-4">Edit Data Pump</h2>
+    @foreach ($pump as $item)
+    <div id="edit-pump-{{$item->id}}" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto">
+        <div class="bg-white p-4 rounded-lg w-full h-1/2 sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto">
+            <h2 class="text-xl font-bold mb-4">Edit Data Pump</h2>
+            <form action="{{route('pump.update', $item->id)}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
                 <div class="flex flex-col md:flex-row gap-4 mb-2">
-                        <div class="flex-1">
-                            <label for="sap-pump" class="block text-sm font-medium text-gray-700">SAP ID</label>
-                            <input type="text" id="sap-pump" name="sap-pump" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                        <div class="flex-1">
-                            <label for="pump-image" class="block text-sm font-medium text-gray-700">Gambar Pump</label>
-                            <input type="file" id="pump-image" name="pump-image" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    <div class="flex-1">
+                        <label for="sap _id" class="block text-sm font-medium text-gray-700">SAP ID</label>
+                        <input type="text" id="sap _id" name="sap _id" value="{{old('sap_id', $item->sap_id)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    </div>
+                    <div class="flex-1">
+                        <label for="img" class="block text-sm font-medium text-gray-700">Gambar Pump</label>
+                        <input type="file" id="img" name="img" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row gap-4 mb-2">
+                    <div class="flex-1">
+                        <label for="name" class="block text-sm font-medium text-gray-700">Equipment Name</label>
+                        <input type="text" id="name" name="name" value="{{old('name',$item->name)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div class="flex-1">
+                    <label for="tag_id" class="block text-sm font-medium text-gray-700">Pump ID</label>
+                    <input type="text" id="tag_id" name="tag_id" value="{{old('tag_id', $item->tag_id)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-4 mb-2">
+                <div class="flex-1">
+                    <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+                    <select id="location" name="location" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        <option value="{{ $item->location }}" selected>{{ $item->location }}</option>
+                        @foreach ($locations as $loc)
+                            <option value="{{ $loc->tag }}">{{ $loc->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="flex-1">
+                    <label for="brand" class="block text-sm font-medium text-gray-700">Brand</label>
+                    <input type="text" id="brand" name="brand" value="{{old('brand',$item->brand)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-4 mb-2">
+                <div class="flex-1">
+                    <label for="model" class="block text-sm font-medium text-gray-700">Model</label>
+                    <input type="text" id="model" name="model" value="{{old('model',$item->model)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div class="flex-1">
+                    <label for="capacity" class="block text-sm font-medium text-gray-700">Capacity</label>
+                    <input type="text" id="capacity" name="capacity" value="{{old('capacity', $item->capacity)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-4 mb-2">
+                <div class="flex-1">
+                    <label for="head" class="block text-sm font-medium text-gray-700">Head</label>
+                    <input type="text" id="head" name="head" value="{{old('head', $item->head)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div class="flex-1">
+                    <label for="coupling" class="block text-sm font-medium text-gray-700">Coupling</label>
+                    <input type="text" id="coupling" name="coupling" value="{{old('head',$item->coupling)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div class="flex-1">
+                    <label for="front_bearing" class="block text-sm font-medium text-gray-700">Front-Bearing</label>
+                    <input type="text" id="front_bearing" name="front_bearing" value="{{old('front_bearing',$item->front_bearing)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
                         <div class="flex-1">
-                            <label for="pump-name" class="block text-sm font-medium text-gray-700">Equipment Name</label>
-                            <input type="text" id="pump-name" name="pump-name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="rear_bearing" class="block text-sm font-medium text-gray-700">Rear-Bearing</label>
+                            <input type="text" id="rear_bearing" name="rear_bearing" value="{{old('rear_bearing',$item->rear_bearing)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div class="flex-1">
-                            <label for="pump-id" class="block text-sm font-medium text-gray-700">Pump ID</label>
-                            <input type="text" id="pump-id" name="pump-id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                    </div>
-                    <div class="flex flex-col md:flex-row gap-4 mb-2">
-                        <div class="flex-1">
-                            <label for="gear-location" class="block text-sm font-medium text-gray-700">Location</label>
-                            <select id="gear-location" name="gear-location" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm h-10">
-                                <option selected="">Select Location</option>
-                                <option value="Refinary 1">Refinary 1</option>
-                                <option value="WTP">WTP</option>
-                                <option value="Fractination">Fractination</option>
-                            </select>
+                            <label for="impeler" class="block text-sm font-medium text-gray-700">Impeler Size</label>
+                            <input type="text" id="impeler" name="impeler" value="{{old('impeler',$item->impeler)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div class="flex-1">
-                            <label for="pump-brand" class="block text-sm font-medium text-gray-700">Brand</label>
-                            <input type="text" id="pump-brand" name="pump-brand" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="oil" class="block text-sm font-medium text-gray-700">Oil</label>
+                            <input type="text" id="oil" name="oil" value="{{old('oil',$item->oil)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
                         <div class="flex-1">
-                            <label for="pump-model" class="block text-sm font-medium text-gray-700">Model</label>
-                            <input type="text" id="pump-model" name="pump-model" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="oil_seal" class="block text-sm font-medium text-gray-700">Oil Seal</label>
+                            <input type="text" id="oil_seal" name="oil_seal" value="{{old('oil_seal', $item->oil_seal)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div class="flex-1">
-                            <label for="pump-capacity" class="block text-sm font-medium text-gray-700">Capacity</label>
-                            <input type="text" id="pump-capacity" name="pump-capacity" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                    </div>
-                    <div class="flex flex-col md:flex-row gap-4 mb-2">
-                        <div class="flex-1">
-                            <label for="pump-head" class="block text-sm font-medium text-gray-700">Head</label>
-                            <input type="text" id="pump-head" name="pump-head" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="grease" class="block text-sm font-medium text-gray-700">Grease</label>
+                            <input type="text" id="grease" name="grease" value="{{old('grease',$item->grease)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div class="flex-1">
-                            <label for="pump-coupling" class="block text-sm font-medium text-gray-700">Coupling</label>
-                            <input type="text" id="pump-coupling" name="pump-coupling" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                        <div class="flex-1">
-                            <label for="pump-front" class="block text-sm font-medium text-gray-700">Front-Bearing</label>
-                            <input type="text" id="pump-front" name="pump-front" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                    </div>
-                    <div class="flex flex-col md:flex-row gap-4 mb-2">
-                        <div class="flex-1">
-                            <label for="pump-rear" class="block text-sm font-medium text-gray-700">Rear-Bearing</label>
-                            <input type="text" id="pump-rear" name="pump-rear" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                        <div class="flex-1">
-                            <label for="pump-impeler" class="block text-sm font-medium text-gray-700">Impeler Size</label>
-                            <input type="text" id="pump-impeler" name="pump-impeler" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                        <div class="flex-1">
-                            <label for="pump-oil" class="block text-sm font-medium text-gray-700">Oil</label>
-                            <input type="text" id="pump-oil" name="pump-oil" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                    </div>
-                    <div class="flex flex-col md:flex-row gap-4 mb-2">
-                        <div class="flex-1">
-                            <label for="pump-seal" class="block text-sm font-medium text-gray-700">Oil Seal</label>
-                            <input type="text" id="pump-seal" name="pump-seal" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                        <div class="flex-1">
-                            <label for="pump-grease" class="block text-sm font-medium text-gray-700">Grease</label>
-                            <input type="text" id="pump-grease" name="pump-grease" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                        <div class="flex-1">
-                            <label for="pump-mech" class="block text-sm font-medium text-gray-700">Mech-Seal</label>
-                            <input type="text" id="pump-mech" name="pump-mech" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="mech_seal" class="block text-sm font-medium text-gray-700">Mech-Seal</label>
+                            <input type="text" id="mech_seal" name="mech_seal" value="{{old('mech_seal',$item->mech_seal)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                     </div>
                     <div class="mb-2">
                         <label for="note" class="block text-sm font-medium text-gray-700">Note</label>
-                        <textarea rows="4" id="note" name="note" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"></textarea>
+                        <textarea rows="4" id="note" name="note" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">{{ old('note', $item->note) }}</textarea>
                     </div>
                     <div class="flex justify-end">
-                        <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('edit-pump')">Batal</button>
+                        <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('edit-pump-{{$item->id}}')">Batal</button>
                         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Edit</button>
                     </div>
                 </form>
             </div>
         </div>
+        @endforeach
 
-    <!-- Modal Hapus Data -->
-    <div id="delete-pump" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-        <div class="bg-white p-4 rounded-lg w-1/3">
-            <h2 class="text-xl font-bold mb-4">Hapus Data Pump</h2>
-            <p class="mb-4">Apakah Anda yakin ingin menghapus data ini?</p>
-            <div class="flex justify-end">
-                <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('delete-pump')">Batal</button>
-                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Delete</button>
+        <!-- Modal Hapus Data -->
+        @foreach ($pump as $item)
+        <div id="delete-pump-{{$item->id}}" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+            <div class="bg-white p-4 rounded-lg w-1/3">
+                <h2 class="text-xl font-bold mb-4">Hapus Data Pump</h2>
+                <p class="mb-4">Apakah Anda yakin ingin menghapus data ini?</p>
+                <div class="flex justify-end">
+                    <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('delete-pump-{{$item->id}}')">Batal</button>
+                    <form action="{{route('pump.destroy',$item->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Delete</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    
+        @endforeach
+
     @include('assets.js')
 </body>
 </html>

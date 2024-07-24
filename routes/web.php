@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminGearboxController;
 use App\Http\Controllers\AdminLocationController;
 use App\Http\Controllers\AdminMotorController;
+use App\Http\Controllers\AdminPumpController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -10,14 +12,8 @@ Route::get('/', function () {
 
 Route::resource('location',AdminLocationController::class);
 Route::resource('motor', AdminMotorController::class);
-
-Route::get('/pump', function () {
-    return view('pump');
-})->name('pump');
-
-Route::get('/gear', function () {
-    return view('gear');
-})->name('gear');
+Route::resource('pump', AdminPumpController::class);
+Route::resource('gear', AdminGearboxController::class);
 
 Route::get('/profile', function () {
     return view('profile');

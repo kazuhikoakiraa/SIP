@@ -87,7 +87,7 @@ class AdminMotorController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'sap_id' => 'required|string',
+            'sap_id' => 'required|integer',
             'img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'name' => 'required|string',
             'tag_id' => 'required|string',

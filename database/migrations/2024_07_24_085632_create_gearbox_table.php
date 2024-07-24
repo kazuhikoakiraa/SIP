@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('gearboxes', function (Blueprint $table) {
+        Schema::create('gearbox', function (Blueprint $table) {
             $table->id();
             $table->integer('sap_id')->unique();
             $table->string('img')->nullable();
@@ -40,6 +40,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('gearboxes');
+        Schema::dropIfExists('gearbox');
     }
 };
