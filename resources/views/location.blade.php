@@ -49,7 +49,7 @@
                     </form>
                     <span>entries</span>
                 </label>
-                <button type="button" class="focus:outline-none text-white bg-blue-600 font-medium rounded-lg text-sm px-4 py-2 mb-4" onclick="openModal('add-modal')">Tambah Data</button>
+                <button type="button" class="focus:outline-none text-white bg-blue-600 font-medium rounded-lg text-sm px-4 py-2 mb-4" onclick="openModal('add-modal')">Add Data</button>
             </div>
         </div>
         <!-- End Page Length and Button Add Item -->
@@ -71,7 +71,7 @@
                         </th>
                         <th scope="col" class="px-6 py-3 text-center">
                             <div>
-                                AKSI
+                                ACTION
                             </div>
                         </th>
                     </tr>
@@ -106,7 +106,7 @@
         <!-- Modal Tambah-->
         <div id="add-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
             <div class="bg-white p-4 rounded-lg w-96">
-                    <h2 class="text-lg font-semibold">Tambah Data Lokasi</h2>
+                    <h2 class="text-lg font-semibold">Add Location Data</h2>
                 <div>
                     <form action="{{ route('location.store') }}" method="POST">
                         @csrf
@@ -119,8 +119,8 @@
                             <input type="text" name="tag" id="tag" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
                         </div>
                         <div class="flex justify-end">
-                            <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('add-modal')">Batal</button>
-                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Simpan</button>
+                            <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('add-modal')">Cancel</button>
+                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Save</button>
                         </div>
                     </form>
                 </div>
@@ -132,7 +132,7 @@
         @foreach ($locations as $item)
         <div id="edit-modal-{{ $item->id }}" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
             <div class="bg-white p-4 rounded-lg w-96">
-                    <h2 class="text-xl font-bold mb-4">Edit Data Lokasi</h2>
+                    <h2 class="text-xl font-bold mb-4">Edit Location Data</h2>
                 <div>
                     <form action="{{ route('location.update', $item->id) }}" method="POST">
                         @csrf
@@ -146,8 +146,8 @@
                             <input type="text" name="tag" id="tag" value="{{ $item->tag }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
                         </div>
                         <div class="flex justify-end">
-                            <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('edit-modal-{{ $item->id }}')">Batal</button>
-                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Simpan</button>
+                            <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('edit-modal-{{ $item->id }}')">Cancel</button>
+                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Save</button>
                         </div>
                     </form>
                 </div>
@@ -155,15 +155,15 @@
         </div>
         @endforeach
         <!-- End Edit -->
-        
+
         <!-- Delete -->
         @foreach ($locations as $item)
         <div id="delete-modal-{{ $item->id }}" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
             <div class="bg-white p-4 rounded-lg w-96">
-                    <h2 class="text-xl font-bold mb-4">Hapus Data Lokasi</h2>
-                    <p class="mb-4">Apakah anda yakin ingin menghapus data ini?</p>
+                    <h2 class="text-xl font-bold mb-4">Delete Location Data</h2>
+                    <p class="mb-4">Are you sure you want to delete this data?</p>
                     <div class="flex justify-end">
-                        <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('delete-modal-{{ $item->id }}')">Batal</button>
+                        <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('delete-modal-{{ $item->id }}')">Cancel</button>
                         <form action="{{ route('location.destroy', $item->id) }}" method="POST">
                             @csrf
                             @method('DELETE')

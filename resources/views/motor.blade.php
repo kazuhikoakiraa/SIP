@@ -58,7 +58,7 @@
                     </form>
                     <span>entries</span>
                 </label>
-                <button type="button" class="focus:outline-none text-white bg-blue-600 font-medium rounded-lg text-sm px-4 py-2 mb-4" onclick="openModal('add-motor')">Tambah Data</button>
+                <button type="button" class="focus:outline-none text-white bg-blue-600 font-medium rounded-lg text-sm px-4 py-2 mb-4" onclick="openModal('add-motor')">Add Data</button>
             </div>
         </div>
         <!-- End Page Lenght and Button Add Item -->
@@ -71,114 +71,71 @@
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                            SAP ID
-                            <a href="#">
-                                <svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                                </svg>
-                            </a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                            IMAGE
-                            <a href="#">
-                                <svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                                </svg>
-                            </a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             EQUIPMENT NAME
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             TAG ID
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             LOCATION
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             BRAND
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             MODEL/TYPE
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             CURRENT(A)
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             POWER (kw)
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             FRONT BEARING
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             REAR BEARING
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             SPEED (rpm)
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             NOTE
-                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                            </svg></a>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 text-center">
                         <div>
-                            AKSI
+                            ACTION
                         </div>
                     </th>
                 </tr>
@@ -253,7 +210,7 @@
         <!-- Modal Tambah Data -->
         <div id="add-motor" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto">
             <div class="bg-white p-4 rounded-lg w-full h-1/2 sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto">
-                <h2 class="text-xl font-bold mb-4">Tambah Data Motor</h2>
+                <h2 class="text-xl font-bold mb-4">Add Motor Data</h2>
                 <form action="{{route('motor.store')}}" method="POST" enctype="multipart/form-data" id="add-form">
                     @csrf
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
@@ -262,7 +219,7 @@
                             <input type="text" id="sap_id" name="sap_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div class="flex-1">
-                            <label for="img" class="block text-sm font-medium text-gray-700">Gambar Motor</label>
+                            <label for="img" class="block text-sm font-medium text-gray-700">Image</label>
                             <input type="file" id="img" name="img" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                     </div>
@@ -272,7 +229,7 @@
                             <input type="text" id="name" name="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div class="flex-1">
-                            <label for="tag_id" class="block text-sm font-medium text-gray-700">Motor ID</label>
+                            <label for="tag_id" class="block text-sm font-medium text-gray-700">TAG ID</label>
                             <input type="text" id="tag_id" name="tag_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                     </div>
@@ -297,7 +254,7 @@
                             <input type="text" id="model" name="model" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div class="flex-1">
-                            <label for="ampere" class="block text-sm font-medium text-gray-700">Current</label>
+                            <label for="ampere" class="block text-sm font-medium text-gray-700">Current (A)</label>
                             <input type="text" id="ampere" name="ampere" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                     </div>
@@ -327,7 +284,7 @@
                     </div>
                     <div class="flex justify-end">
                         <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('add-motor')">Batal</button>
-                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Simpan</button>
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Save</button>
                     </div>
                 </form>
             </div>
@@ -337,7 +294,7 @@
 @foreach ($motor as $item)
 <div id="edit-motor-{{$item->id}}" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto">
     <div class="bg-white p-4 rounded-lg w-full sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto">
-        <h2 class="text-xl font-bold mb-4">Edit Data Motor</h2>
+        <h2 class="text-xl font-bold mb-4">Edit Motor Data</h2>
         <form action="{{ route('motor.update', $item->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -347,7 +304,7 @@
                     <input type="text" id="sap_id" name="sap_id" value="{{ old('sap_id', $item->sap_id) }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 </div>
                 <div class="flex-1">
-                    <label for="img" class="block text-sm font-medium text-gray-700">Gambar Motor</label>
+                    <label for="img" class="block text-sm font-medium text-gray-700">Image</label>
                     <input type="file" id="img" name="img" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 </div>
             </div>
@@ -411,8 +368,8 @@
                 <textarea rows="4" id="note" name="note" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">{{ old('note', $item->note) }}</textarea>
             </div>
             <div class="flex justify-end">
-                <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('edit-motor-{{$item->id}}')">Batal</button>
-                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Edit</button>
+                <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('edit-motor-{{$item->id}}')">Cancel</button>
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Save</button>
             </div>
         </form>
     </div>
@@ -425,10 +382,10 @@
         @foreach ($motor as $item)
         <div id="delete-motor-{{$item->id}}" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
             <div class="bg-white p-4 rounded-lg w-1/3">
-                <h2 class="text-xl font-bold mb-4">Hapus Data</h2>
-                <p class="mb-4">Apakah Anda yakin ingin menghapus data ini?</p>
+                <h2 class="text-xl font-bold mb-4">Delet Motor Data</h2>
+                <p class="mb-4">Are you sure you want to delete this data?</p>
                 <div class="flex justify-end">
-                    <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('delete-motor-{{$item->id}}')">Batal</button>
+                    <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('delete-motor-{{$item->id}}')">Cancel</button>
                     <form action="{{route('motor.destroy',$item->id)}}" method="POST">
                         @csrf
                         @method('DELETE')
