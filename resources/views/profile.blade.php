@@ -214,7 +214,7 @@
     </div>
 
     <!-- Modal Gambar -->
-    <div id="image-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
+    <div id="image-profile" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
         <div class="relative">
             <span class="absolute top-0 right-0 text-white text-2xl cursor-pointer" onclick="closeImageModal()">&times;</span>
             <img id="modal-image" class="rounded-md" src="" alt="Enlarged Image">
