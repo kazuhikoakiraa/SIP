@@ -52,10 +52,15 @@
          </li>
          <br><br><hr class="bg-black"><br><br>
          <li>
-            <a href="#" class="flex items-center p-2 text-black rounded-lg font-bold hover:bg-gray-100" style="font-family: 'Poppins';">
-               <i data-feather="log-out"></i>
-               <span class="ms-3">LOG-OUT</span>
+            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="flex items-center p-2 text-black rounded-lg font-bold hover:bg-gray-100" style="font-family: 'Poppins';">
+                <i data-feather="log-out"></i>
+                <span class="ms-3">LOG-OUT</span>
             </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+
          </li>
       </ul>
    </div>

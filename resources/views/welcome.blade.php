@@ -16,14 +16,14 @@
             </h1>
         </div>
         <div class="flex space-x-4 sm:space-x-16 md:space-x-32">
-            <div class="inline-flex px-10 py-4 mt-64 md:py-6 md:mt-40 lg:mt-40 lg:py-9 text-black text-sm font-medium rounded-lg items-center" style="background-color:#7EA7D8">
-                <button onclick="" class="inline-flex font-extrabold space-x-2 sm:space-x-4 md:space-x-6 lg:space-x-6"> 
-                    <span>USER</span> 
+            <div class="inline-flex px-10 py-4 mt-64 md:py-6 md:mt-40 lg:mt-40 lg:py-9 text-black text-sm font-medium rounded-lg items-center bg-[#7EA7D8] hover:bg-white transition-colors duration-300">
+                <button onclick="window.location.href='{{ route('user-location.index') }}'" class="inline-flex font-extrabold space-x-2 sm:space-x-4 md:space-x-6 lg:space-x-6">
+                    <span>USER</span>
                     <i data-feather="arrow-right-circle"></i>
                 </button>
             </div>
-            <div class="inline-flex px-10 py-4 mt-64 md:py-6 md:mt-40 lg:mt-40 lg:py-9 text-black text-sm font-medium rounded-lg items-center" style="background-color: #ffffff;">
-                <button onclick="" class="inline-flex font-extrabold space-x-2 sm:space-x-4 md:space-x-6 lg:space-x-6">
+            <div class="inline-flex px-10 py-4 mt-64 md:py-6 md:mt-40 lg:mt-40 lg:py-9 text-black text-sm font-medium rounded-lg items-center bg-[#7EA7D8] hover:bg-white transition-colors duration-300">
+                <button onclick="window.location.href='{{ route('login') }}'" class="inline-flex font-extrabold space-x-2 sm:space-x-4 md:space-x-6 lg:space-x-6">
                     <span>ADMIN</span>
                     <i data-feather="arrow-right-circle"></i>
                 </button>
@@ -32,4 +32,5 @@
     </div>
     @include('assets.js')
 </body>
+
 </html>
