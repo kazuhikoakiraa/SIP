@@ -14,13 +14,15 @@
 
     <div class="p-4">
         <h1 class="font-bold text-3xl p-3">EQUIPMENT-GEAR BOX</h1>
-        <!-- Search Bar -->
-        <div class="flex justify-center items-center mb-4 -ml-3">
+         <!-- Search Bar -->
+         <div class="flex justify-center items-center mb-4 -ml-3">
             <div class="relative w-80">
-                <input type="text" id="table-search" class="pl-10 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Search">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <i data-feather="search"></i>
-                </div>
+                <form action="{{ route('user-gear.index') }}" method="GET">
+                    <input type="text" name="search" value="{{ $search ?? '' }}" class="pl-10 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <i data-feather="search"></i>
+                    </div>
+                </form>
             </div>
         </div>
         <!-- End Search Bar -->
@@ -31,12 +33,14 @@
             <div class="flex w-full px-4 py-2 mb-4">
                 <label class="flex items-center space-x-1.5">
                     <span>Show</span>
-                    <select name="kelas_length" aria-controls="kelas" class="w-16 form-control input-sm border border-gray-300 rounded-lg py-1 px-2 focus:ring-blue-500 focus:border-blue-500">
-                        <option value="10">10</option>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    </select>
+                    <form action="{{route('user-gear.index')}}" method="GET">
+                        <select name="pageLength" onchange="this.form.submit()" class="w-16 form-control input-sm border border-gray-300 rounded-lg py-1 px-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="10" {{ $pageLength == 10 ? 'selected' : '' }}>10</option>
+                            <option value="25" {{ $pageLength == 25 ? 'selected' : '' }}>25</option>
+                            <option value="50" {{ $pageLength == 50 ? 'selected' : '' }}>50</option>
+                            <option value="100" {{ $pageLength == 100 ? 'selected' : '' }}>100</option>
+                        </select>
+                    </form>
                     <span>entries</span>
                 </label>
             </div>
@@ -143,104 +147,84 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-1 border-black">
+                    @foreach ($gearbox as $item)
+
+                <tr class="bg-white border-1 border-black">
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        Refinery 1
-                    </td>
-                    <td scope="row" class=" px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        <div class="flex justify-center items-center">
-                            <img class="w-10 h-10 rounded-sm" src="../assets/img/logo-landing.png" alt="equipment">
-                        </div>
+                        {{$item->sap_id}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        @if($item->img)
+                            <img class="w-10 h-10 rounded-sm" src="{{ asset('assets/img/' . $item->img) }}" alt="Gear Image">
+                        @else
+                            <img class="w-10 h-10 rounded-sm" src="{{ asset('assets/img/default.png') }}" alt="Default Image">
+                        @endif
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->name}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->tag_id}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->location}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->brand}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->model}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->capacity}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->head}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->coupling}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->front_bearing}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->rear_bearing}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->impeler}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->oil}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->oil_seal}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->grease}}
+                    </td>
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                        {{$item->mech_seal}}
                     </td><td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        R114REF                    
+                        {{$item->note}}
                     </td>
                     <td class="px-2 py-2 text-center">
                         <button type="button" class="flex flex-row items-center focus:outline-none text-white bg-black font-medium rounded-3xl text-sm px-8 py-2" onclick="detailModal('detail-pump')">Detail <i class="text-white ml-2" data-feather="alert-circle"></i></button>
                     </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
+    </div>
         <!-- End Table -->
 
 
-        <br>
         <!-- Pagination -->
-        <div class="flex flex-col items-center">
-            <div class="flex flex-col items-center">
-                <!-- Help text -->
-                <span class="text-sm text-black">
-                    Showing <span class="font-semibold text-black">1</span> to <span class="font-semibold text-black">10</span> of <span class="font-semibold text-black">100</span> Entries
-                </span>
-            </div>
-            <br>
-            <nav aria-label="Page navigation example">
-                <ul class="inline-flex -space-x-px text-sm">
-                    <li>
-                        <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
-                    </li>
-                    <li>
-                        <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">2</a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">3</a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
-                    </li>
-                </ul>
-            </nav>
+        <div class="flex justify-center mt-4">
+            {{ $gearbox->appends(['search' => $search, 'pageLength' => $pageLength])->links('vendor.pagination.tailwind') }}
         </div>
-        <!-- end Pagination -->
-    </div>
+
+         <!-- End Pagination -->
 
     @include('assets.js')
 

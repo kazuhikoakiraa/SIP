@@ -5,6 +5,10 @@ use App\Http\Controllers\AdminLocationController;
 use App\Http\Controllers\AdminMotorController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminPumpController;
+use App\Http\Controllers\UserGearController;
+use App\Http\Controllers\UserLocationController;
+use App\Http\Controllers\UserMotorController;
+use App\Http\Controllers\UserPumpController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,18 +27,8 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
-Route::get('/user-loc', function () {
-    return view('user-location');
-})->name('user-loc');
 
-Route::get('/user-motor', function () {
-    return view('user-motor');
-})->name('user-motor');
-
-Route::get('/user-pump', function () {
-    return view('user-pump');
-})->name('user-pump');
-
-Route::get('/user-gear', function () {
-    return view('user-gear');
-})->name('user-gear');
+Route::get('/user-loc', [UserLocationController::class, 'index'])->name('user-location.index');
+Route::get('/user-motor', [UserMotorController::class, 'index'])->name('user-motor.index');
+Route::get('/user-pump', [UserPumpController::class, 'index'])->name('user-pump.index');
+Route::get('/user-gear', [UserGearController::class, 'index'])->name('user-gear.index');
