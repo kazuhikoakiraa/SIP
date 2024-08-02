@@ -149,9 +149,9 @@
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
                         @if($item->img)
-                            <img class="w-10 h-10 rounded-sm" src="{{ asset('assets/img/' . $item->img) }}" alt="Motor Image">
+                            <img class="w-10 h-10 rounded-sm cursor-pointer" src="{{ asset('assets/img/' . $item->img) }}" alt="Motor Image" onclick="openImageModal('{{ asset('assets/img/' . $item->img) }}')">
                         @else
-                            <img class="w-10 h-10 rounded-sm" src="{{ asset('assets/img/default.png') }}" alt="Default Image">
+                            <img class="w-10 h-10 rounded-sm cursor-pointer" src="{{ asset('assets/img/default.png') }}" alt="Default Image" onclick="openImageModal('{{ asset('assets/img/default.png') }}')">
                         @endif
                     </td>
 
@@ -395,6 +395,14 @@
             </div>
         </div>
         @endforeach
+
+        <!-- Modal Gambar -->
+        <div id="image-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75" onclick="closeImageModal(event)">
+            <div class="relative max-w-md w-full bg-white p-4 rounded-lg" onclick="event.stopPropagation()">
+                <span class="absolute top-2 right-2 text-black text-2xl cursor-pointer" onclick="closeImageModal(event)">&times;</span>
+                <img id="modal-image" class="rounded-md max-w-full h-auto mx-auto" src="" alt="Enlarged Image">
+            </div>
+        </div>
 
     @include('assets.js')
 </body>

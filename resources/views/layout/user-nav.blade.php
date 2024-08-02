@@ -3,7 +3,7 @@
 <div class="w-full px-1" style="background-color: #51739B;">
     <nav class="border-gray-200">
     <div class="container flex flex-wrap items-center justify-between">
-        <a href="#" class="flex">
+        <a href="{{'/'}}" class="flex">
             <img src="../assets/img/logo-landing.png" class="h-10 mr-3 p-1" width="40" height="40">
             <span class="self-center text-lg font-semibold whitespace-nowrap">PT SUMBER INDAHPERKASA</span>
         </a>
@@ -39,5 +39,6 @@
     </div>
     </nav>
 </div>
+
 
 <script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
