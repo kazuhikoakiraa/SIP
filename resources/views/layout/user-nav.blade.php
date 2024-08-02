@@ -14,7 +14,7 @@
         <div class="md:block w-full md:w-auto" id="mobile-menu">
         <ul class="flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium">
             <li class="flex justify-center">
-            <a href="#" class="font-medium text-black block pl-3 pr-4 py-2 md:p-0 rounded focus:outline-none" aria-current="page">Location</a>
+            <a href="{{route('user-location.index')}}" class="font-medium text-black block pl-3 pr-4 py-2 md:p-0 rounded focus:outline-none" aria-current="page">Location</a>
             </li>
             <li class="flex justify-center">
                 <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="text-black pl-3 pr-4 py-2 font-medium flex justify-center items-center w-full">Equipment <i class="w-4 h-4 ml-1" data-feather="chevron-down"></i> </button>
@@ -22,18 +22,18 @@
                 <div id="dropdownNavbar" class="hidden text-base bg-blue-200 z-10 list-none rounded shadow-md w-44" >
                     <ul class="py-1" aria-labelledby="dropdownLargeButton">
                     <li>
-                        <a href="#" class="text-md text-black block px-4 py-2">Motor</a>
+                        <a href="{{route('user-motor.index')}}" class="text-md text-black block px-4 py-2">Motor</a>
                     </li>
                     <li>
-                        <a href="#" class="text-md text-black block px-4 py-2">Pump</a>
+                        <a href="{{route('user-pump.index')}}" class="text-md text-black block px-4 py-2">Pump</a>
                     </li>
                     <li>
-                        <a href="#" class="text-md text-black block px-4 py-2">Gear-Box</a>
+                        <a href="{{route('user-gear.index')}}" class="text-md text-black block px-4 py-2">Gear-Box</a>
                     </li>
                     </ul>
                 </div>
             </li>
-            
+
         </ul>
         </div>
     </div>
