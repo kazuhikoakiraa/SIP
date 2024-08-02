@@ -45,7 +45,7 @@
             </ul>
          </li>
          <li>
-            <a href="#" class="flex items-center p-2 text-black rounded-lg font-bold hover:bg-gray-100 dark:hover:bg-white-700 group" style="font-family: 'Poppins';">
+            <a href="{{route('profile.index')}}" class="flex items-center p-2 text-black rounded-lg font-bold hover:bg-gray-100 dark:hover:bg-white-700 group" style="font-family: 'Poppins';">
                <i data-feather="user"></i>
                <span class="ms-3">PROFILE</span>
             </a>
