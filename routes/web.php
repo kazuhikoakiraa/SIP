@@ -43,3 +43,7 @@ Route::get('/user-loc', [UserLocationController::class, 'index'])->name('user-lo
 Route::get('/user-motor', [UserMotorController::class, 'index'])->name('user-motor.index');
 Route::get('/user-pump', [UserPumpController::class, 'index'])->name('user-pump.index');
 Route::get('/user-gear', [UserGearController::class, 'index'])->name('user-gear.index');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

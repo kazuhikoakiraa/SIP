@@ -21,9 +21,9 @@
                 </div>
             </div>
         </nav>
-    </div>
 
-    <div class="p-4 sm:ml-64 md:ml-64 lg:ml-64">
+
+    <div class="mt-5">
         <!-- Search Bar -->
         <div class="flex justify-center items-center mb-4 -ml-3">
             <div class="relative w-80">
@@ -45,7 +45,7 @@
 
         <!-- Page Lenght and Button Add Item -->
         <div class="flex justify-center md:-mb-3">
-            <div class="flex items-center space-x-3 md:justify-between md:space-x-40 lg:space-x-96">
+            <div class="flex items-center space-x-14 md:justify-between md:space-x-40 lg:space-x-96">
                 <label class="flex items-center space-x-1.5 mb-4 -ml-7 md:mb-0">
                     <span>Show</span>
                     <form action="{{route('pump.index')}}" method="GET">
@@ -351,113 +351,113 @@
             </div>
         </div>
 
-    <!-- Modal Edit Data -->
-    @foreach ($pump as $item)
-    <div id="edit-pump-{{$item->id}}" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto">
-        <div class="bg-white p-4 rounded-lg w-full h-1/2 sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto">
-            <h2 class="text-xl font-bold mb-4">Edit Pump Data</h2>
-            <form action="{{route('pump.update', $item->id)}}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
-                <div class="flex flex-col md:flex-row gap-4 mb-2">
-                    <div class="flex-1">
-                        <label for="sap _id" class="block text-sm font-medium text-gray-700">SAP ID</label>
-                        <input type="text" id="sap _id" name="sap _id" value="{{old('sap_id', $item->sap_id)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                    </div>
-                    <div class="flex-1">
-                        <label for="img" class="block text-sm font-medium text-gray-700">Image</label>
-                        <input type="file" id="img" name="img" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row gap-4 mb-2">
-                    <div class="flex-1">
-                        <label for="name" class="block text-sm font-medium text-gray-700">Equipment Name</label>
-                        <input type="text" id="name" name="name" value="{{old('name',$item->name)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                </div>
-                <div class="flex-1">
-                    <label for="tag_id" class="block text-sm font-medium text-gray-700">TAG ID</label>
-                    <input type="text" id="tag_id" name="tag_id" value="{{old('tag_id', $item->tag_id)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row gap-4 mb-2">
-                <div class="flex-1">
-                    <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
-                    <select id="location" name="location" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        <option value="{{ $item->location }}" selected>{{ $item->location }}</option>
-                        @foreach ($locations as $loc)
-                            <option value="{{ $loc->tag }}">{{ $loc->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="flex-1">
-                    <label for="brand" class="block text-sm font-medium text-gray-700">Brand</label>
-                    <input type="text" id="brand" name="brand" value="{{old('brand',$item->brand)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row gap-4 mb-2">
-                <div class="flex-1">
-                    <label for="model" class="block text-sm font-medium text-gray-700">Model</label>
-                    <input type="text" id="model" name="model" value="{{old('model',$item->model)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                </div>
-                <div class="flex-1">
-                    <label for="capacity" class="block text-sm font-medium text-gray-700">Capacity</label>
-                    <input type="text" id="capacity" name="capacity" value="{{old('capacity', $item->capacity)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row gap-4 mb-2">
-                <div class="flex-1">
-                    <label for="head" class="block text-sm font-medium text-gray-700">Head</label>
-                    <input type="text" id="head" name="head" value="{{old('head', $item->head)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                </div>
-                <div class="flex-1">
-                    <label for="coupling" class="block text-sm font-medium text-gray-700">Coupling</label>
-                    <input type="text" id="coupling" name="coupling" value="{{old('head',$item->coupling)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                </div>
-                <div class="flex-1">
-                    <label for="front_bearing" class="block text-sm font-medium text-gray-700">Front-Bearing</label>
-                    <input type="text" id="front_bearing" name="front_bearing" value="{{old('front_bearing',$item->front_bearing)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+        <!-- Modal Edit Data -->
+        @foreach ($pump as $item)
+        <div id="edit-pump-{{$item->id}}" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto">
+            <div class="bg-white p-4 rounded-lg w-full h-1/2 sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto">
+                <h2 class="text-xl font-bold mb-4">Edit Pump Data</h2>
+                <form action="{{route('pump.update', $item->id)}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="flex flex-col md:flex-row gap-4 mb-2">
+                        <div class="flex-1">
+                            <label for="sap _id" class="block text-sm font-medium text-gray-700">SAP ID</label>
+                            <input type="text" id="sap _id" name="sap _id" value="{{old('sap_id', $item->sap_id)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="flex-1">
+                            <label for="img" class="block text-sm font-medium text-gray-700">Image</label>
+                            <input type="file" id="img" name="img" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
                         <div class="flex-1">
-                            <label for="rear_bearing" class="block text-sm font-medium text-gray-700">Rear-Bearing</label>
-                            <input type="text" id="rear_bearing" name="rear_bearing" value="{{old('rear_bearing',$item->rear_bearing)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                        <div class="flex-1">
-                            <label for="impeler" class="block text-sm font-medium text-gray-700">Impeler Size</label>
-                            <input type="text" id="impeler" name="impeler" value="{{old('impeler',$item->impeler)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                        <div class="flex-1">
-                            <label for="oil" class="block text-sm font-medium text-gray-700">Oil</label>
-                            <input type="text" id="oil" name="oil" value="{{old('oil',$item->oil)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Equipment Name</label>
+                            <input type="text" id="name" name="name" value="{{old('name',$item->name)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                     </div>
-                    <div class="flex flex-col md:flex-row gap-4 mb-2">
-                        <div class="flex-1">
-                            <label for="oil_seal" class="block text-sm font-medium text-gray-700">Oil Seal</label>
-                            <input type="text" id="oil_seal" name="oil_seal" value="{{old('oil_seal', $item->oil_seal)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                        <div class="flex-1">
-                            <label for="grease" class="block text-sm font-medium text-gray-700">Grease</label>
-                            <input type="text" id="grease" name="grease" value="{{old('grease',$item->grease)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                        <div class="flex-1">
-                            <label for="mech_seal" class="block text-sm font-medium text-gray-700">Mech-Seal</label>
-                            <input type="text" id="mech_seal" name="mech_seal" value="{{old('mech_seal',$item->mech_seal)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
+                    <div class="flex-1">
+                        <label for="tag_id" class="block text-sm font-medium text-gray-700">TAG ID</label>
+                        <input type="text" id="tag_id" name="tag_id" value="{{old('tag_id', $item->tag_id)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                     </div>
-                    <div class="mb-2">
-                        <label for="note" class="block text-sm font-medium text-gray-700">Note</label>
-                        <textarea rows="4" id="note" name="note" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">{{ old('note', $item->note) }}</textarea>
+                </div>
+                <div class="flex flex-col md:flex-row gap-4 mb-2">
+                    <div class="flex-1">
+                        <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+                        <select id="location" name="location" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <option value="{{ $item->location }}" selected>{{ $item->location }}</option>
+                            @foreach ($locations as $loc)
+                                <option value="{{ $loc->tag }}">{{ $loc->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
-                    <div class="flex justify-end">
-                        <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('edit-pump-{{$item->id}}')">Cancel</button>
-                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Save</button>
+                    <div class="flex-1">
+                        <label for="brand" class="block text-sm font-medium text-gray-700">Brand</label>
+                        <input type="text" id="brand" name="brand" value="{{old('brand',$item->brand)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                     </div>
-                </form>
+                </div>
+                <div class="flex flex-col md:flex-row gap-4 mb-2">
+                    <div class="flex-1">
+                        <label for="model" class="block text-sm font-medium text-gray-700">Model</label>
+                        <input type="text" id="model" name="model" value="{{old('model',$item->model)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    </div>
+                    <div class="flex-1">
+                        <label for="capacity" class="block text-sm font-medium text-gray-700">Capacity</label>
+                        <input type="text" id="capacity" name="capacity" value="{{old('capacity', $item->capacity)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row gap-4 mb-2">
+                    <div class="flex-1">
+                        <label for="head" class="block text-sm font-medium text-gray-700">Head</label>
+                        <input type="text" id="head" name="head" value="{{old('head', $item->head)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    </div>
+                    <div class="flex-1">
+                        <label for="coupling" class="block text-sm font-medium text-gray-700">Coupling</label>
+                        <input type="text" id="coupling" name="coupling" value="{{old('head',$item->coupling)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    </div>
+                    <div class="flex-1">
+                        <label for="front_bearing" class="block text-sm font-medium text-gray-700">Front-Bearing</label>
+                        <input type="text" id="front_bearing" name="front_bearing" value="{{old('front_bearing',$item->front_bearing)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-4 mb-2">
+                            <div class="flex-1">
+                                <label for="rear_bearing" class="block text-sm font-medium text-gray-700">Rear-Bearing</label>
+                                <input type="text" id="rear_bearing" name="rear_bearing" value="{{old('rear_bearing',$item->rear_bearing)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            </div>
+                            <div class="flex-1">
+                                <label for="impeler" class="block text-sm font-medium text-gray-700">Impeler Size</label>
+                                <input type="text" id="impeler" name="impeler" value="{{old('impeler',$item->impeler)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            </div>
+                            <div class="flex-1">
+                                <label for="oil" class="block text-sm font-medium text-gray-700">Oil</label>
+                                <input type="text" id="oil" name="oil" value="{{old('oil',$item->oil)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-4 mb-2">
+                            <div class="flex-1">
+                                <label for="oil_seal" class="block text-sm font-medium text-gray-700">Oil Seal</label>
+                                <input type="text" id="oil_seal" name="oil_seal" value="{{old('oil_seal', $item->oil_seal)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            </div>
+                            <div class="flex-1">
+                                <label for="grease" class="block text-sm font-medium text-gray-700">Grease</label>
+                                <input type="text" id="grease" name="grease" value="{{old('grease',$item->grease)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            </div>
+                            <div class="flex-1">
+                                <label for="mech_seal" class="block text-sm font-medium text-gray-700">Mech-Seal</label>
+                                <input type="text" id="mech_seal" name="mech_seal" value="{{old('mech_seal',$item->mech_seal)}}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label for="note" class="block text-sm font-medium text-gray-700">Note</label>
+                            <textarea rows="4" id="note" name="note" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">{{ old('note', $item->note) }}</textarea>
+                        </div>
+                        <div class="flex justify-end">
+                            <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('edit-pump-{{$item->id}}')">Cancel</button>
+                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Save</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
-        @endforeach
+            @endforeach
 
         <!-- Modal Hapus Data -->
         @foreach ($pump as $item)
@@ -484,6 +484,8 @@
                 <img id="modal-image" class="rounded-md max-w-full h-auto mx-auto" src="" alt="Enlarged Image">
             </div>
         </div>
+
+    </div>
 
     @include('assets.js')
 </body>

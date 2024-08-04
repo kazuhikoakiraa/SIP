@@ -21,9 +21,9 @@
                 </div>
             </div>
         </nav>
-    </div>
+    
 
-    <div class="p-4 sm:ml-64 md:ml-64 lg:ml-64">
+    <div class="mt-5">
         <!-- Search Bar -->
         <div class="flex justify-center items-center mb-4 -ml-3">
             <div class="relative w-80">
@@ -45,7 +45,7 @@
 
         <!-- Page Lenght and Button Add Item -->
         <div class="flex justify-center md:-mb-3">
-            <div class="flex items-center space-x-3 md:justify-between md:space-x-40 lg:space-x-96">
+            <div class="flex items-center space-x-14 md:justify-between md:space-x-40 lg:space-x-96">
                 <label class="flex items-center space-x-1.5 mb-4 -ml-7 md:mb-0">
                     <span>Show</span>
                     <form action="{{route('gear.index')}}" method="GET">
@@ -484,7 +484,7 @@
                 <img id="modal-image" class="rounded-md max-w-full h-auto mx-auto" src="" alt="Enlarged Image">
             </div>
         </div>
-
+        </div>
     @include('assets.js')
 </body>
 </html>

@@ -46,7 +46,8 @@
         </div>
         <!-- End Page Length and Button Add Item -->
 
-            <!-- Table -->
+        <div class="relative overflow-x-auto sm:rounded-lg">    
+        <!-- Table -->
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 mx-auto lg:w-2/3">
                 <thead class="text-sm text-black uppercase bg-white border-1 border-black">
                     <tr>
@@ -77,6 +78,7 @@
             </table>
         </div>
         <!-- End Table -->
+        </div>
     </div>
 
        <!-- Pagination -->

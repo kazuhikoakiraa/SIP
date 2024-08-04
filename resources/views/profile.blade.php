@@ -12,18 +12,18 @@
     <div class="p-2 sm:ml-64">
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand font-bold" style="font-family: 'Poppins';" href="#">
+                <a class="navbar-brand font-bold" style="font-family: 'Poppins';">
                     PROFILE
                 </a>
                 <div class="align-text-top inline-flex md:ml-36 lg:ml-36 hidden sm:flex md:flex lg:flex">
                     <img src="../assets/img/logo-landing.png" alt="" class="h-8 w-8 p-1">
-                    <a href="" class="font-bold p-1">PT. SUMBER INDAHPERKASA</a>
+                    <a class="font-bold p-1">PT. SUMBER INDAHPERKASA</a>
                 </div>
             </div>
         </nav>
-    </div>
+    
 
-    <div class="p-4 sm:ml-64 md:ml-64 lg:ml-64">
+        <div class="mt-5">
          <!-- Search Bar -->
          <div class="flex justify-center items-center mb-4 -ml-3">
             <div class="relative w-80">
@@ -38,36 +38,38 @@
         <!-- End Search Bar -->
 
         @if (session('success'))
-        <div class="alert alert-success text-center">
-            {{ session('success') }}
-        </div>
-    @endif
-
-        <!-- Page Lenght and Button Add Item -->
-        <div class="flex justify-center md:-mb-3">
-            <div class="flex items-center space-x-3 md:justify-between md:space-x-40 lg:space-x-96">
-                <label class="flex items-center space-x-1.5 mb-4 -ml-7 md:mb-0">
-                    <span>Show</span>
-                    <form action="{{route('profile.index')}}" method="GET">
-                        <select name="pageLength" onchange="this.form.submit()" class="w-16 form-control input-sm border border-gray-300 rounded-lg py-1 px-2 focus:ring-blue-500 focus:border-blue-500">
-                            <option value="10" {{ $pageLength == 10 ? 'selected' : '' }}>10</option>
-                            <option value="25" {{ $pageLength == 25 ? 'selected' : '' }}>25</option>
-                            <option value="50" {{ $pageLength == 50 ? 'selected' : '' }}>50</option>
-                            <option value="100" {{ $pageLength == 100 ? 'selected' : '' }}>100</option>
-                        </select>
-                    </form>
-                    <span>entries</span>
-                </label>
-                <button type="button" class="focus:outline-none text-white bg-blue-600 font-medium rounded-lg text-sm px-4 py-2 mb-4" onclick="openModal('add-profile')">Add Data</button>
+            <div class="alert alert-success text-center">
+                {{ session('success') }}
             </div>
-        </div>
-        <!-- End Page Lenght and Button Add Item -->
+        @endif
+                <!-- Page Lenght and Button Add Item -->
+                <div class="flex justify-center md:-mb-3">
+                <div class="flex items-center space-x-12 md:justify-between md:space-x-40 lg:space-x-96">
+                    <label class="flex items-center space-x-1.5 mb-4 md:mb-0">
+                    <span>Show</span>
+                            <form action="{{route('profile.index')}}" method="GET">
+                                <select name="pageLength" onchange="this.form.submit()" class="w-16 form-control input-sm border border-gray-300 rounded-lg py-1 px-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="10" {{ $pageLength == 10 ? 'selected' : '' }}>10</option>
+                                    <option value="25" {{ $pageLength == 25 ? 'selected' : '' }}>25</option>
+                                    <option value="50" {{ $pageLength == 50 ? 'selected' : '' }}>50</option>
+                                    <option value="100" {{ $pageLength == 100 ? 'selected' : '' }}>100</option>
+                                </select>
+                            </form>
+                            <span>entries</span>
+                        </label>
+                        <button type="button" class="focus:outline-none text-white bg-blue-600 font-medium rounded-lg text-sm px-4 py-2 mb-4" onclick="openModal('add-profile')">Add Data</button>
+                    </div>
+                </div>
+                <!-- End Page Lenght and Button Add Item -->
+
 
         <!-- Table -->
-        <div class="flex justify-center overflow-x-auto sm:rounded-lg">
-            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 lg:w-2/3 md:justify-center lg:justify-center ml-48 md:ml-0 lg:ml-0">
-                <thead class="text-sm text-black uppercase bg-white border-1 border-black ">
-                <tr>
+        <div class="flex flex-col items-center justify-center relative overflow-x-auto sm:rounded-lg">
+                
+
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 mx-auto lg:w-2/3">
+                    <thead class="text-sm text-black uppercase bg-white border-1 border-black">
+                        <tr>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                            USERNAME
@@ -116,8 +118,9 @@
                     </td>
                     <td class="px-2 py-2 text-center">
                         <button type="button" class="focus:outline-none text-black bg-green-600 font-medium rounded-lg text-sm px-8 py-2.5 mb-2" onclick="openModal('edit-profile-{{$item->id}}')">Edit</button>
+                        <button type="button" class="focus:outline-none text-black bg-red-600 font-medium rounded-lg text-sm px-6 py-2.5 mb-2" onclick="openModal('delete-profile-{{$item->id}}')">Delete</button>
                         <button type="button" class="focus:outline-none text-black bg-yellow-600 font-medium rounded-lg text-sm px-6 py-2.5" onclick="openModal('change-password-{{ $item->id }}')" >Ubah Password</button>
-                        <button type="button" class="focus:outline-none text-black bg-red-600 font-medium rounded-lg text-sm px-6 py-2.5" onclick="openModal('delete-profile-{{$item->id}}')">Delete</button>
+                       
                     </td>
                 </tr>
                 @endforeach
@@ -214,6 +217,7 @@
             </div>
         </form>
     </div>
+</div>
 </div>
 
 <script>
@@ -316,10 +320,6 @@
         <img id="modal-image" class="rounded-md max-w-full h-auto mx-auto" src="" alt="Enlarged Image">
     </div>
 </div>
-
-
-
-
 
 @include('assets.js')
 </body>

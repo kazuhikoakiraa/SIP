@@ -12,9 +12,21 @@
 <body>
 
     @include('layout.side')
-    @include('layout.nav')
+    <div class="p-2 sm:ml-64">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand font-bold" style="font-family: 'Poppins';" href="#">
+                    LOCATION
+                </a>
+                <div class="align-text-top inline-flex md:ml-36 lg:ml-36 hidden sm:flex md:flex lg:flex">
+                    <img src="../assets/img/logo-landing.png" alt="" class="h-8 w-8 p-1">
+                    <a href="" class="font-bold p-1">PT. SUMBER INDAHPERKASA</a>
+                </div>
+            </div>
+        </nav>
+    
 
-    <div class="p-4 md:ml-64 lg:ml-64">
+    <div class="mt-5">
         <!-- Search Bar -->
         <div class="flex justify-center items-center mb-4 -ml-3">
             <div class="relative w-80">
@@ -36,8 +48,8 @@
 
         <!-- Page Length and Button Add Item -->
         <div class="flex justify-center md:-mb-3">
-            <div class="flex items-center space-x-3 md:justify-between md:space-x-40 lg:space-x-96">
-                <label class="flex items-center space-x-1.5 mb-4 -ml-7 md:mb-0">
+                <div class="flex items-center space-x-12 md:justify-between md:space-x-40 lg:space-x-96">
+                    <label class="flex items-center space-x-1.5 mb-4 md:mb-0">
                     <span>Show</span>
                     <form action="{{ route('location.index') }}" method="GET">
                         <select name="pageLength" onchange="this.form.submit()" class="w-16 form-control input-sm border border-gray-300 rounded-lg py-1 px-2 focus:ring-blue-500 focus:border-blue-500">
@@ -55,10 +67,10 @@
         <!-- End Page Length and Button Add Item -->
 
         <!-- Table -->
-        <div class="flex justify-center overflow-x-auto sm:rounded-lg">
-            <table class="w-full text-sm text-left text-gray-500 lg:w-2/3 md:justify-center lg:justify-center ml-32 md:ml-0 lg:ml-0">
-                <thead class="text-sm text-black uppercase bg-white border-1 border-black ">
-                    <tr>
+        <div class="flex justify-start md:justify-center overflow-x-auto sm:rounded-lg" >
+                <table class="text-sm text-left text-gray-500 ">
+                    <thead class="text-sm text-black uppercase bg-white border-1 border-black">
+                        <tr>
                         <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                             <div class="flex items-center">
                                 LOCATION NAME
@@ -87,7 +99,7 @@
                         </td>
                         <td class="px-2 py-2 text-center">
                             <button type="button" class="focus:outline-none text-black bg-green-600 font-medium rounded-lg text-sm px-8 py-2.5 mb-2" onclick="openModal('edit-modal-{{ $item->id }}')">Edit</button>
-                            <button type="button" class="focus:outline-none text-black bg-red-600 font-medium rounded-lg text-sm px-6 py-2.5 lg:ml-4" onclick="openModal('delete-modal-{{ $item->id }}')">Delete</button>
+                            <button type="button" class="focus:outline-none text-black bg-red-600 font-medium rounded-lg text-sm px-6 py-2.5" onclick="openModal('delete-modal-{{ $item->id }}')">Delete</button>
                         </td>
                     </tr>
                     @endforeach
@@ -175,6 +187,7 @@
         </div>
         @endforeach
         <!-- End Delete -->
+    </div>
     </div>
     @include('assets.js')
 
