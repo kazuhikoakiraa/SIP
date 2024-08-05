@@ -2,47 +2,45 @@
 
 namespace Database\Seeders;
 
-use App\Models\Motor;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Motor;
+use App\Models\Location;
 
 class MotorSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+    public function run()
     {
-        $motor = [
-            [
-                'sap_id' => '500015108',
-                'name' => 'Crude Oil Pump A',
-                'tag_id' => 'PU301A',
-                'location' => 'REF 1',
+        $locations = Location::pluck('id'); // Ambil semua ID lokasi
 
-            ],
-            [
-                'sap_id' => '500015110',
-                'name' => 'Crude Oil Pump B',
-                'tag_id' => 'PU301B',
-                'location' => 'REF 1',
+        // Menambahkan data contoh
+        Motor::create([
+            'sap_id' => 1,
+            'name' => 'Motor Example 1',
+            'tag_id' => 'TAG001',
+            'location_id' => $locations->random(), // Pilih lokasi acak
+            'brand' => 'Brand A',
+            'model' => 'Model X',
+            'ampere' => 10.5,
+            'power' => 100.0,
+            'front_bearing' => 'Bearing A',
+            'rear_bearing' => 'Bearing B',
+            'speed' => '1500 RPM',
+            'note' => 'Example motor',
+        ]);
 
-            ],
-            [
-                'sap_id' => '500015113',
-                'name' => 'Crude Oil Dryer Discharge Pump A',
-                'tag_id' => 'PU311A',
-                'location' => 'REF 1',
-
-            ],
-            [
-                'sap_id' => '500015115',
-                'name' => 'Crude Oil Dryer Discharge Pump B',
-                'tag_id' => 'PU311B',
-                'location' => 'REF 1',
-
-            ],
-        ];
-        Motor::query()->insert($motor);
+        Motor::create([
+            'sap_id' => 2,
+            'name' => 'Motor Example 2',
+            'tag_id' => 'TAG002',
+            'location_id' => $locations->random(), // Pilih lokasi acak
+            'brand' => 'Brand B',
+            'model' => 'Model Y',
+            'ampere' => 8.5,
+            'power' => 80.0,
+            'front_bearing' => 'Bearing C',
+            'rear_bearing' => 'Bearing D',
+            'speed' => '1200 RPM',
+            'note' => 'Another example motor',
+        ]);
     }
 }

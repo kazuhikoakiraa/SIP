@@ -143,7 +143,7 @@
                             {{$item->tag_id}}
                         </td>
                         <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                            {{$item->location}}
+                            {{$item->location->name}}
                         </td>
                         <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
                             {{$item->brand}}

@@ -56,54 +56,11 @@ class AdminPumpController extends Controller
 
     public function store(Request $request)
     {
-        $validate = $request->validate([
+        $validated = $request->validate([
             'sap_id' => 'required|integer|unique:pumps,sap_id',
             'name' => 'required|string|max:255',
             'tag_id' => 'required|string|max:255',
-            'location' => 'required|exists:locations,tag',
-        ]);
-
-        $pump = Pump::create([
-            'sap_id' => $request->sap_id,
-            'name' => $request->name,
-            'tag_id' => $request->tag_id,
-            'location' => $request->location,
-            'brand' => $request->brand,
-            'model' => $request->model,
-            'capacity' => $request->capacity,
-            'head' => $request->head,
-            'coupling' => $request->coupling,
-            'front_bearing' => $request->front_bearing,
-            'rear_bearing' => $request->rear_bearing,
-            'impeler' => $request->impeler,
-            'oil' => $request->oil,
-            'oil_seal' => $request->oil_seal,
-            'grease' => $request->grease,
-            'mech_seal' => $request->mech_seal,
-            'note' => $request->note,
-        ]);
-
-        if ($request->hasFile('img')) {
-            $img = $request->file('img');
-            $file_name = $pump->img . '_' . time() . '.' . $img->getClientOriginalExtension();
-            $pump->img = $file_name;
-            $pump->update();
-            $img->move('../public/assets/img/', $file_name);
-        }
-
-        return redirect()->route('pump.index')->with('success', 'Data created successfully.');
-    }
-
-    public function update(Request $request, $id)
-    {
-        $pump = Pump::findOrFail($id);
-        $pump->sap_id = $request->sap_id;
-
-        $validate = $request->validate([
-            'sap_id' => 'required|integer|unique:pumps,sap_id',
-            'name' => 'required|string|max:255',
-            'tag_id' => 'required|string|max:255',
-            'location' => 'required|string|max:255',
+            'location_id' => 'required|exists:locations,id',
             'brand' => 'nullable|string|max:255',
             'model' => 'nullable|string|max:255',
             'capacity' => 'nullable|numeric',
@@ -116,38 +73,57 @@ class AdminPumpController extends Controller
             'oil_seal' => 'nullable|string|max:255',
             'grease' => 'nullable|string|max:255',
             'mech_seal' => 'nullable|string|max:255',
-            'note' => 'nullable|string|max:255',
+            'note' => 'nullable|string',
+            'img' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $pump->update([
-            'sap_id' => $request->sap_id,
-            'name' => $request->name,
-            'tag_id' => $request->tag_id,
-            'location' => $request->location,
-            'brand' => $request->brand,
-            'model' => $request->model,
-            'capacity' => $request->capacity,
-            'head' => $request->head,
-            'coupling' => $request->coupling,
-            'front_bearing' => $request->front_bearing,
-            'rear_bearing' => $request->rear_bearing,
-            'impeler' => $request->impeler,
-            'oil' => $request->oil,
-            'oil_seal' => $request->oil_seal,
-            'grease' => $request->grease,
-            'mech_seal' => $request->mech_seal,
-            'note' => $request->note,
-        ]);
+        $pump = Pump::create($validated);
 
         if ($request->hasFile('img')) {
             $img = $request->file('img');
-            $file_name = $pump->img . '_' . time() . '.' . $img->getClientOriginalExtension();
+            $file_name = 'pump_' . time() . '.' . $img->getClientOriginalExtension();
+            $img->move(public_path('assets/img/'), $file_name);
             $pump->img = $file_name;
-            $pump->update();
-            $img->move('../public/assets/img/', $file_name);
+            $pump->save();
         }
 
-        return redirect()->route('pump.index')->with('success', 'Pump updated successfully.');
+        return redirect()->route('pumps.index')->with('success', 'Pump created successfully.');
+    }
+
+    public function update(Request $request, Pump $pump)
+    {
+        $validated = $request->validate([
+            'sap_id' => 'required|integer|unique:pumps,sap_id,' . $pump->id,
+            'name' => 'required|string|max:255',
+            'tag_id' => 'required|string|max:255',
+            'location_id' => 'required|exists:locations,id',
+            'brand' => 'nullable|string|max:255',
+            'model' => 'nullable|string|max:255',
+            'capacity' => 'nullable|numeric',
+            'head' => 'nullable|numeric',
+            'coupling' => 'nullable|string|max:255',
+            'front_bearing' => 'nullable|string|max:255',
+            'rear_bearing' => 'nullable|string|max:255',
+            'impeler' => 'nullable|numeric',
+            'oil' => 'nullable|string|max:255',
+            'oil_seal' => 'nullable|string|max:255',
+            'grease' => 'nullable|string|max:255',
+            'mech_seal' => 'nullable|string|max:255',
+            'note' => 'nullable|string',
+            'img' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $pump->update($validated);
+
+        if ($request->hasFile('img')) {
+            $img = $request->file('img');
+            $file_name = 'pump_' . time() . '.' . $img->getClientOriginalExtension();
+            $img->move(public_path('assets/img/'), $file_name);
+            $pump->img = $file_name;
+            $pump->save();
+        }
+
+        return redirect()->route('pumps.index')->with('success', 'Pump updated successfully.');
     }
 
     public function destroy($id)

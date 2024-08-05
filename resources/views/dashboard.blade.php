@@ -21,39 +21,20 @@
                 </div>
             </div>
         </nav>
-    
+
         <div class="mt-2 ml-2">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-                <div class="flex flex-col items-center justify-center h-auto w-auto rounded-lg bg-red-400">
-                    <p class="text-2xl p-2 text-black font-semibold whitespace-nowrap">Location Name</p>
-                    <hr class="w-full border-4 border-black">
-                    <p class="text-5xl font-bold text-black my-1">50</p>
-                    <p class="text-md py-2 text-black">Equipment</p>
-                </div>
-
-                <div class="flex flex-col items-center justify-center h-auto w-auto rounded-lg bg-blue-400">
-                    <p class="text-2xl p-2 text-black font-semibold whitespace-nowrap">Location Name</p>
-                    <hr class="w-full border-4 border-black">
-                    <p class="text-5xl font-bold text-black my-1">10</p>
-                    <p class="text-md py-2 text-black">Equipment</p>
-                </div>
-
-                <div class="flex flex-col items-center justify-center h-auto w-auto rounded-lg bg-yellow-400">
-                    <p class="text-2xl p-2 text-black font-semibold whitespace-nowrap">Location Name</p>
-                    <hr class="w-full border-4 border-black">
-                    <p class="text-5xl font-bold text-black my-1">95</p>
-                    <p class="text-md py-2 text-black">Equipment</p>
-                </div>
-                
-                <div class="flex flex-col items-center justify-center h-auto w-auto rounded-lg bg-green-400">
-                    <p class="text-2xl p-2 text-black font-semibold whitespace-nowrap">Location Name</p>
-                    <hr class="w-full border-4 border-black">
-                    <p class="text-5xl font-bold text-black my-1">1006</p>
-                    <p class="text-md py-2 text-black">Equipment</p>
-                </div>
+                @foreach ($locations as $location)
+                    <div class="flex flex-col items-center justify-center h-auto w-auto rounded-lg {{ $location['color'] }}">
+                        <p class="text-2xl p-2 text-black font-semibold whitespace-nowrap">{{ $location['name'] }}</p>
+                        <hr class="w-full border-4 border-black">
+                        <p class="text-5xl font-bold text-black my-1">{{ $location['equipment_count'] }}</p>
+                        <p class="text-md py-2 text-black">Equipment</p>
+                    </div>
+                @endforeach
             </div>
         </div>
-    </div>    
+    </div>
 
     @include('assets.js')
 </body>

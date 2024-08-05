@@ -2,34 +2,36 @@
 
 namespace Database\Seeders;
 
-use App\Models\Gearbox;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Gearbox;
+use App\Models\Location;
 
 class GearboxSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+    public function run()
     {
-        $gearbox = [
-            [
-                'sap_id' => '500019164',
-                'name' => 'BLOWER PNEUMATIC CONVEYING SYSTEM',
-                'tag_id' => 'EP631A',
-                'location' => 'REF 1',
+        $locationIds = Location::pluck('id');
 
-            ],
-            [
-                'sap_id' => '500019165',
-                'name' => 'BLOWER PNEUMATIC CONVEYING SYSTEM',
-                'tag_id' => 'EP631B',
-                'location' => 'REF 1',
+        Gearbox::create([
+            'sap_id' => 1,
+            'name' => 'Gearbox Example 1',
+            'tag_id' => 'TAG001',
+            'location_id' => $locationIds->random(),
+            'brand' => 'Brand C',
+            'model' => 'Model Z',
+            'capacity' => 500.0,
+            'head' => 100.0,
+            'coupling' => 'Coupling B',
+            'front_bearing' => 'Bearing C',
+            'rear_bearing' => 'Bearing D',
+            'impeler' => 15.0,
+            'oil' => 'Oil B',
+            'oil_seal' => 'Seal B',
+            'grease' => 'Grease B',
+            'mech_seal' => 'Seal C',
+            'note' => 'This is a test gearbox.',
+        ]);
 
-            ],
-        ];
-
-        Gearbox::query()->insert($gearbox);
+        // Tambah data lainnya jika diperlukan
     }
 }

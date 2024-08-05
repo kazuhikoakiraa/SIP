@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Location;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Gearbox extends Model
 {
@@ -13,7 +14,7 @@ class Gearbox extends Model
         'sap_id',
         'name',
         'tag_id',
-        'location',
+        'location_id',
         'brand',
         'model',
         'capacity',
@@ -28,4 +29,11 @@ class Gearbox extends Model
         'mech_seal',
         'note',
     ];
+
+    // Relasi many-to-one dengan Location
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
+
 }

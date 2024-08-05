@@ -22,7 +22,7 @@
 
        <ul class="space-y-2 font-medium">
           <li>
-             <a href="{{route('dashboard')}}" class="flex items-center p-2 text-black rounded-lg font-bold hover:bg-gray-100 group" style="font-family: 'Poppins';">
+             <a href="{{route('dashboard.index')}}" class="flex items-center p-2 text-black rounded-lg font-bold hover:bg-gray-100 group" style="font-family: 'Poppins';">
                 <i data-feather="clipboard"></i>
                 <span class="ms-3">DASHBOARD</span>
              </a>

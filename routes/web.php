@@ -11,6 +11,8 @@ use App\Http\Controllers\AdminGearboxController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\UserLocationController;
 use App\Http\Controllers\AdminLocationController;
+use App\Http\Controllers\DashboardController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,10 +24,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/location', function () {
-        return view('location');
-    })->name('location');
-    Route::resource('location',AdminLocationController::class);
+    Route::resource('dashboard', DashboardController::class);
+    Route::resource('location', AdminLocationController::class);
     Route::resource('motor', AdminMotorController::class);
     Route::resource('pump', AdminPumpController::class);
     Route::resource('gear', AdminGearboxController::class);
@@ -37,13 +37,7 @@ Route::middleware('auth')->group(function () {
 
 
 
-
-
 Route::get('/user-loc', [UserLocationController::class, 'index'])->name('user-location.index');
 Route::get('/user-motor', [UserMotorController::class, 'index'])->name('user-motor.index');
 Route::get('/user-pump', [UserPumpController::class, 'index'])->name('user-pump.index');
 Route::get('/user-gear', [UserGearController::class, 'index'])->name('user-gear.index');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');

@@ -186,7 +186,7 @@
                         {{$item->tag_id}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                        {{$item->location}}
+                        {{$item->location->name}}
                     </td>
                     <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
                         {{$item->brand}}
@@ -274,11 +274,11 @@
                     </div>
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
                         <div class="flex-1">
-                            <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
-                            <select id="location" name="location" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="location_id" class="block text-sm font-medium text-gray-700">Location</label>
+                            <select id="location_id" name="location_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                                 <option selected="">Select Location</option>
                                 @foreach ($locations as $location)
-                                <option value="{{ $location->tag }}">{{ $location->name }}</option>
+                                <option value="{{ $location->id }}">{{ $location->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -381,11 +381,11 @@
                 </div>
                 <div class="flex flex-col md:flex-row gap-4 mb-2">
                     <div class="flex-1">
-                        <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
-                        <select id="location" name="location" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        <label for="location_id" class="block text-sm font-medium text-gray-700">Location</label>
+                        <select id="location_id" name="location_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                             <option value="{{ $item->location }}" selected>{{ $item->location }}</option>
                             @foreach ($locations as $loc)
-                                <option value="{{ $loc->tag }}">{{ $loc->name }}</option>
+                                <option value="{{ $loc->id }}">{{ $loc->name }}</option>
                             @endforeach
                         </select>
                     </div>

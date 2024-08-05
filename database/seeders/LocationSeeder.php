@@ -2,27 +2,22 @@
 
 namespace Database\Seeders;
 
-use App\Models\Location;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\DB;
 
 class LocationSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        $location = [
-            [
-                'name' => 'REFINERY 1',
-                'tag' => 'REF 1',
-            ],
-            [
-                'name' => 'FRACTINATION 1',
-                'tag' => 'FRA 1',
-            ]
+        // Data contoh untuk tabel locations
+        $locations = [
+            ['name' => 'Main Warehouse', 'tag' => 'WH_MAIN'],
+            ['name' => 'Secondary Warehouse', 'tag' => 'WH_SEC'],
+            ['name' => 'Maintenance Room', 'tag' => 'RM_MAINT'],
+            ['name' => 'Office', 'tag' => 'OFFICE'],
         ];
-        Location::query()->insert($location);
+
+        // Insert data ke tabel locations
+        DB::table('locations')->insert($locations);
     }
 }

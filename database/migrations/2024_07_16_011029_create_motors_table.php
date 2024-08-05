@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('img')->nullable();
             $table->string('name');
             $table->string('tag_id');
-            $table->string('location');
+            $table->unsignedBigInteger('location_id'); // Tambahkan kolom location_id
+            $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade'); // Foreign key
             $table->string('brand')->nullable();
             $table->string('model')->nullable();
             $table->float('ampere')->nullable();

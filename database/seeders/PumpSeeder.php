@@ -2,48 +2,36 @@
 
 namespace Database\Seeders;
 
-use App\Models\Pump;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Pump;
+use App\Models\Location;
 
 class PumpSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+    public function run()
     {
-        $pump = [
-            [
-                'sap_id' => '500015109',
-                'name' => 'Crude Oil Pump A',
-                'tag_id' => 'PU301A',
-                'location' => 'REF 1',
+        $locationIds = Location::pluck('id');
 
-            ],
-            [
-                'sap_id' => '500015111',
-                'name' => 'Crude Oil Pump B',
-                'tag_id' => 'PU301B',
-                'location' => 'REF 1',
+        Pump::create([
+            'sap_id' => 1,
+            'name' => 'Pump Example 1',
+            'tag_id' => 'TAG001',
+            'location_id' => $locationIds->random(),
+            'brand' => 'Brand A',
+            'model' => 'Model X',
+            'capacity' => 150.5,
+            'head' => 75.0,
+            'coupling' => 'Coupling A',
+            'front_bearing' => 'Bearing A',
+            'rear_bearing' => 'Bearing B',
+            'impeler' => 10.0,
+            'oil' => 'Oil A',
+            'oil_seal' => 'Seal A',
+            'grease' => 'Grease A',
+            'mech_seal' => 'Seal B',
+            'note' => 'This is a test pump.',
+        ]);
 
-            ],
-            [
-                'sap_id' => '500015112',
-                'name' => 'Crude Oil Dryer Discharge Pump A',
-                'tag_id' => 'PU311A',
-                'location' => 'REF 1',
-
-            ],
-            [
-                'sap_id' => '500015114',
-                'name' => 'Crude Oil Dryer Discharge Pump B',
-                'tag_id' => 'PU311B',
-                'location' => 'REF 1',
-
-            ],
-        ];
-
-        Pump::query()->insert($pump);
+        // Tambah data lainnya jika diperlukan
     }
 }

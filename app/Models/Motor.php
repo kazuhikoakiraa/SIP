@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Location;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Motor extends Model
 {
@@ -13,7 +14,7 @@ class Motor extends Model
     'sap_id',
     'name',
     'tag_id',
-    'location',
+    'location_id',
     'brand',
     'model',
     'ampere',
@@ -23,6 +24,13 @@ class Motor extends Model
     'speed',
     'note'
 ];
+
+    // Relasi many-to-one dengan Location
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
+
 
 
 }
