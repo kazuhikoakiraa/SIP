@@ -73,7 +73,6 @@ class AdminGearboxController extends Controller
             'grease' => 'nullable|string|max:255',
             'mech_seal' => 'nullable|string|max:255',
             'note' => 'nullable|string',
-            'img' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $gearbox = Gearbox::create($validated);
@@ -86,7 +85,7 @@ class AdminGearboxController extends Controller
             $gearbox->save();
         }
 
-        return redirect()->route('gearboxes.index')->with('success', 'Gearbox created successfully.');
+        return redirect()->route('gear.index')->with('success', 'Data created successfully.');
     }
 
     public function update(Request $request, Gearbox $gearbox)
@@ -109,7 +108,6 @@ class AdminGearboxController extends Controller
             'grease' => 'nullable|string|max:255',
             'mech_seal' => 'nullable|string|max:255',
             'note' => 'nullable|string',
-            'img' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $gearbox->update($validated);
@@ -122,7 +120,7 @@ class AdminGearboxController extends Controller
             $gearbox->save();
         }
 
-        return redirect()->route('gearboxes.index')->with('success', 'Gearbox updated successfully.');
+        return redirect()->route('gear.index')->with('success', 'Data updated successfully.');
     }
 
     public function destroy($id)

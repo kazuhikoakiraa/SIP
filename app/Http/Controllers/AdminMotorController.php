@@ -65,7 +65,6 @@ class AdminMotorController extends Controller
             'rear_bearing' => 'nullable|string|max:255',
             'speed' => 'nullable|string|max:255',
             'note' => 'nullable|string',
-            'img' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $motor = Motor::create([
@@ -110,7 +109,6 @@ class AdminMotorController extends Controller
             'rear_bearing' => 'nullable|string|max:255',
             'speed' => 'nullable|string|max:255',
             'note' => 'nullable|string',
-            'img' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $motor->update([
@@ -144,4 +142,6 @@ class AdminMotorController extends Controller
         Motor::findOrFail($id)->delete();
         return redirect()->route('motor.index')->with('success', 'Data deleted successfully.');
     }
+
+
 }

@@ -74,7 +74,6 @@ class AdminPumpController extends Controller
             'grease' => 'nullable|string|max:255',
             'mech_seal' => 'nullable|string|max:255',
             'note' => 'nullable|string',
-            'img' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $pump = Pump::create($validated);
@@ -87,7 +86,7 @@ class AdminPumpController extends Controller
             $pump->save();
         }
 
-        return redirect()->route('pumps.index')->with('success', 'Pump created successfully.');
+        return redirect()->route('pump.index')->with('success', 'Data created successfully.');
     }
 
     public function update(Request $request, Pump $pump)
@@ -110,7 +109,6 @@ class AdminPumpController extends Controller
             'grease' => 'nullable|string|max:255',
             'mech_seal' => 'nullable|string|max:255',
             'note' => 'nullable|string',
-            'img' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $pump->update($validated);
@@ -123,7 +121,7 @@ class AdminPumpController extends Controller
             $pump->save();
         }
 
-        return redirect()->route('pumps.index')->with('success', 'Pump updated successfully.');
+        return redirect()->route('pump.index')->with('success', 'Data updated successfully.');
     }
 
     public function destroy($id)

@@ -383,7 +383,7 @@
                     <div class="flex-1">
                         <label for="location_id" class="block text-sm font-medium text-gray-700">Location</label>
                         <select id="location_id" name="location_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                            <option value="{{ $item->location }}" selected>{{ $item->location }}</option>
+                            <option value="{{ $item->location_id }}" selected>{{ $item->location->name }}</option>
                             @foreach ($locations as $loc)
                                 <option value="{{ $loc->id }}">{{ $loc->name }}</option>
                             @endforeach
