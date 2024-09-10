@@ -37,6 +37,16 @@
             </div>
             <!-- End Search Bar -->
 
+            @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
             @if (session('success'))
                 <div class="alert alert-success text-center">
                     {{ session('success') }}
@@ -215,7 +225,7 @@
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
                         <div class="flex-1">
                             <label for="sap_id" class="block text-sm font-medium text-gray-700">SAP ID</label>
-                            <input type="text" id="sap_id" name="sap_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <input type="text" id="sap_id" name="sap_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
                         </div>
                         <div class="flex-1">
                             <label for="img" class="block text-sm font-medium text-gray-700">Image</label>
@@ -225,11 +235,11 @@
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
                         <div class="flex-1">
                             <label for="name" class="block text-sm font-medium text-gray-700">Equipment Name</label>
-                            <input type="text" id="name" name="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <input type="text" id="name" name="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
                         </div>
                         <div class="flex-1">
                             <label for="tag_id" class="block text-sm font-medium text-gray-700">TAG ID</label>
-                            <input type="text" id="tag_id" name="tag_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <input type="text" id="tag_id" name="tag_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-4 mb-2">

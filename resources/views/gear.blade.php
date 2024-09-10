@@ -37,8 +37,18 @@
         </div>
         <!-- End Search Bar -->
 
-        @if (session('success'))
-        <div class="alert alert-success text-center">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    @if (session('success'))
+        <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
@@ -255,7 +265,7 @@
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
                         <div class="flex-1">
                             <label for="sap_id" class="block text-sm font-medium text-gray-700">SAP ID</label>
-                            <input type="text" id="sap_id" name="sap_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <input type="text" id="sap_id" name="sap_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
                         </div>
                         <div class="flex-1">
                             <label for="img" class="block text-sm font-medium text-gray-700">Image</label>
@@ -265,17 +275,17 @@
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
                         <div class="flex-1">
                             <label for="name" class="block text-sm font-medium text-gray-700">Equipment Name</label>
-                            <input type="text" id="name" name="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <input type="text" id="name" name="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
                         </div>
                         <div class="flex-1">
                             <label for="tag_id" class="block text-sm font-medium text-gray-700">TAG ID</label>
-                            <input type="text" id="tag_id" name="tag_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <input type="text" id="tag_id" name="tag_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
                         <div class="flex-1">
                             <label for="location_id" class="block text-sm font-medium text-gray-700">Location</label>
-                            <select id="location_id" name="location_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <select id="location_id" name="location_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
                                 <option selected="">Select Location</option>
                                 @foreach ($locations as $location)
                                 <option value="{{ $location->id }}">{{ $location->name }}</option>
@@ -345,7 +355,7 @@
                     </div>
                     <div class="flex justify-end">
                         <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="closeModal('add-gear')">Cancel</button>
-                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Save</button>
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md" id="submit-btn">Save</button>
                     </div>
                 </form>
             </div>
@@ -486,5 +496,7 @@
         </div>
         </div>
     @include('assets.js')
+
+
 </body>
 </html>

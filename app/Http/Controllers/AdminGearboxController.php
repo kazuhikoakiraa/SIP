@@ -56,7 +56,8 @@ class AdminGearboxController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'sap_id' => 'required|integer|unique:gearbox,sap_id',
+            'sap_id' => 'required|string|max:255',
+            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'name' => 'required|string|max:255',
             'tag_id' => 'required|string|max:255',
             'location_id' => 'required|exists:locations,id',
@@ -72,8 +73,10 @@ class AdminGearboxController extends Controller
             'oil_seal' => 'nullable|string|max:255',
             'grease' => 'nullable|string|max:255',
             'mech_seal' => 'nullable|string|max:255',
-            'note' => 'nullable|string',
+            'note' => 'nullable|string|max:1000',
         ]);
+
+        // Process the valid data (store in DB, etc.)
 
         $gearbox = Gearbox::create($validated);
 

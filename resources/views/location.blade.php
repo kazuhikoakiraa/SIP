@@ -24,7 +24,7 @@
                 </div>
             </div>
         </nav>
-    
+
 
     <div class="mt-5">
         <!-- Search Bar -->
@@ -40,6 +40,16 @@
         </div>
         <!-- End Search Bar -->
 
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    
         @if (session('success'))
             <div class="alert alert-success text-center">
                 {{ session('success') }}
