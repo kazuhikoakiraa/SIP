@@ -30,7 +30,7 @@
                 <form action="{{ route('profile.index') }}" method="GET">
                     <input type="text" name="search" value="{{ $search ?? '' }}" class="pl-10 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search">
                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <i class="text-gray-300" data-feather="search"></i>
+                        <i data-feather="search"></i>
                     </div>
                 </form>
             </div>
