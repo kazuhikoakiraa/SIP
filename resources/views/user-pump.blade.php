@@ -270,7 +270,6 @@
                 </form>
             </div>
 
-<<<<<<< HEAD
             <form action="{{ route('user-pump.index') }}" method="GET">
                 <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Search">
                 <i data-feather="search"></i>
@@ -288,56 +287,13 @@
                         <th>TAG ID</th>
                         <th>LOCATION</th>
                         <th class="text-center">AKSI</th>
-=======
-            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 lg:w-2/3 mx-auto">
-                <thead class="text-sm text-black uppercase bg-white border-1 border-black lg:justify-start ">
-                    <tr>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
-                        <div class="flex items-center">
-                           SAP ID
-                        </div>
-                    </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
-                        <div class="flex items-center">
-                            IMAGE
-                        </div>
-                    </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
-                        <div class="flex items-center">
-                            EQUIPMENT NAME
-                        </div>
-                    </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
-                        <div class="flex items-center">
-                            TAG ID
-                        </div>
-                    </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
-                        <div class="flex items-center">
-                            LOCATION
-                        </div>
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-center">
-                        <div>
-                            AKSI
-                        </div>
-                    </th>
->>>>>>> parent of e201aee (push css edit)
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($pump as $item)
-<<<<<<< HEAD
                     <tr>
                         <td>{{$item->sap_id}}</td>
                         <td>
-=======
-                    <tr class="bg-white border-1 border-black">
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                            {{$item->sap_id}}
-                        </td>
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
->>>>>>> parent of e201aee (push css edit)
                             @if($item->img)
                             <img class="table-image" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);" 
                             src="{{ asset('assets/img/' . $item->img) }}" alt="Pump Image">
@@ -345,46 +301,11 @@
                             <img class="table-image" src="{{ asset('assets/img/default.png') }}" alt="Default Image">
                             @endif
                         </td>
-<<<<<<< HEAD
                         <td>{{$item->name}}</td>
                         <td>{{$item->tag_id}}</td>
                         <td>{{$item->location->name}}</td>
                         <td class="text-center">
                             <button type="button" class="btn-detail" onclick="detailModal('{{$item->name}}', '{{$item->img}}', '{{$item->sap_id}}', '{{$item->tag_id}}', '{{$item->location->name}}', '{{$item->brand}}', '{{$item->model}}', '{{$item->capacity}}', '{{$item->head}}', '{{$item->coupling}}', '{{$item->front_bearing}}', '{{$item->rear_bearing}}', '{{$item->impeler}}', '{{$item->oil}}', '{{$item->oil_seal}}', '{{$item->grease}}', '{{$item->mech_seal}}', '{{$item->note}}')">Detail</button>
-=======
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                            {{$item->name}}
-                        </td>
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                            {{$item->tag_id}}
-                        </td>
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                            {{$item->location->name}}
-                        </td>
-                        <td class="px-2 py-2 text-center">
-                            <button type="button" class="flex flex-row items-center focus:outline-none text-white bg-black font-medium rounded-3xl text-sm px-8 py-2" onclick="detailModal(
-                                '{{ $item->name }}',
-                                '{{ $item->img }}',
-                                '{{ $item->sap_id }}',
-                                '{{ $item->tag_id }}',
-                                '{{ $item->location->name }}',
-                                '{{ $item->brand }}',
-                                '{{ $item->model }}',
-                                '{{ $item->capacity }}',
-                                '{{ $item->head }}',
-                                '{{ $item->coupling }}',
-                                '{{ $item->front_bearing }}',
-                                '{{ $item->rear_bearing }}',
-                                '{{ $item->impeler }}',
-                                '{{ $item->oil }}',
-                                '{{ $item->oil_seal }}',
-                                '{{ $item->grease }}',
-                                '{{ $item->mech_seal }}',
-                                '{{ $item->note }}'
-                            )">
-                                Detail <i class="text-white ml-2" data-feather="alert-circle"></i>
-                            </button>
->>>>>>> parent of e201aee (push css edit)
                         </td>
                     </tr>
                     @endforeach
