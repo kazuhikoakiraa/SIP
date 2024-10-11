@@ -13,13 +13,15 @@ class UserMotorController extends Controller
         $search = $request->input('search');
         $pageLength = $request->input('pageLength', 10);
 
+        // Query dasar untuk mengambil data motor
         $motor = Motor::query();
 
+        // Jika ada parameter pencarian
         if ($search) {
+            // Tambahkan pencarian berdasarkan kolom di tabel `motors`
             $motor->where('sap_id', 'LIKE', "%{$search}%")
                 ->orWhere('name', 'LIKE', "%{$search}%")
                 ->orWhere('tag_id', 'LIKE', "%{$search}%")
-                ->orWhere('location', 'LIKE', "%{$search}%")
                 ->orWhere('brand', 'LIKE', "%{$search}%")
                 ->orWhere('model', 'LIKE', "%{$search}%")
                 ->orWhere('ampere', 'LIKE', "%{$search}%")
@@ -27,12 +29,20 @@ class UserMotorController extends Controller
                 ->orWhere('front_bearing', 'LIKE', "%{$search}%")
                 ->orWhere('rear_bearing', 'LIKE', "%{$search}%")
                 ->orWhere('speed', 'LIKE', "%{$search}%")
-                ->orWhere('note', 'LIKE', "%{$search}%");
+                ->orWhere('note', 'LIKE', "%{$search}%")
+                // Pencarian pada kolom `name` di tabel `locations` menggunakan whereHas
+                ->orWhereHas('location', function ($query) use ($search) {
+                    $query->where('name', 'LIKE', "%{$search}%");
+                });
         }
 
+        // Mengambil data motor dengan pagination
         $motor = $motor->paginate($pageLength);
-        $locations = Location::all(); // Mengambil semua lokasi
 
+        // Mengambil semua lokasi
+        $locations = Location::all();
+
+        // Mengirimkan data ke view
         return view('user-motor', compact('motor', 'search', 'pageLength', 'locations'));
     }
 }
