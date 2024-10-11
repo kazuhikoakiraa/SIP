@@ -13,38 +13,36 @@
     @include('layout.user-nav')
 
     <div class="p-4">
-        <h1 class="font-bold text-3xl p-3">EQUIPMENT-PUMP</h1>
-       <!-- Search Bar -->
-       <div class="flex justify-center items-center mb-4 -ml-3">
-        <div class="relative w-80">
-            <form action="{{ route('user-pump.index') }}" method="GET">
-                <input type="text" name="search" value="{{ $search ?? '' }}" class="pl-10 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <i data-feather="search"></i>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!-- End Search Bar -->
-
-        <!-- Table -->
-        <div class="flex flex-col items-center justify-center relative overflow-x-auto sm:rounded-lg">
-            <!-- Page Length and Button Add Item -->
-            <div class="flex w-full px-4 py-2 mb-4">
-                <label class="flex items-center space-x-1.5">
-                    <span>Show</span>
-                    <form action="{{route('user-pump.index')}}" method="GET">
-                        <select name="pageLength" onchange="this.form.submit()" class="w-16 form-control input-sm border border-gray-300 rounded-lg py-1 px-2 focus:ring-blue-500 focus:border-blue-500">
-                            <option value="10" {{ $pageLength == 10 ? 'selected' : '' }}>10</option>
-                            <option value="25" {{ $pageLength == 25 ? 'selected' : '' }}>25</option>
-                            <option value="50" {{ $pageLength == 50 ? 'selected' : '' }}>50</option>
-                            <option value="100" {{ $pageLength == 100 ? 'selected' : '' }}>100</option>
-                        </select>
-                    </form>
-                    <span>entries</span>
-                </label>
+        <h1 class="font-bold text-3xl p-3">EQUIPMENT-MOTOR</h1>
+        <!-- Search Bar -->
+        <div class="flex justify-center items-center mb-4 -ml-3">
+            <div class="relative w-80">
+                <form action="{{ route('user-pump.index') }}" method="GET">
+                    <input type="text" name="search" value="{{ $search ?? '' }}" class="pl-10 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <i class="text-gray-300" data-feather="search"></i>
+                    </div>
+                </form>
             </div>
-            <!-- End Page Length and Button Add Item -->
+        </div>
+        <!-- End Search Bar -->
+
+        <!-- Page Length and Button Add Item -->
+        <div class="flex w-full px-4 py-2 mb-4">
+            <label class="flex items-center space-x-1.5">
+                <span>Show</span>
+                <form action="{{route('user-pump.index')}}" method="GET">
+                    <select name="pageLength" onchange="this.form.submit()" class="w-16 form-control input-sm border border-gray-300 rounded-lg py-1 px-2 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="10" {{ $pageLength == 10 ? 'selected' : '' }}>10</option>
+                        <option value="25" {{ $pageLength == 25 ? 'selected' : '' }}>25</option>
+                        <option value="50" {{ $pageLength == 50 ? 'selected' : '' }}>50</option>
+                        <option value="100" {{ $pageLength == 100 ? 'selected' : '' }}>100</option>
+                    </select>
+                </form>
+                <span>entries</span>
+            </label>
+        </div>
+        <!-- End Page Length and Button Add Item -->
 
         <!-- Table -->
         <div class="flex flex-col mt-6">
@@ -136,10 +134,11 @@
                     @endforeach
                 </tbody>
 
-            </table>
+                </table>
+        </div>
+        <!-- End Table -->
         </div>
     </div>
-        <!-- End Table -->
 
 
         <!-- Pagination -->
