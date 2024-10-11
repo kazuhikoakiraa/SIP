@@ -47,7 +47,7 @@
             border-radius: 25px;
             outline: none;
             transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);   
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .search-container input:focus, .dropdown-container select:focus {

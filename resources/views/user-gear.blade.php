@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @include('assets.style')
-    @vite(['resources/css/app.css','resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>USER GEAR | PT. SUMBER INDAHPERKASA</title>
 </head>
 
@@ -51,106 +51,51 @@
         <!-- Table -->
         <div class="flex flex-col mt-6">
         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8 mx-2">
-                <div class="overflow-hidden border border-gray-200 md:rounded-lg">
+            <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                <div class="overflow-hidden border border-gray-200 md:rounded-lg mx-2">
                     <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-200">
-                    <tr>
-                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
-                        <div class="flex items-center">
-                           SAP ID
-                        </div>
-                    </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
-                        <div class="flex items-center">
-                            IMAGE
-                        </div>
-                    </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
-                        <div class="flex items-center">
-                            EQUIPMENT NAME
-                        </div>
-                    </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
-                        <div class="flex items-center">
-                            TAG ID
-                        </div>
-                    </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
-                        <div class="flex items-center">
-                            LOCATION
-                        </div>
-                    </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap text-center">
-                        <div>
-                            AKSI
-                        </div>
-                    </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($gearbox as $item)
-                    <tr class="bg-white border-1 border-gray-300">
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
-                            {{$item->sap_id}}
-                        </td>
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
-                            @if($item->img)
-                                <img class="w-10 h-10 rounded-sm" src="{{ asset('assets/img/' . $item->img) }}" alt="Gear Image">
-                            @else
-                                <img class="w-10 h-10 rounded-sm" src="{{ asset('assets/img/default.png') }}" alt="Default Image">
-                            @endif
-                        </td>
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
-                            {{$item->name}}
-                        </td>
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
-                            {{$item->tag_id}}
-                        </td>
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
-                            {{$item->location->name}}
-                        </td>
-                        <td class="px-2 py-2 text-center">
-                            <button type="button" class="inline-flex items-center focus:outline-none text-white bg-black font-medium rounded-3xl text-sm px-8 py-2" onclick="detailModal(
-                                '{{ $item->name }}',
-                                '{{ $item->img }}',
-                                '{{ $item->sap_id }}',
-                                '{{ $item->tag_id }}',
-                                '{{ $item->location->name }}',
-                                '{{ $item->brand }}',
-                                '{{ $item->model }}',
-                                '{{ $item->capacity }}',
-                                '{{ $item->head }}',
-                                '{{ $item->coupling }}',
-                                '{{ $item->front_bearing }}',
-                                '{{ $item->rear_bearing }}',
-                                '{{ $item->impeler }}',
-                                '{{ $item->oil }}',
-                                '{{ $item->oil_seal }}',
-                                '{{ $item->grease }}',
-                                '{{ $item->mech_seal }}',
-                                '{{ $item->note }}'
-                            )">
-                                Detail <i class="text-white ml-2" data-feather="alert-circle"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                        <thead class="bg-gray-200">
+                                <tr>
+                                    <th class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">SAP ID</th>
+                                    <th class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">IMAGE</th>
+                                    <th class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">EQUIPMENT NAME</th>
+                                    <th class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">TAG ID</th>
+                                    <th class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">LOCATION</th>
+                                    <th class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap text-center">AKSI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($gearbox as $item)
+                                    <tr class="bg-white border-1 border-gray-300">
+                                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">{{ $item->sap_id }}</td>
+                                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
+                                            <img class="w-10 h-10 rounded-sm" src="{{ asset('assets/img/' . ($item->img ?? 'default.png')) }}" alt="Gear Image">
+                                        </td>
+                                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">{{ $item->name }}</td>
+                                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">{{ $item->tag_id }}</td>
+                                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">{{ $item->location->name }}</td>
+                                        <td class="px-2 py-2 text-center">
+                                            <button type="button" class="inline-flex items-center focus:outline-none text-white bg-black font-medium rounded-3xl text-sm px-8 py-2" onclick="detailModal(
+                                                '{{ $item->name }}', '{{ $item->img }}', '{{ $item->sap_id }}', '{{ $item->tag_id }}', '{{ $item->location->name }}', '{{ $item->brand }}', '{{ $item->model }}', '{{ $item->capacity }}', '{{ $item->head }}', '{{ $item->coupling }}', '{{ $item->front_bearing }}', '{{ $item->rear_bearing }}', '{{ $item->impeler }}', '{{ $item->oil }}', '{{ $item->oil_seal }}', '{{ $item->grease }}', '{{ $item->mech_seal }}', '{{ $item->note }}'
+                                            )">Detail <i class="text-white ml-2" data-feather="alert-circle"></i></button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
         <!-- End Table -->
-
 
         <!-- Pagination -->
         <div class="flex justify-center mt-4">
             {{ $gearbox->appends(['search' => $search, 'pageLength' => $pageLength])->links('vendor.pagination.tailwind') }}
         </div>
+        <!-- End Pagination -->
 
-         <!-- End Pagination -->
-
-         <!-- Modal -->
+        <!-- Modal -->
         <div id="detail-modal" class="hidden fixed z-50 inset-0 overflow-y-auto">
             <div class="flex items-center justify-center min-h-screen px-4 text-center">
                 <div class="fixed inset-0 transition-opacity" aria-hidden="true">
@@ -189,29 +134,28 @@
         </div>
         <!-- End Modal -->
 
-
     @include('assets.js')
 
     <script>
-        function detailModal(name, img, sapId, tagId, locationName, brand, model, capacity, head, coupling, frontBearing, rearBearing, impeler, oil, oilSeal, grease, mechSeal, note) {
-            document.getElementById('modal-equipment-name').innerText = name;
-            document.getElementById('modal-image').src = img ? `{{ asset('assets/img/') }}/${img}` : `{{ asset('assets/img/default.png') }}`;
-            document.getElementById('modal-sap-id').innerText = `SAP ID: ${sapId}`;
-            document.getElementById('modal-tag-id').innerText = tagId;
-            document.getElementById('modal-location').innerText = locationName;
-            document.getElementById('modal-brand').innerText = brand;
-            document.getElementById('modal-model').innerText = model;
-            document.getElementById('modal-capacity').innerText = capacity;
-            document.getElementById('modal-head').innerText = head;
-            document.getElementById('modal-coupling').innerText = coupling;
-            document.getElementById('modal-front-bearing').innerText = frontBearing;
-            document.getElementById('modal-rear-bearing').innerText = rearBearing;
-            document.getElementById('modal-impeler').innerText = impeler;
-            document.getElementById('modal-oil').innerText = oil;
-            document.getElementById('modal-oil-seal').innerText = oilSeal;
-            document.getElementById('modal-grease').innerText = grease;
-            document.getElementById('modal-mech-seal').innerText = mechSeal;
-            document.getElementById('modal-note').innerText = note;
+        function detailModal(name, img, sap_id, tag_id, location, brand, model, capacity, head, coupling, front_bearing, rear_bearing, impeler, oil, oil_seal, grease, mech_seal, note) {
+            document.getElementById('modal-equipment-name').textContent = name;
+            document.getElementById('modal-image').src = '/assets/img/' + (img ? img : 'default.png');
+            document.getElementById('modal-sap-id').textContent = sap_id;
+            document.getElementById('modal-tag-id').textContent = tag_id;
+            document.getElementById('modal-location').textContent = location;
+            document.getElementById('modal-brand').textContent = brand;
+            document.getElementById('modal-model').textContent = model;
+            document.getElementById('modal-capacity').textContent = capacity;
+            document.getElementById('modal-head').textContent = head;
+            document.getElementById('modal-coupling').textContent = coupling;
+            document.getElementById('modal-front-bearing').textContent = front_bearing;
+            document.getElementById('modal-rear-bearing').textContent = rear_bearing;
+            document.getElementById('modal-impeler').textContent = impeler;
+            document.getElementById('modal-oil').textContent = oil;
+            document.getElementById('modal-oil-seal').textContent = oil_seal;
+            document.getElementById('modal-grease').textContent = grease;
+            document.getElementById('modal-mech-seal').textContent = mech_seal;
+            document.getElementById('modal-note').textContent = note;
 
             document.getElementById('detail-modal').classList.remove('hidden');
         }
@@ -220,8 +164,6 @@
             document.getElementById('detail-modal').classList.add('hidden');
         }
     </script>
-
-
 </body>
 
 </html>
