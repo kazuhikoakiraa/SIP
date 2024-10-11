@@ -34,6 +34,7 @@
             </div>
             <!-- End Page Length and Button Add Item -->
 
+<<<<<<< HEAD
             <!-- Search Bar -->
             <div class="flex justify-center items-center mb-4 -ml-3">
                 <div class="relative w-80">
@@ -55,33 +56,37 @@
                 <div class="overflow-hidden border border-gray-200 md:rounded-lg">
                     <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-200">
+=======
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 lg:w-2/3 mx-auto">
+                <thead class="text-sm text-black uppercase bg-white border-1 border-black lg:justify-start ">
+>>>>>>> parent of e201aee (push css edit)
                     <tr>
-                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                            SAP ID
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             IMAGE
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             EQUIPMENT NAME
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             TAG ID
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">
                             LOCATION
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap text-center">
+                    <th scope="col" class="px-6 py-3 text-center">
                         <div>
                             AKSI
                         </div>
@@ -90,28 +95,28 @@
                 </thead>
                 <tbody>
                     @foreach ($gearbox as $item)
-                    <tr class="bg-white border-1 border-gray-300">
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
+                    <tr class="bg-white border-1 border-black">
+                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
                             {{$item->sap_id}}
                         </td>
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
+                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
                             @if($item->img)
                                 <img class="w-10 h-10 rounded-sm" src="{{ asset('assets/img/' . $item->img) }}" alt="Gear Image">
                             @else
                                 <img class="w-10 h-10 rounded-sm" src="{{ asset('assets/img/default.png') }}" alt="Default Image">
                             @endif
                         </td>
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
+                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
                             {{$item->name}}
                         </td>
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
+                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
                             {{$item->tag_id}}
                         </td>
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
+                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
                             {{$item->location->name}}
                         </td>
                         <td class="px-2 py-2 text-center">
-                            <button type="button" class="inline-flex items-center focus:outline-none text-white bg-black font-medium rounded-3xl text-sm px-8 py-2" onclick="detailModal(
+                            <button type="button" class="flex flex-row items-center focus:outline-none text-white bg-black font-medium rounded-3xl text-sm px-8 py-2" onclick="detailModal(
                                 '{{ $item->name }}',
                                 '{{ $item->img }}',
                                 '{{ $item->sap_id }}',
