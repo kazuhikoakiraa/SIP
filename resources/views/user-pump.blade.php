@@ -295,8 +295,7 @@
                         <td>{{$item->sap_id}}</td>
                         <td>
                             @if($item->img)
-                            <img class="table-image" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);" 
-                            src="{{ asset('assets/img/' . $item->img) }}" alt="Pump Image">
+                            <img class="table-image" src="{{ asset('assets/img/' . $item->img) }}" alt="Pump Image">
                             @else
                             <img class="table-image" src="{{ asset('assets/img/default.png') }}" alt="Default Image">
                             @endif
