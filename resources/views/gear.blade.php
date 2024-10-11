@@ -74,101 +74,104 @@
         <!-- End Page Lenght and Button Add Item -->
 
         <!-- Table -->
-        <div class="flex justify-start overflow-x-auto sm:rounded-lg" >
-        <table class="text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-sm text-black uppercase bg-white border-1 border-black">
-                <tr>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
+        <div class="flex flex-col mt-6 px-2">
+        <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                <div class="overflow-hidden border border-gray-200 md:rounded-lg mx-2">
+                    <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-200">
+                    <tr>
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                         <div class="flex items-center">
                            SAP ID
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                         <div class="flex items-center">
                             IMAGE
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                         <div class="flex items-center">
                             EQUIPMENT NAME
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                         <div class="flex items-center">
                             TAG ID
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                         <div class="flex items-center">
                             LOCATION
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                         <div class="flex items-center">
                             BRAND
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                         <div class="flex items-center">
                             MODEL
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                         <div class="flex items-center">
                             CAPACITY (m3/hr)
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                         <div class="flex items-center">
                             HEAD (m)
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                         <div class="flex items-center">
                             COUPLING
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                         <div class="flex items-center">
                             FRONT BEARING
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                         <div class="flex items-center">
                             REAR BEARING
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                         <div class="flex items-center">
                             IMPELER SIZE (mm)
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                         <div class="flex items-center">
                             OIL
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                         <div class="flex items-center">
                             OIL SEAL
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                         <div class="flex items-center">
                             GREASE
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                         <div class="flex items-center">
                             MECH SEAL
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                         <div class="flex items-center">
                             NOTE
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 text-center">
+                    <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap text-center">
                         <div>
                             ACTION
                         </div>
@@ -178,62 +181,62 @@
             <tbody>
                 @foreach ($gearbox as $item)
 
-                <tr class="bg-white border-1 border-black">
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                <tr class="bg-white border-1 border-gray-300">
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
                         {{$item->sap_id}}
                     </td>
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
                         @if($item->img)
                             <img class="w-10 h-10 rounded-sm cursor-pointer" src="{{ asset('assets/img/' . $item->img) }}" alt="Gear Image" onclick="openImageModal('{{ asset('assets/img/' . $item->img) }}')">
                         @else
                             <img class="w-10 h-10 rounded-sm cursor-pointer" src="{{ asset('assets/img/default.png') }}" alt="Default Image" onclick="openImageModal('{{ asset('assets/img/default.png') }}')">
                         @endif
                     </td>
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
                         {{$item->name}}
                     </td>
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
                         {{$item->tag_id}}
                     </td>
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
                         {{$item->location->name }}
                     </td>
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
                         {{$item->brand}}
                     </td>
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
                         {{$item->model}}
                     </td>
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
                         {{$item->capacity}}
                     </td>
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
                         {{$item->head}}
                     </td>
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
                         {{$item->coupling}}
                     </td>
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
                         {{$item->front_bearing}}
                     </td>
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
                         {{$item->rear_bearing}}
                     </td>
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
                         {{$item->impeler}}
                     </td>
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
                         {{$item->oil}}
                     </td>
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
                         {{$item->oil_seal}}
                     </td>
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
                         {{$item->grease}}
                     </td>
-                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                    <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
                         {{$item->mech_seal}}
-                    </td><td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                    </td><td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-gray-300 text-black">
                         {{$item->note}}
                     </td>
                     <td class="px-2 py-2 text-center">
