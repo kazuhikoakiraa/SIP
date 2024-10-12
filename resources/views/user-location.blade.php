@@ -53,7 +53,7 @@
             <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                 <div class="overflow-hidden border border-gray-200 md:rounded-lg mx-2">
                     <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-200">
+                <thead class="bg-gray-200" style="background-color: #3B4A6B;">
                     <tr>
                         <th scope="col" class="px-6 py-3 border-1 border-gray-300 whitespace-nowrap">
                             <div class="flex items-center">
