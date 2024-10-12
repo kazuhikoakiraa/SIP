@@ -74,6 +74,10 @@ class AdminGearboxController extends Controller
             'grease' => 'nullable|string|max:255',
             'mech_seal' => 'nullable|string|max:255',
             'note' => 'nullable|string|max:1000',
+        ], [
+            'img.image' => 'The selected file must be an image.',
+            'img.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, svg.',
+            'img.max' => 'The image size must not exceed 2MB.',
         ]);
 
         // Process the valid data (store in DB, etc.)
@@ -111,6 +115,10 @@ class AdminGearboxController extends Controller
             'grease' => 'nullable|string|max:255',
             'mech_seal' => 'nullable|string|max:255',
             'note' => 'nullable|string',
+        ], [
+            'img.image' => 'The selected file must be an image.',
+            'img.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, svg.',
+            'img.max' => 'The image size must not exceed 2MB.',
         ]);
 
         $gearbox->update($validated);
@@ -131,6 +139,4 @@ class AdminGearboxController extends Controller
         Gearbox::findOrFail($id)->delete();
         return redirect()->route('gear.index')->with('success', 'Data deleted successfully.');
     }
-
-
 }

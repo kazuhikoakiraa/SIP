@@ -251,5 +251,25 @@
         </div>
     </div>
     @include('assets.js')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const imgInput = document.getElementById('img');
+
+            imgInput.addEventListener('change', function () {
+                const file = this.files[0];
+                if (file) {
+                    const validExtensions = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/svg+xml'];
+                    if (!validExtensions.includes(file.type)) {
+                        alert('The selected file must be an image of type: jpeg, png, jpg, gif, svg.');
+                        this.value = ''; // Clear the file input
+                    } else if (file.size > 2048 * 1024) {
+                        alert('The image size must not exceed 2MB.');
+                        this.value = ''; // Clear the file input
+                    }
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
