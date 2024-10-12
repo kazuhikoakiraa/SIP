@@ -4,453 +4,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @include('assets.style')
+    @vite(['resources/css/app.css','resources/js/app.js'])
     <title>USER PUMP | PT. SUMBER INDAHPERKASA</title>
-    <!-- Internal CSS -->
-    <style>
-        /* General Styling */
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fc;
-            color: #3B4A6B;
-        }
-
-        /* Container & Title */
-        .container {
-            padding: 30px 50px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .title {
-            font-size: 32px;
-            font-weight: bold;
-            color: #3B4A6B;
-            border-bottom: 4px solid #FFC857;
-            display: inline-block;
-            padding-bottom: 5px;
-            margin-top: 30px;
-        }
-
-        /* Search Bar and Dropdown Styling */
-        .search-container {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            padding: 10px 0;
-        }
-
-        .search-container form {
-            display: flex;
-            align-items: center;
-        }
-
-        .search-container input, .dropdown-container select {
-            padding: 12px 20px;
-            border: 1px solid #ccc;
-            border-radius: 25px;
-            outline: none;
-            transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .search-container input:focus, .dropdown-container select:focus {
-            border-color: #3B4A6B;
-            box-shadow: 0 6px 12px rgba(59, 74, 107, 0.2);
-        }
-
-        /* Table Styling */
-        .table-container {
-            overflow-x: auto;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            margin-top: 30px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            text-align: left;
-            padding: 15px 20px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #3B4A6B;
-            color: white;
-        }
-
-        tr:hover td {
-            background-color: #EEF2F7;
-            color: #3B4A6B;
-            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-        }
-
-        .table-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 8px;
-            object-fit: cover;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Pagination Styling */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            gap: 10px;
-        }
-
-        .pagination a, .pagination span {
-            padding: 10px 15px;
-            border: 1px solid #ddd;
-            background-color: #fff;
-            color: #3B4A6B;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .pagination a:hover, .pagination span:hover, .pagination .active {
-            background-color: #3B4A6B;
-            color: #fff;
-        }
-
-        /* Button Styling */
-        .btn-detail {
-            padding: 10px 20px;
-            background: #3B4A6B;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        .btn-detail:hover {
-            background-color: #2A3D59;
-        }
-
-        /* Modal Styling */
-        .modal-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-        }
-
-        .modal-container {
-            background: white;
-            border-radius: 10px;
-            width: 60%;
-            padding: 20px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            max-height: 80%;
-            overflow-y: auto;
-        }
-
-        .modal-header {
-            text-align: center;
-        }
-
-        .modal-header h2 {
-            margin: 0;
-            font-size: 24px;
-            color: #3B4A6B;
-        }
-
-        .modal-body {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .modal-body img {
-            width: 100%;
-            height: 300px;
-            border-radius: 8px;
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-
-        .modal-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .modal-info div {
-            flex: 1 1 45%;
-            background: #f8f9fc;
-            padding: 10px 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .modal-footer {
-            display: flex;
-            justify-content: center;
-        }
-
-        .modal-footer button {
-            padding: 10px 20px;
-            background: #3B4A6B;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        .modal-footer button:hover {
-            background-color: #2A3D59;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .modal-container {
-                width: 80%;
-            }
-
-            .modal-body img {
-                height: 200px;
-            }
-
-            .modal-info div {
-                flex: 1 1 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .modal-container {
-                width: 90%;
-                padding: 15px;
-            }
-
-            .modal-body img {
-                height: 150px;
-            }
-        }
-    </style>
 </head>
 
-<body>
+<body style="background-color: #F9FAFB; color: #2C3E50; font-family: 'Poppins', sans-serif;">
     @include('layout.user-nav')
 
-    <div class="container">
-        <h1 class="title">PUMP</h1>
+    <div class="p-4">
+        <nav class="navbar navbar-light bg-white rounded-lg shadow-md p-4 mb-6 flex justify-between items-center w-3/5 mx-auto">
+            <h1 class="font-bold text-black text-3xl" style="font-family: 'Poppins'; text-align: center;">PUMP</h1>
+        </nav>
 
-        <!-- Search Bar and Page Length -->
-        <div class="search-container">
-            <div class="dropdown-container">
-                <form action="{{route('user-pump.index')}}" method="GET">
-                    <label>
-                        <span>Show</span>
-                        <select name="pageLength" id="pageLength" onchange="this.form.submit()">
-                            <option value="10" {{ $pageLength == 10 ? 'selected' : '' }}>10</option>
-                            <option value="25" {{ $pageLength == 25 ? 'selected' : '' }}>25</option>
-                            <option value="50" {{ $pageLength == 50 ? 'selected' : '' }}>50</option>
-                            <option value="100" {{ $pageLength == 100 ? 'selected' : '' }}>100</option>
-                        </select>
-                        <span>entries</span>
+        <div class="mt-6 md:flex md:items-center md:justify-between w-3/5 mx-auto">
+            <!-- Page Length and Button Add Item -->
+            <div class="flex justify-center md:-mb-3">
+                <div class="flex items-center space-x-3 md:justify-between md:space-x-40 lg:space-x-96">
+                    <label class="flex items-center space-x-1.5 mb-4 md:mb-0">
+                        <span class="text-gray-600 font-medium">Show</span>
+                        <form action="{{route('user-pump.index')}}" method="GET">
+                            <select name="pageLength" onchange="this.form.submit()" class="w-16 form-control input-sm border border-gray-300 rounded-full py-2 px-3 focus:ring-blue-500 focus:border-blue-500 bg-white shadow-md">
+                                <option value="10" {{ $pageLength == 10 ? 'selected' : '' }}>10</option>
+                                <option value="25" {{ $pageLength == 25 ? 'selected' : '' }}>25</option>
+                                <option value="50" {{ $pageLength == 50 ? 'selected' : '' }}>50</option>
+                                <option value="100" {{ $pageLength == 100 ? 'selected' : '' }}>100</option>
+                            </select>
+                        </form>
+                        <span class="text-gray-600 font-medium">entries</span>
                     </label>
-                </form>
+                </div>
             </div>
+            <!-- End Page Length and Button Add Item -->
 
-            <form action="{{ route('user-pump.index') }}" method="GET">
-                <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Search">
-                <i data-feather="search"></i>
-            </form>
+            <!-- Search Bar -->
+            <div class="flex justify-center items-center mb-4">
+                <div class="relative w-80">
+                    <form action="{{ route('user-pump.index') }}" method="GET">
+                        <input type="text" name="search" value="{{ $search ?? '' }}" class="pl-10 py-3 text-sm text-gray-900 border border-gray-300 rounded-full w-full bg-white focus:ring-blue-500 focus:border-blue-500 shadow-md" placeholder="Search">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <i data-feather="search" class="text-gray-400"></i>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- End Search Bar -->
         </div>
 
-        <!-- Table Data -->
-        <div class="table-container">
-            <table>
-                <thead>
+        <!-- Table -->
+        <div class="flex justify-center overflow-x-auto sm:rounded-lg mt-6 w-3/5 mx-auto">
+            <table class="min-w-full text-sm text-left text-gray-500 border-collapse rounded-lg shadow-md">
+                <thead class="text-sm text-black uppercase bg-gradient-to-r from-[#FFC857] to-[#FFD369] border-b border-gray-300 rounded-t-lg">
                     <tr>
-                        <th>SAP ID</th>
-                        <th>IMAGE</th>
-                        <th>EQUIPMENT NAME</th>
-                        <th>TAG ID</th>
-                        <th>LOCATION</th>
-                        <th class="text-center">AKSI</th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
-                        <div class="flex items-center">
-                           SAP ID
-                        </div>
-                    </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
-                        <div class="flex items-center">
-                            IMAGE
-                        </div>
-                    </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
-                        <div class="flex items-center">
-                            EQUIPMENT NAME
-                        </div>
-                    </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
-                        <div class="flex items-center">
-                            TAG ID
-                        </div>
-                    </th>
-                    <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
-                        <div class="flex items-center">
-                            LOCATION
-                        </div>
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-center">
-                        <div>
-                            AKSI
-                        </div>
-                    </th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300">SAP ID</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300">IMAGE</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300">EQUIPMENT NAME</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300">TAG ID</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300">LOCATION</th>
+                        <th scope="col" class="px-6 py-4 text-center border-b border-gray-300">ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($pump as $item)
-                    <tr>
-                        <td>{{$item->sap_id}}</td>
-                        <td>
-                    <tr class="bg-white border-1 border-black">
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                            {{$item->sap_id}}
-                        </td>
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
+                    <tr class="bg-white hover:bg-[#FFF4E0] transition duration-300 border-b border-gray-300">
+                        <td class="px-6 py-4 font-medium text-black border-gray-300">{{$item->sap_id}}</td>
+                        <td class="px-6 py-4 font-medium text-black border-gray-300">
                             @if($item->img)
-                            <img class="table-image" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);" 
-                            src="{{ asset('assets/img/' . $item->img) }}" alt="Pump Image">
+                            <img class="table-image h-10 w-10 rounded-sm shadow-md" src="{{ asset('assets/img/' . $item->img) }}" alt="Pump Image">
                             @else
-                            <img class="table-image" src="{{ asset('assets/img/default.png') }}" alt="Default Image">
+                            <img class="table-image h-10 w-10 rounded-sm shadow-md" src="{{ asset('assets/img/default.png') }}" alt="Default Image">
                             @endif
                         </td>
-
-                        <td>{{$item->name}}</td>
-                        <td>{{$item->tag_id}}</td>
-                        <td>{{$item->location->name}}</td>
-                        <td class="text-center">
-                            <button type="button" class="btn-detail" onclick="detailModal('{{$item->name}}', '{{$item->img}}', '{{$item->sap_id}}', '{{$item->tag_id}}', '{{$item->location->name}}', '{{$item->brand}}', '{{$item->model}}', '{{$item->capacity}}', '{{$item->head}}', '{{$item->coupling}}', '{{$item->front_bearing}}', '{{$item->rear_bearing}}', '{{$item->impeler}}', '{{$item->oil}}', '{{$item->oil_seal}}', '{{$item->grease}}', '{{$item->mech_seal}}', '{{$item->note}}')">Detail</button>
-
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                            {{$item->name}}
-                        </td>
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                            {{$item->tag_id}}
-                        </td>
-                        <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
-                            {{$item->location->name}}
-                        </td>
+                        <td class="px-6 py-4 font-medium text-black border-gray-300">{{$item->name}}</td>
+                        <td class="px-6 py-4 font-medium text-black border-gray-300">{{$item->tag_id}}</td>
+                        <td class="px-6 py-4 font-medium text-black border-gray-300">{{$item->location->name}}</td>
                         <td class="px-2 py-2 text-center">
-                            <button type="button" class="flex flex-row items-center focus:outline-none text-white bg-black font-medium rounded-3xl text-sm px-8 py-2" onclick="detailModal(
-                                '{{ $item->name }}',
-                                '{{ $item->img }}',
-                                '{{ $item->sap_id }}',
-                                '{{ $item->tag_id }}',
-                                '{{ $item->location->name }}',
-                                '{{ $item->brand }}',
-                                '{{ $item->model }}',
-                                '{{ $item->capacity }}',
-                                '{{ $item->head }}',
-                                '{{ $item->coupling }}',
-                                '{{ $item->front_bearing }}',
-                                '{{ $item->rear_bearing }}',
-                                '{{ $item->impeler }}',
-                                '{{ $item->oil }}',
-                                '{{ $item->oil_seal }}',
-                                '{{ $item->grease }}',
-                                '{{ $item->mech_seal }}',
-                                '{{ $item->note }}'
-                            )">
-                                Detail <i class="text-white ml-2" data-feather="alert-circle"></i>
-                            </button>
+                            <button type="button" class="flex flex-row items-center focus:outline-none text-white bg-black font-medium rounded-3xl text-sm px-8 py-2" onclick="openModal('{{ $item->name }}', '{{ $item->img }}', '{{ $item->sap_id }}', '{{ $item->tag_id }}', '{{ $item->location->name }}', '{{ $item->brand }}', '{{ $item->model }}', '{{ $item->capacity }}', '{{ $item->head }}', '{{ $item->coupling }}', '{{ $item->front_bearing }}', '{{ $item->rear_bearing }}', '{{ $item->impeler }}', '{{ $item->oil }}', '{{ $item->oil_seal }}', '{{ $item->grease }}', '{{ $item->mech_seal }}', '{{ $item->note }}')">Detail <i class="text-white ml-2" data-feather="alert-circle"></i></button>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
+        <!-- End Table -->
 
         <!-- Pagination -->
-        <div class="pagination">
+        <div class="flex justify-center mt-6 w-3/5 mx-auto">
             {{ $pump->appends(['search' => $search, 'pageLength' => $pageLength])->links('vendor.pagination.tailwind') }}
         </div>
-    </div>
+        <!-- End Pagination -->
 
-    <!-- Modal -->
-    <div id="detail-modal" class="modal-bg">
-        <div class="modal-container">
-            <div class="modal-header">
-                <h2 id="modal-equipment-name">Equipment Name</h2>
-            </div>
-            <div class="modal-body">
-                <img id="modal-image" src="" alt="Equipment Image">
-                <div class="modal-info">
-                    <div><strong>SAP ID:</strong> <span id="modal-sap-id"></span></div>
-                    <div><strong>Tag ID:</strong> <span id="modal-tag-id"></span></div>
-                    <div><strong>Location:</strong> <span id="modal-location"></span></div>
-                    <div><strong>Brand:</strong> <span id="modal-brand"></span></div>
-                    <div><strong>Model/Type:</strong> <span id="modal-model"></span></div>
-                    <div><strong>Capacity:</strong> <span id="modal-capacity"></span></div>
-                    <div><strong>Head:</strong> <span id="modal-head"></span></div>
-                    <div><strong>Coupling:</strong> <span id="modal-coupling"></span></div>
-                    <div><strong>Front Bearing:</strong> <span id="modal-front-bearing"></span></div>
-                    <div><strong>Rear Bearing:</strong> <span id="modal-rear-bearing"></span></div>
-                    <div><strong>Impeler:</strong> <span id="modal-impeler"></span></div>
-                    <div><strong>Oil:</strong> <span id="modal-oil"></span></div>
-                    <div><strong>Oil Seal:</strong> <span id="modal-oil-seal"></span></div>
-                    <div><strong>Grease:</strong> <span id="modal-grease"></span></div>
-                    <div><strong>Mech Seal:</strong> <span id="modal-mech-seal"></span></div>
-                    <div><strong>Note:</strong> <span id="modal-note"></span></div>
+        <!-- Detail Modal -->
+        <div id="detail-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+            <div class="bg-white p-6 rounded-lg w-full sm:w-full md:w-1/2 lg:w-1/3 max-h-full overflow-y-auto shadow-lg">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold" id="modal-equipment-name"></h2>
+                    <button type="button" class="text-gray-400 hover:text-gray-600" onclick="closeModal()">
+                        <i data-feather="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+                <img id="modal-image" class="w-full max-h-64 object-contain rounded-md shadow-md mb-4" src="" alt="Equipment Image">
+                <div class="space-y-2">
+                    <p><strong>SAP ID:</strong> <span id="modal-sap-id"></span></p>
+                    <p><strong>TAG ID:</strong> <span id="modal-tag-id"></span></p>
+                    <p><strong>Location:</strong> <span id="modal-location"></span></p>
+                    <p><strong>Brand:</strong> <span id="modal-brand"></span></p>
+                    <p><strong>Model:</strong> <span id="modal-model"></span></p>
+                    <p><strong>Capacity:</strong> <span id="modal-capacity"></span></p>
+                    <p><strong>Head:</strong> <span id="modal-head"></span></p>
+                    <p><strong>Coupling:</strong> <span id="modal-coupling"></span></p>
+                    <p><strong>Front Bearing:</strong> <span id="modal-front-bearing"></span></p>
+                    <p><strong>Rear Bearing:</strong> <span id="modal-rear-bearing"></span></p>
+                    <p><strong>Impeler:</strong> <span id="modal-impeler"></span></p>
+                    <p><strong>Oil:</strong> <span id="modal-oil"></span></p>
+                    <p><strong>Oil Seal:</strong> <span id="modal-oil-seal"></span></p>
+                    <p><strong>Grease:</strong> <span id="modal-grease"></span></p>
+                    <p><strong>Mech Seal:</strong> <span id="modal-mech-seal"></span></p>
+                    <p><strong>Note:</strong> <span id="modal-note"></span></p>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" onclick="closeModal()">Tutup</button>
-            </div>
         </div>
+        <!-- End Detail Modal -->
+
+        @include('assets.js')
+
+        <script>
+            feather.replace();
+
+            function openModal(name, img, sapId, tagId, locationName, brand, model, capacity, head, coupling, frontBearing, rearBearing, impeler, oil, oilSeal, grease, mechSeal, note) {
+                document.getElementById('modal-equipment-name').innerText = name;
+                document.getElementById('modal-image').src = img ? `{{ asset('assets/img/') }}/${img}` : `{{ asset('assets/img/default.png') }}`;
+                document.getElementById('modal-sap-id').innerText = sapId;
+                document.getElementById('modal-tag-id').innerText = tagId;
+                document.getElementById('modal-location').innerText = locationName;
+                document.getElementById('modal-brand').innerText = brand;
+                document.getElementById('modal-model').innerText = model;
+                document.getElementById('modal-capacity').innerText = capacity;
+                document.getElementById('modal-head').innerText = head;
+                document.getElementById('modal-coupling').innerText = coupling;
+                document.getElementById('modal-front-bearing').innerText = frontBearing;
+                document.getElementById('modal-rear-bearing').innerText = rearBearing;
+                document.getElementById('modal-impeler').innerText = impeler;
+                document.getElementById('modal-oil').innerText = oil;
+                document.getElementById('modal-oil-seal').innerText = oilSeal;
+                document.getElementById('modal-grease').innerText = grease;
+                document.getElementById('modal-mech-seal').innerText = mechSeal;
+                document.getElementById('modal-note').innerText = note;
+
+                document.getElementById('detail-modal').style.display = 'flex';
+            }
+
+            function closeModal() {
+                document.getElementById('detail-modal').style.display = 'none';
+            }
+        </script>
+
     </div>
-
-    <!-- Script Modal -->
-    <script>
-        feather.replace();
-
-        function detailModal(name, img, sapId, tagId, locationName, brand, model, capacity, head, coupling, frontBearing, rearBearing, impeler, oil, oilSeal, grease, mechSeal, note) {
-            document.getElementById('modal-equipment-name').innerText = name;
-            document.getElementById('modal-image').src = img ? `{{ asset('assets/img/') }}/${img}` : `{{ asset('assets/img/default.png') }}`;
-            document.getElementById('modal-sap-id').innerText = sapId;
-            document.getElementById('modal-tag-id').innerText = tagId;
-            document.getElementById('modal-location').innerText = locationName;
-            document.getElementById('modal-brand').innerText = brand;
-            document.getElementById('modal-model').innerText = model;
-            document.getElementById('modal-capacity').innerText = capacity;
-            document.getElementById('modal-head').innerText = head;
-            document.getElementById('modal-coupling').innerText = coupling;
-            document.getElementById('modal-front-bearing').innerText = frontBearing;
-            document.getElementById('modal-rear-bearing').innerText = rearBearing;
-            document.getElementById('modal-impeler').innerText = impeler;
-            document.getElementById('modal-oil').innerText = oil;
-            document.getElementById('modal-oil-seal').innerText = oilSeal;
-            document.getElementById('modal-grease').innerText = grease;
-            document.getElementById('modal-mech-seal').innerText = mechSeal;
-            document.getElementById('modal-note').innerText = note;
-
-            document.getElementById('detail-modal').style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('detail-modal').style.display = 'none';
-        }
-    </script>
 </body>
+
 </html>
