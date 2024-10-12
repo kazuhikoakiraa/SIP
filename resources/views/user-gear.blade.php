@@ -34,7 +34,6 @@
             </div>
             <!-- End Page Length and Button Add Item -->
 
-<<<<<<< HEAD
             <!-- Search Bar -->
             <div class="flex justify-center items-center mb-4 -ml-3">
                 <div class="relative w-80">
@@ -56,10 +55,10 @@
                 <div class="overflow-hidden border border-gray-200 md:rounded-lg">
                     <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-200">
-=======
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 lg:w-2/3 mx-auto">
                 <thead class="text-sm text-black uppercase bg-white border-1 border-black lg:justify-start ">
->>>>>>> parent of e201aee (push css edit)
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 lg:w-2/3 mx-auto">
+                <thead class="text-sm text-black uppercase bg-white border-1 border-black lg:justify-start ">
                     <tr>
                     <th scope="col" class="px-6 py-3 border-1 border-black whitespace-nowrap">
                         <div class="flex items-center">

@@ -271,8 +271,6 @@
                 <i data-feather="search"></i>
             </form>
         </div>
-
-<<<<<<< HEAD
         <!-- Table Data -->
         <div class="table-container">
             <table>
@@ -284,7 +282,11 @@
                         <th>TAG ID</th>
                         <th>LOCATION</th>
                         <th class="text-center">AKSI</th>
-=======
+        <!-- Table -->
+        <div class="flex flex-col items-center justify-center relative overflow-x-auto sm:rounded-lg">
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 lg:w-2/3 mx-auto">
+                <thead class="text-sm text-black uppercase bg-white border-1 border-black lg:justify-start">
+                    <tr>
         <!-- Table -->
         <div class="flex flex-col items-center justify-center relative overflow-x-auto sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 lg:w-2/3 mx-auto">
@@ -320,36 +322,29 @@
                                 AKSI
                             </div>
                         </th>
->>>>>>> parent of e201aee (push css edit)
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($motor as $item)
-<<<<<<< HEAD
                     <tr>
                         <td>{{$item->sap_id}}</td>
                         <td>
-=======
                     <tr class="bg-white border-1 border-black">
                         <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
                             {{$item->sap_id}}
                         </td>
                         <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
->>>>>>> parent of e201aee (push css edit)
                             @if($item->img)
                             <img class="table-image" src="{{ asset('assets/img/' . $item->img) }}" alt="Motor Image">
                             @else
                             <img class="table-image" src="{{ asset('assets/img/default.png') }}" alt="Default Image">
                             @endif
                         </td>
-<<<<<<< HEAD
                         <td>{{$item->name}}</td>
                         <td>{{$item->tag_id}}</td>
                         <td>{{$item->location->name}}</td>
                         <td class="text-center">
                             <button type="button" class="btn-detail" onclick="openModal('{{$item->name}}', '{{$item->img}}', '{{$item->sap_id}}', '{{$item->tag_id}}', '{{$item->location->name}}')">Detail</button>
-=======
-
                         <td class="px-6 py-4 font-medium whitespace-nowrap border-1 border-black text-black">
                             {{$item->name}}
                         </td>
@@ -361,7 +356,6 @@
                         </td>
                         <td class="px-2 py-2 text-center">
                             <button type="button" class="flex flex-row items-center focus:outline-none text-white bg-black font-medium rounded-3xl text-sm px-8 py-2" onclick="openModal('{{$item->name}}', '{{$item->img}}', '{{$item->sap_id}}', '{{$item->tag_id}}', '{{$item->location->name}}', '{{$item->brand}}', '{{$item->model}}', '{{$item->ampere}}', '{{$item->power}}', '{{$item->front_bearing}}', '{{$item->rear_bearing}}', '{{$item->speed}}', '{{$item->note}}')">Detail <i class="text-white ml-2" data-feather="alert-circle"></i></button>
->>>>>>> parent of e201aee (push css edit)
                         </td>
                     </tr>
                     @endforeach

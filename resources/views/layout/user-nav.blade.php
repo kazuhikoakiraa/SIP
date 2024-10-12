@@ -28,7 +28,6 @@
     </div>
 </nav>
 
-
 <!-- Script for Menu Active State -->
 <script>
     const menuToggle = document.getElementById('mobile-menu-toggle');
@@ -207,7 +206,6 @@
     background-color: #1ABC9C; /* Warna aktif pada dropdown */
     color: white;
 }
-
 
 /* Hover pada elemen dropdown */
 .dropdown-content a:hover {
