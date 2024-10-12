@@ -143,45 +143,50 @@
         </div>
         <!-- End Add Modal -->
 
-        <!-- Edit Modal -->
-        @foreach ($profile as $item)
-        <div id="edit-profile-{{$item->id}}" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto">
-            <div class="bg-white p-6 rounded-lg w-full sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto shadow-lg">
-                <h2 class="text-xl font-bold mb-4">Edit Profile</h2>
-                <form action="{{ route('profile.update', $item->id) }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
-                    <div class="flex flex-col gap-4 mb-2">
-                        <div class="flex-1">
-                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                            <input type="text" id="name" name="name" value="{{ $item->name }}" class="mt-1 block w-full border-gray-300 rounded-full shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                        <div class="flex-1">
-                            <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
-                            <input type="text" id="username" name="username" value="{{ $item->username }}" class="mt-1 block w-full border-gray-300 rounded-full shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                        <div class="flex-1">
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                            <input type="email" id="email" name="email" value="{{ $item->email }}" class="mt-1 block w-full border-gray-300 rounded-full shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                        <div class="flex-1">
-                            <label for="jabatan" class="block text-sm font-medium text-gray-700">Position</label>
-                            <input type="text" id="jabatan" name="jabatan" value="{{ $item->jabatan }}" class="mt-1 block w-full border-gray-300 rounded-full shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                        <div class="flex-1">
-                            <label for="img" class="block text-sm font-medium text-gray-700">Profile Image</label>
-                            <input type="file" id="img" name="img" class="mt-1 block w-full border-gray-300 rounded-full shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                    </div>
-                    <div class="flex justify-end mt-4">
-                        <button type="button" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full mr-2 transition duration-300" onclick="closeModal('edit-profile-{{$item->id}}')">Cancel</button>
-                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300">Save</button>
-                    </div>
-                </form>
+       <!-- Edit Modal -->
+@foreach ($profile as $item)
+<div id="edit-profile-{{$item->id}}" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto">
+    <div class="bg-white p-6 rounded-lg w-full sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto shadow-lg">
+        <h2 class="text-xl font-bold mb-4">Edit Profile</h2>
+        <form action="{{ route('profile.update', $item->id) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div class="flex flex-col gap-4 mb-2">
+                <div class="flex-1">
+                    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                    <input type="text" id="name" name="name" value="{{ $item->name }}" class="mt-1 block w-full border-gray-300 rounded-full shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div class="flex-1">
+                    <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                    <input type="text" id="username" name="username" value="{{ $item->username }}" class="mt-1 block w-full border-gray-300 rounded-full shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div class="flex-1">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" name="email" value="{{ $item->email }}" class="mt-1 block w-full border-gray-300 rounded-full shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div class="flex-1">
+                    <label for="jabatan" class="block text-sm font-medium text-gray-700">Position</label>
+                    <input type="text" id="jabatan" name="jabatan" value="{{ $item->jabatan }}" class="mt-1 block w-full border-gray-300 rounded-full shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div class="flex-1">
+                    <label for="img" class="block text-sm font-medium text-gray-700">Profile Image</label>
+                    <input type="file" id="img" name="img" class="mt-1 block w-full border-gray-300 rounded-full shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div class="flex-1">
+                    <label for="current_password" class="block text-sm font-medium text-gray-700">Current Password</label>
+                    <input type="password" id="current_password" name="current_password" class="mt-1 block w-full border-gray-300 rounded-full shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
+                </div>
             </div>
-        </div>
-        @endforeach
-        <!-- End Edit Modal -->
+            <div class="flex justify-end mt-4">
+                <button type="button" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full mr-2 transition duration-300" onclick="closeModal('edit-profile-{{$item->id}}')">Cancel</button>
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+@endforeach
+<!-- End Edit Modal -->
+
 
         <!-- Modal Delete Data -->
         @foreach ($profile as $item)
