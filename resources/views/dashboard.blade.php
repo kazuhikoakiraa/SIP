@@ -7,29 +7,27 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
     <title>DASHBOARD | PT. SUMBER INDAHPERKASA</title>
 </head>
-<body>
+<body style="background-color: #F9FAFB; color: #2C3E50; font-family: 'Poppins', sans-serif;">
     @include('layout.side')
-    <div class="p-2 sm:ml-64">
-        <nav class="navbar navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand font-bold" style="font-family: 'Poppins';" href="#">
-                    DASHBOARD
-                </a>
-                <div class="align-text-top inline-flex md:ml-36 lg:ml-36 hidden sm:flex md:flex lg:flex">
-                    <img src="../assets/img/logo-landing.png" alt="" class="h-8 w-8 p-1">
-                    <a href="" class="font-bold p-1">PT. SUMBER INDAHPERKASA</a>
-                </div>
+    <div class="p-4 sm:ml-64">
+        <nav class="navbar navbar-light bg-white rounded-lg shadow-md p-4 mb-6 flex justify-between items-center">
+            <a class="navbar-brand font-bold text-black text-3xl" style="font-family: 'Poppins';" href="#">
+                DASHBOARD
+            </a>
+            <div class="flex items-center">
+                <img src="../assets/img/logo-landing.png" alt="Company Logo" class="h-10 w-10 mr-3">
+                <a href="#" class="font-bold text-black text-lg">PT. SUMBER INDAHPERKASA</a>
             </div>
         </nav>
 
-        <div class="mt-2 ml-2">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+        <div class="mt-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
                 @foreach ($locations as $location)
-                    <div class="flex flex-col items-center justify-center h-auto w-auto rounded-lg {{ $location['color'] }}">
-                        <p class="text-2xl p-2 text-black font-semibold whitespace-nowrap">{{ $location['name'] }}</p>
-                        <hr class="w-full border-4 border-black">
-                        <p class="text-5xl font-bold text-black my-1">{{ $location['equipment_count'] }}</p>
-                        <p class="text-md py-2 text-black">Equipment</p>
+                    <div class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md transform transition duration-300 hover:scale-105 hover:shadow-lg" style="background: linear-gradient(135deg, #FFC857, #FFD369);">
+                        <p class="text-2xl text-black font-bold mb-2">{{ $location['name'] }}</p>
+                        <hr class="w-10/12 border-2 border-black mb-3">
+                        <p class="text-6xl font-extrabold text-black">{{ $location['equipment_count'] }}</p>
+                        <p class="text-lg text-black mt-2">Equipment</p>
                     </div>
                 @endforeach
             </div>
