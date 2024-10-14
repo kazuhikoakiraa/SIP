@@ -123,8 +123,8 @@
                         <td class="px-6 py-4 font-medium text-black border-gray-300">{{$item->mech_seal}}</td>
                         <td class="px-6 py-4 font-medium text-black border-gray-300">{{$item->note}}</td>
                         <td class="px-6 py-4 text-center">
-                            <button type="button" class="focus:outline-none text-white bg-green-600 hover:bg-green-700 font-medium rounded-full text-sm px-6 py-3 transition duration-300 shadow-md w-28" onclick="openModal('edit-motor-{{$item->id}}')">Edit</button>
-                            <button type="button" class="focus:outline-none text-white bg-red-600 hover:bg-red-700 font-medium rounded-full text-sm px-6 py-3 transition duration-300 shadow-md w-28" onclick="openModal('delete-motor-{{$item->id}}')">Delete</button>
+                            <button type="button" class="focus:outline-none text-white bg-green-600 hover:bg-green-700 font-medium rounded-full text-sm px-6 py-3 transition duration-300 shadow-md w-28" onclick="openModal('edit-pump-{{$item->id}}')">Edit</button>
+                            <button type="button" class="focus:outline-none text-white bg-red-600 hover:bg-red-700 font-medium rounded-full text-sm px-6 py-3 transition duration-300 shadow-md w-28" onclick="openModal('delete-pump-{{$item->id}}')">Delete</button>
                         </td>
                     </tr>
                     @endforeach
@@ -392,22 +392,28 @@
     @include('assets.js')
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const imgInput = document.getElementById('img');
+            const imgInputs = document.querySelectorAll('[id^="img"]');
 
-            imgInput.addEventListener('change', function () {
-                const file = this.files[0];
-                if (file) {
-                    const validExtensions = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/svg+xml'];
-                    if (!validExtensions.includes(file.type)) {
-                        alert('The selected file must be an image of type: jpeg, png, jpg, gif, svg.');
-                        this.value = ''; // Clear the file input
-                    } else if (file.size > 2048 * 1024) {
-                        alert('The image size must not exceed 2MB.');
-                        this.value = ''; // Clear the file input
-                    }
-                }
+            imgInputs.forEach((imgInput) => {
+                imgInput.addEventListener('change', function () {
+                    validateImage(this);
+                });
             });
         });
+
+        function validateImage(input) {
+            const file = input.files[0];
+            if (file) {
+                const validExtensions = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/svg+xml'];
+                if (!validExtensions.includes(file.type)) {
+                    alert('The selected file must be an image of type: jpeg, png, jpg, gif, svg.');
+                    input.value = ''; // Clear the file input
+                } else if (file.size > 2048 * 1024) {
+                    alert('The image size must not exceed 2MB.');
+                    input.value = ''; // Clear the file input
+                }
+            }
+        }
     </script>
 
 </body>

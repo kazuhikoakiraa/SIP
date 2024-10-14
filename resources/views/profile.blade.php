@@ -64,26 +64,27 @@
             <table class="min-w-full text-sm text-left text-gray-500 border-collapse rounded-lg shadow-md">
                 <thead class="text-sm text-black uppercase bg-gradient-to-r from-[#FFC857] to-[#FFD369] border-b border-gray-300 rounded-t-lg">
                     <tr>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">USERNAME</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">IMAGE</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">NAME</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">POSITION</th>
+                        <th scope="col" class="px-6 py-4 text-center border-b border-gray-300">USERNAME</th>
+                        <th scope="col" class="px-6 py-4 text-center border-b border-gray-300">IMAGE</th>
+                        <th scope="col" class="px-6 py-4 text-center border-b border-gray-300">NAME</th>
+                        <th scope="col" class="px-6 py-4 text-center border-b border-gray-300">POSITION</th>
                         <th scope="col" class="px-6 py-4 text-center border-b border-gray-300">ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($profile as $item)
                     <tr class="bg-white hover:bg-[#FFF4E0] transition duration-300 border-b border-gray-300">
-                        <td class="px-6 py-4 font-medium text-black border-gray-300">{{$item->username}}</td>
-                        <td class="px-6 py-4 font-medium text-black border-gray-300">
+                        <td class="px-6 py-4 font-medium text-black text-center border-gray-300">{{$item->username}}</td>
+                        <td class="px-6 py-4 font-medium text-black border-gray-300 flex justify-center items-center">
                             @if($item->img)
                                 <img class="w-10 h-10 rounded-sm cursor-pointer shadow-md" src="{{ asset('assets/img/' . $item->img) }}" alt="Profile Image" onclick="openImageModal('{{ asset('assets/img/' . $item->img) }}')">
                             @else
                                 <img class="w-10 h-10 rounded-sm cursor-pointer shadow-md" src="{{ asset('assets/img/default.png') }}" alt="Default Image" onclick="openImageModal('{{ asset('assets/img/default.png') }}')">
                             @endif
                         </td>
-                        <td class="px-6 py-4 font-medium text-black border-gray-300">{{$item->name}}</td>
-                        <td class="px-6 py-4 font-medium text-black border-gray-300">{{$item->jabatan}}</td>
+
+                        <td class="px-6 py-4 font-medium text-black text-center border-gray-300">{{$item->name}}</td>
+                        <td class="px-6 py-4 font-medium text-black text-center border-gray-300">{{$item->jabatan}}</td>
                         <td class="px-2 py-4 text-center">
                             <button type="button" class="focus:outline-none text-white bg-green-600 hover:bg-green-700 font-medium rounded-full text-sm px-6 py-3 transition duration-300 shadow-md" onclick="openModal('edit-profile-{{$item->id}}')">Edit</button>
                             <button type="button" class="focus:outline-none text-white bg-red-600 hover:bg-red-700 font-medium rounded-full text-sm px-6 py-3 transition duration-300 shadow-md" onclick="openModal('delete-profile-{{$item->id}}')">Delete</button>

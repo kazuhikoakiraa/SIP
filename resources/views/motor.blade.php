@@ -49,6 +49,12 @@
             </div>
         @endif
 
+        @if (session('error'))
+            <div class="alert alert-danger bg-red-100 text-red-700 border border-red-400 p-4 rounded-md text-center mb-4">
+                {{ __('An error occurred while processing your request. Please check your input and try again.') }}
+            </div>
+        @endif
+
         <!-- Page Length and Button Add Item -->
         <div class="flex justify-between items-center mb-6">
             <div class="flex items-center space-x-4">
@@ -269,7 +275,7 @@
         <div id="edit-motor-{{$item->id}}" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto">
             <div class="bg-white p-6 rounded-lg w-full sm:w-full md:w-1/2 lg:w-1/2 max-h-full overflow-y-auto shadow-lg">
                 <h2 class="text-xl font-bold mb-4">Edit Motor Data</h2>
-                <form action="{{ route('motor.update', $item->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('motor.update', $item->id) }}" method="POST" enctype="multipart/form-data" id="edit-form-{{$item->id}}">
                     @csrf
                     @method('PUT')
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
@@ -279,7 +285,7 @@
                         </div>
                         <div class="flex-1">
                             <label for="img" class="block text-sm font-medium text-gray-700">Image</label>
-                            <input type="file" id="img" name="img" class="mt-1 block w-full border-gray-300 rounded-full shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <input type="file" id="img-edit-{{$item->id}}" name="img" class="mt-1 block w-full border-gray-300 rounded-full shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-4 mb-2">
@@ -379,23 +385,28 @@
     @include('assets.js')
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const imgInput = document.getElementById('img');
+            const imgInputs = document.querySelectorAll('[id^="img"]');
 
-            imgInput.addEventListener('change', function () {
-                const file = this.files[0];
-                if (file) {
-                    const validExtensions = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/svg+xml'];
-                    if (!validExtensions.includes(file.type)) {
-                        alert('The selected file must be an image of type: jpeg, png, jpg, gif, svg.');
-                        this.value = ''; // Clear the file input
-                    } else if (file.size > 2048 * 1024) {
-                        alert('The image size must not exceed 2MB.');
-                        this.value = ''; // Clear the file input
-                    }
-                }
+            imgInputs.forEach((imgInput) => {
+                imgInput.addEventListener('change', function () {
+                    validateImage(this);
+                });
             });
         });
-    </script>
 
+        function validateImage(input) {
+            const file = input.files[0];
+            if (file) {
+                const validExtensions = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/svg+xml'];
+                if (!validExtensions.includes(file.type)) {
+                    alert('The selected file must be an image of type: jpeg, png, jpg, gif, svg.');
+                    input.value = ''; // Clear the file input
+                } else if (file.size > 2048 * 1024) {
+                    alert('The image size must not exceed 2MB.');
+                    input.value = ''; // Clear the file input
+                }
+            }
+        }
+    </script>
 </body>
 </html>

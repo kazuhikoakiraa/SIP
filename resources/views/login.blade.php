@@ -8,64 +8,138 @@
     <title>Login | PT. SUMBER INDAHPERKASA</title>
     <style>
         body {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            font-family: 'Poppins'
+            background: #f9fafb;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
         }
         .layout {
-            transition: transform 0.5s, box-shadow 0.5s;
-            background: linear-gradient(to bottom right, #ffffff, #f9fafb);
+            transition: box-shadow 0.3s;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            background-color: #ffffff;
         }
         .layout:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
         }
         .button-wow {
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background: #1e3c72;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             transition: background 0.3s, box-shadow 0.3s;
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
         }
         .button-wow:hover {
-            background: linear-gradient(to right, #ff6a5f, #fe8a7b);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background: #163056;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        .input-field {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            transition: border 0.3s;
+            background: #f1f5f9;
+        }
+        .input-field:focus {
+            border-color: #1e3c72;
+            outline: none;
+            background: #ffffff;
+        }
+        .form-label {
+            font-weight: 600;
+            color: #4a5568;
+        }
+        .message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .error-message {
+            background: #ffe5e5;
+            color: #c53030;
+        }
+        .success-message {
+            background: #e6fffa;
+            color: #2f855a;
+        }
+        .image-container {
+            display: none;
+        }
+        .form-container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            border: 1px solid #e2e8f0;
+        }
+        @media (min-width: 1024px) {
+            .image-container {
+                display: block;
+                width: 50%;
+                padding: 1rem;
+                background: #ffffff;
+                border-radius: 12px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            }
+            .form-container {
+                width: 50%;
+                padding: 2rem;
+            }
         }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen">
+<body>
     <!-- Komponen Utama -->
-    <div class="layout flex items-center justify-center w-full max-w-4xl px-10 py-8 bg-white rounded-md shadow-2xl">
+    <div class="layout">
         <!-- Panel Kiri -->
-        <div class="hidden lg:flex lg:w-1/2 items-center justify-center rounded-md">
+        <div class="image-container">
             <img class="rounded-md shadow-lg" src="{{ asset('assets/img/login-image.png') }}" alt="equipment">
         </div>
         <!-- Panel Kanan -->
-        <div class="w-full lg:w-1/2 flex items-center justify-center p-6">
-            <div class="max-w-md w-full">
-                <h1 class="text-4xl font-bold mb-6 text-gray-800 text-center">Sign In</h1>
-                @if($errors->any())
-                    <div class="bg-red-100 text-red-700 p-3 rounded-md mb-4">
-                        {{ $errors->first() }}
-                    </div>
-                @endif
-                @if(session('success'))
-                    <div class="bg-green-100 text-green-700 p-3 rounded-md mb-4">
-                        {{ session('success') }}
-                    </div>
-                @endif
-                <form action="{{ route('login') }}" method="POST" class="space-y-6">
-                    @csrf
-                    <div>
-                        <label for="username" class="block text-lg font-medium text-gray-700">Username</label>
-                        <input type="text" id="username" name="username" class="mt-2 p-4 w-full border border-gray-300 rounded-lg focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 transition-colors duration-300" value="{{ old('username') }}">
-                    </div>
-                    <div>
-                        <label for="password" class="block text-lg font-medium text-gray-700">Password</label>
-                        <input type="password" id="password" name="password" class="mt-2 p-4 w-full border border-gray-300 rounded-lg focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 transition-colors duration-300">
-                    </div>
-                    <div>
-                        <button type="submit" class="button-wow w-full text-white p-4 rounded-lg focus:outline-none focus:ring-4 focus:ring-gray-400 transition-all duration-300">Sign In</button>
-                    </div>
-                </form>
-            </div>
+        <div class="form-container">
+            <h1 class="text-3xl font-bold mb-4 text-center text-gray-800">Sign In</h1>
+            @if($errors->any())
+                <div class="message error-message">
+                    {{ $errors->first() }}
+                </div>
+            @endif
+            @if(session('success'))
+                <div class="message success-message">
+                    {{ session('success') }}
+                </div>
+            @endif
+            <form action="{{ route('login') }}" method="POST">
+                @csrf
+                <div>
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" id="username" name="username" class="input-field" value="{{ old('username') }}">
+                </div>
+                <div>
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" name="password" class="input-field">
+                </div>
+                <div>
+                    <button type="submit" class="button-wow">Sign In</button>
+                </div>
+            </form>
         </div>
     </div>
     @include('assets.js')
