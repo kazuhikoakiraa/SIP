@@ -15,11 +15,11 @@
     @include('layout.user-nav')
 
     <div class="p-4">
-        <nav class="navbar navbar-light bg-white rounded-lg shadow-md p-4 mb-6 flex justify-between items-center w-3/5 mx-auto">
+        <nav class="navbar navbar-light bg-white rounded-lg shadow-md p-4 mb-6 flex justify-between items-center w-full mx-auto">
             <h1 class="font-bold text-black text-3xl" style="font-family: 'Poppins'; text-align: center;">GEARBOX</h1>
         </nav>
 
-        <div class="mt-6 md:flex md:items-center md:justify-between w-3/5 mx-auto">
+        <div class="mt-6 md:flex md:items-center md:justify-between w-full mx-auto">
             <!-- Page Length and Button Add Item -->
             <div class="flex justify-center md:-mb-3">
                 <div class="flex items-center space-x-3 md:justify-between md:space-x-40 lg:space-x-96">
@@ -54,7 +54,7 @@
         </div>
 
         <!-- Table -->
-        <div class="flex justify-center overflow-x-auto sm:rounded-lg mt-6 w-3/5 mx-auto">
+        <div class="justify-center overflow-x-auto rounded-lg mt-6 w-full">
             <table class="min-w-full text-sm text-left text-gray-500 border-collapse rounded-lg shadow-md">
                 <thead class="text-sm text-black uppercase bg-gradient-to-r from-[#FFC857] to-[#FFD369] border-b border-gray-300 rounded-t-lg">
                     <tr>
