@@ -78,50 +78,50 @@
         <!-- End Page Length and Button Add Item -->
 
         <!-- Table -->
-        <div class="flex justify-start overflow-x-auto sm:rounded-lg">
+        <div class="flex justify-start overflow-x-auto rounded-lg">
             <table class="min-w-full text-sm text-left text-gray-500 border-collapse rounded-lg shadow-md">
                 <thead class="text-sm text-black uppercase bg-gradient-to-r from-[#FFC857] to-[#FFD369] border-b border-gray-300 rounded-t-lg">
                     <tr>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">
                             SAP ID
                         </th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">
                             IMAGE
                         </th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">
                             EQUIPMENT NAME
                         </th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">
                             TAG ID
                         </th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">
                             LOCATION
                         </th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">
                             BRAND
                         </th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">
                             MODEL/TYPE
                         </th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">
                             CURRENT (A)
                         </th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">
                             POWER (kw)
                         </th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">
                             FRONT BEARING
                         </th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">
                             REAR BEARING
                         </th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">
                             SPEED (rpm)
                         </th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">
                             NOTE
                         </th>
-                        <th scope="col" class="px-6 py-4 text-center border-b border-gray-300">
+                        <th scope="col" class="px-6 py-4 text-center border-b border-gray-300 whitespace-nowrap">
                             ACTION
                         </th>
                     </tr>
@@ -172,9 +172,9 @@
                         <td class="px-6 py-4 font-medium text-black border-gray-300">
                             {{$item->note}}
                         </td>
-                        <td class="px-6 py-4 text-center">
-                            <button type="button" class="focus:outline-none text-white bg-green-600 hover:bg-green-700 font-medium rounded-full text-sm px-6 py-3 transition duration-300 shadow-md w-28" onclick="openModal('edit-motor-{{$item->id}}')">Edit</button>
-                            <button type="button" class="focus:outline-none text-white bg-red-600 hover:bg-red-700 font-medium rounded-full text-sm px-6 py-3 transition duration-300 shadow-md w-28" onclick="openModal('delete-motor-{{$item->id}}')">Delete</button>
+                        <td class="inline-flex px-6 py-4 text-center space-y-1 space-x-1">
+                            <button type="button" class="focus:outline-none text-white bg-green-600 hover:bg-green-700 font-medium rounded-full text-sm px-6 py-2 transition duration-300 shadow-md" onclick="openModal('edit-motor-{{$item->id}}')">Edit</button>
+                            <button type="button" class="focus:outline-none text-white bg-red-600 hover:bg-red-700 font-medium rounded-full text-sm px-6 py-2 transition duration-300 shadow-md" onclick="openModal('delete-motor-{{$item->id}}')">Delete</button>
                         </td>
                     </tr>
                     @endforeach

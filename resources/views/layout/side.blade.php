@@ -20,8 +20,8 @@
                 <span class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></span>
             </div>
             <div class="ml-4 text-white">
-                <p class="text-md font-medium text-white">{{ Auth::user()->name }}</p>
-                <p class="text-sm font-light text-white">{{ Auth::user()->jabatan }}</p>
+                <p class="text-md font-medium text-black">{{ Auth::user()->name }}</p>
+                <p class="text-sm font-light text-black">{{ Auth::user()->jabatan }}</p>
             </div>
         </div>
 

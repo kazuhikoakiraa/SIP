@@ -1,6 +1,6 @@
 <!-- Updated Navbar -->
 <nav class="border-gray-200 shadow-lg relative" style="background-color: #3B4A6B; height: 60px; z-index: 50;">
-    <div class="flex items-center justify-between p-3">
+    <div class="flex items-center justify-between p-2">
         <!-- Logo & Title -->
         <a href="{{'/'}}" class="inline-flex items-center space-x-3 hover:opacity-90 transition-opacity duration-300">
             <img src="../assets/img/logo-landing.png" class="h-8">

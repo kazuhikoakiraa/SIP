@@ -62,7 +62,7 @@
         <!-- End Page Length and Button Add Item -->
 
         <!-- Table -->
-        <div class="flex justify-start overflow-x-auto sm:rounded-lg">
+        <div class="flex justify-start overflow-x-auto rounded-lg">
             <table class="min-w-full text-sm text-left text-gray-500 border-collapse rounded-lg shadow-md">
                 <thead class="text-sm text-black uppercase bg-gradient-to-r from-[#FFC857] to-[#FFD369] border-b border-gray-300 rounded-t-lg">
                     <tr>
@@ -87,10 +87,10 @@
 
                         <td class="px-6 py-4 font-medium text-black text-center border-gray-300">{{$item->name}}</td>
                         <td class="px-6 py-4 font-medium text-black text-center border-gray-300">{{$item->jabatan}}</td>
-                        <td class="px-2 py-4 text-center">
+                        <td class="inline-flex px-6 py-4 text-center space-y-1 space-x-1">
                             <button type="button" class="focus:outline-none text-white bg-green-600 hover:bg-green-700 font-medium rounded-full text-sm px-6 py-3 transition duration-300 shadow-md" onclick="openModal('edit-profile-{{$item->id}}')">Edit</button>
                             <button type="button" class="focus:outline-none text-white bg-red-600 hover:bg-red-700 font-medium rounded-full text-sm px-6 py-3 transition duration-300 shadow-md" onclick="openModal('delete-profile-{{$item->id}}')">Delete</button>
-                            <button type="button" class="focus:outline-none text-white bg-yellow-600 hover:bg-yellow-700 font-medium rounded-full text-sm px-6 py-3 transition duration-300 shadow-md" onclick="openModal('change-password-{{ $item->id }}')">Change Password</button>
+                            <button type="button" class="focus:outline-none text-white bg-yellow-600 hover:bg-yellow-700 font-medium rounded-full text-sm px-6 py-3 transition duration-300 shadow-md whitespace-nowrap" onclick="openModal('change-password-{{ $item->id }}')">Change Password</button>
                         </td>
                     </tr>
                     @endforeach

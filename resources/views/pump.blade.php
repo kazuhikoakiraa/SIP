@@ -72,29 +72,29 @@
         <!-- End Page Length and Button Add Item -->
 
         <!-- Table -->
-        <div class="flex justify-start overflow-x-auto sm:rounded-lg">
+        <div class="flex justify-start overflow-x-auto rounded-lg">
             <table class="min-w-full text-sm text-left text-gray-500 border-collapse rounded-lg shadow-md">
                 <thead class="text-sm text-black uppercase bg-gradient-to-r from-[#FFC857] to-[#FFD369] border-b border-gray-300 rounded-t-lg">
                     <tr>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">SAP ID</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">IMAGE</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">EQUIPMENT NAME</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">TAG ID</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">LOCATION</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">BRAND</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">MODEL</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">CAPACITY (m3/hr)</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">HEAD (m)</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">COUPLING</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">FRONT BEARING</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">REAR BEARING</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">IMPELER SIZE (mm)</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">OIL</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">OIL SEAL</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">GREASE</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">MECH SEAL</th>
-                        <th scope="col" class="px-6 py-4 border-b border-gray-300">NOTE</th>
-                        <th scope="col" class="px-6 py-4 text-center border-b border-gray-300">ACTION</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">SAP ID</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">IMAGE</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">EQUIPMENT NAME</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">TAG ID</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">LOCATION</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">BRAND</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">MODEL</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">CAPACITY (m3/hr)</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">HEAD (m)</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">COUPLING</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">FRONT BEARING</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">REAR BEARING</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">IMPELER SIZE (mm)</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">OIL</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">OIL SEAL</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">GREASE</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">MECH SEAL</th>
+                        <th scope="col" class="px-6 py-4 border-b border-gray-300 whitespace-nowrap">NOTE</th>
+                        <th scope="col" class="px-6 py-4 text-center border-b border-gray-300 whitespace-nowrap">ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -124,7 +124,7 @@
                         <td class="px-6 py-4 font-medium text-black border-gray-300">{{$item->grease}}</td>
                         <td class="px-6 py-4 font-medium text-black border-gray-300">{{$item->mech_seal}}</td>
                         <td class="px-6 py-4 font-medium text-black border-gray-300">{{$item->note}}</td>
-                        <td class="px-6 py-4 text-center">
+                        <td class="inline-flex px-6 py-4 text-center space-y-1 space-x-1">
                             <button type="button" class="focus:outline-none text-white bg-green-600 hover:bg-green-700 font-medium rounded-full text-sm px-6 py-3 transition duration-300 shadow-md w-28" onclick="openModal('edit-pump-{{$item->id}}')">Edit</button>
                             <button type="button" class="focus:outline-none text-white bg-red-600 hover:bg-red-700 font-medium rounded-full text-sm px-6 py-3 transition duration-300 shadow-md w-28" onclick="openModal('delete-pump-{{$item->id}}')">Delete</button>
                         </td>
