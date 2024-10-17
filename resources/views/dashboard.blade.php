@@ -25,7 +25,8 @@
         <div class="mt-6">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
                 @foreach ($locations as $location)
-                    <div class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md transform transition duration-300 hover:scale-105 hover:shadow-lg" style="background: linear-gradient(135deg, #FFC857, #FFD369);">
+                    <div class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md transform transition duration-300 hover:scale-105 hover:shadow-lg"
+                         style="background: {{ $location['gradient'] }};">
                         <p class="text-2xl text-black font-bold mb-2">{{ $location['name'] }}</p>
                         <hr class="w-10/12 border-2 border-black mb-3">
                         <p class="text-6xl font-extrabold text-black">{{ $location['equipment_count'] }}</p>
@@ -34,7 +35,6 @@
                 @endforeach
             </div>
         </div>
-    </div>
 
     @include('assets.js')
 </body>

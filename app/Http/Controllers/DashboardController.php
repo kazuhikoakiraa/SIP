@@ -12,8 +12,20 @@ class DashboardController extends Controller
         // Ambil semua lokasi
         $locations = Location::all();
 
+        // Daftar warna gradient untuk digunakan secara acak
+        $gradients = [
+            'linear-gradient(135deg, #FFC857, #FFD369)',
+            'linear-gradient(135deg, #FF6B6B, #FF8E72)',
+            'linear-gradient(135deg, #6A0572, #A4508B)',
+            'linear-gradient(135deg, #00A8CC, #00C4FF)',
+            'linear-gradient(135deg, #B3FFAB, #12FFF7)',
+            'linear-gradient(135deg, #F5AF19, #F12711)',
+            'linear-gradient(135deg, #11998E, #38EF7D)',
+            'linear-gradient(135deg, #FF9A9E, #FAD0C4)'
+        ];
+
         // Hitung jumlah equipment dari ketiga tabel untuk setiap lokasi
-        $locations = $locations->map(function($location) {
+        $locations = $locations->map(function ($location) use ($gradients) {
             $totalEquipment = $location->motors()->count() +
                               $location->pumps()->count() +
                               $location->gearboxes()->count();
@@ -21,25 +33,11 @@ class DashboardController extends Controller
             return [
                 'name' => $location->name,
                 'equipment_count' => $totalEquipment,
-                'color' => $this->getColor($totalEquipment)
+                'gradient' => $gradients[array_rand($gradients)] // Pilih warna acak
             ];
         });
 
         // Pass data ke view
         return view('dashboard', ['locations' => $locations]);
-    }
-
-    private function getColor($count)
-    {
-        // Menentukan warna berdasarkan jumlah equipment
-        if ($count < 20) {
-            return 'bg-red-400';
-        } elseif ($count < 50) {
-            return 'bg-blue-400';
-        } elseif ($count < 100) {
-            return 'bg-yellow-400';
-        } else {
-            return 'bg-green-400';
-        }
     }
 }
